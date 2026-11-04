@@ -31,3 +31,11 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-04 | T-25 | Apostrof i podkreślnik | separator jak każdy inny znak (`don't` → `don-t`, `foo_bar` → `foo-bar`); kryterium nie wyróżnia tych znaków. |
 | 2026-11-04 | T-25 | Eksport z `src/index.ts` | nie dodany, bo `src/index.ts` nie jest w „Zakresie” issue (jak w T-24 i T-26). |
 | 2026-11-04 | T-25 | - | Specyfikacji i architektury nie ma w repo (`docs/00-intake/specyfikacja.md`, `docs/04-architektura/architektura.md`), pracowałem z issue. Dodatkowo przeczytane: `src/sum.ts`, `tests/sum.test.ts`, `src/index.ts` (wzorzec stylu), `docs/07-realizacja/T-24.md` (format raportu), `.github/PULL_REQUEST_TEMPLATE.md`. |
+| 2026-11-04 | T-28 | Jaka godzina i strefa w wyniku | północ UTC, zgodnie z kryterium; wynik nie zależy od strefy procesu. |
+| 2026-11-04 | T-28 | Ścisły czy luźny format | ścisły: dokładnie `DD.MM.RRRR` albo `RRRR-MM-DD`, bez spacji, jednocyfrowych dni i godziny, bo luźne parsowanie zwiększa ryzyko pomyłki dzień/miesiąc; wszystko inne to RangeError. |
+| 2026-11-04 | T-28 | `Date.UTC` czy `setUTCFullYear` | `setUTCFullYear`, bo `Date.UTC` zamienia lata 0–99 na 1900–1999. |
+| 2026-11-04 | T-28 | Rok 0000 | RangeError (nieistniejąca data), bo kalendarz gregoriański nie ma roku zerowego. |
+| 2026-11-04 | T-28 | Wartość niebędąca napisem (wywołanie z JS) | RangeError jak zły format, żeby funkcja miała jeden typ błędu wejścia. |
+| 2026-11-04 | T-28 | Eksport z `src/index.ts` | nie dodany, bo `src/index.ts` nie jest w „Zakresie” issue (tak samo jak w T-26). |
+| 2026-11-04 | T-28 | Raport `docs/07-realizacja/T-28.md` spoza listy plików issue | wymagany przez proces (AGENTS.md, „Raport zadania”). |
+| 2026-11-04 | T-28 | - | Specyfikacji i architektury nie ma w repo (`docs/00-intake/specyfikacja.md`, `docs/04-architektura/architektura.md`), pracowałem z issue. Dodatkowo przeczytane: `src/formatPLN.ts` i `tests/formatPLN.test.ts` (kryterium zgodności z formatPLN), `docs/07-realizacja/T-26.md` (format raportu), `.github/PULL_REQUEST_TEMPLATE.md`. |

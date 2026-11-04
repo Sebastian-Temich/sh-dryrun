@@ -38,3 +38,4 @@ Przebieg:
 | #26 formatPLN(kwota) z testami | M | 4min | 1 | 1 | 0 | PR #31 |
 | #24 sum(a, b) z testami | M | 4min | 1 | 1 | 0 | PR #32 |
 | #25 slugify(text) z testami | M | 3min | 1 | 1 | 0 | PR #33 |
+| #28 parseDate(str) z testami | M | 4min | 1 | 1 | 0 | PR #34 |

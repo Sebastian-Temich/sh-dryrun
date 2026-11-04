@@ -23,7 +23,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #25 | slugify(text) z testami | done | 1 | M1 | #33 merged | pass |
 | #26 | formatPLN(kwota) z testami | done | 1 | M1 | #31 merged | pass |
 | #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 3 | M1 | #30 closed | pass |
-| #28 | parseDate(str) z testami | in-progress | 1 | M1 | #34 open | pass |
+| #28 | parseDate(str) z testami | done | 1 | M1 | #34 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu

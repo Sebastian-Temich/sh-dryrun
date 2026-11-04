@@ -8,3 +8,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-04 | T-26 | `src/index.ts` nie reeksportuje `formatPLN`; do rozważenia osobnym zadaniem, gdy biblioteka dostanie publiczne API. | otwarta |
 | 2026-11-04 | T-24 | `src/index.ts` nie reeksportuje `sum` ani `formatPLN`; do rozważenia osobnym zadaniem przy ustalaniu publicznego API. | otwarta |
 | 2026-11-04 | T-25 | `src/index.ts` nadal nie reeksportuje `sum`, `formatPLN` ani `slugify`; do rozważenia osobnym zadaniem przy ustalaniu publicznego API. | otwarta |
+| 2026-11-04 | T-28 | `src/index.ts` nie reeksportuje `parseDate` ani `formatPLN`; do rozważenia osobnym zadaniem przy publicznym API biblioteki. | otwarta |
