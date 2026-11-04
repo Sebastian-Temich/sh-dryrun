@@ -29,9 +29,8 @@ describe("QA M1: przepływy", () => {
     expect(a).toBe(b);
   });
 
-  // QA-M1-1: pakiet nie ma punktu wejścia (brak main/exports w package.json), a src/index.ts eksportuje tylko VERSION.
-  // it.fails przechodzi, dopóki błąd istnieje; zdjęcie it.fails jest kryterium issue.
-  it.fails("QA-M1-1: punkt wejścia pakietu eksportuje sum, slugify, formatPLN i parseDate", async () => {
+  // QA-M1-1: punkt wejścia pakietu (exports w package.json i reeksporty w src/index.ts).
+  it("QA-M1-1: punkt wejścia pakietu eksportuje sum, slugify, formatPLN i parseDate", async () => {
     const api: Record<string, unknown> = await import("../../src/index.js");
     for (const nazwa of ["sum", "slugify", "formatPLN", "parseDate"]) {
       expect(typeof api[nazwa]).toBe("function");
