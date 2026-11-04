@@ -1,16 +1,16 @@
 ---
-zadania_todo: 3
+zadania_todo: 2
 zadania_in_progress: 0
-zadania_review: 0
+zadania_review: 1
 zadania_blocked: 0
-zadania_escalated: 1
-zadania_done: 2
+zadania_escalated: 0
+zadania_done: 3
 zadania_anulowane: 6
 pr_otwarte: 1
 ci_fail: 1
 wstrzymania: []
-ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Przeczytane źródła spoza „Wejścia”", "decyzja": "`docs/07-realizacja/T-8.md` (wzór raportu), `docs/_szablony/raport-zadania.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `src/index.ts`, `tests/smoke.test.ts` (konwencja importów). `docs/00-intake/specyfikacja.md` i `docs/04-architektura/architektura.md` nie istnieją w repo."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Eksport z `src/index.ts`", "decyzja": "nie dodany, bo plik jest poza „Zakresem” issue; funkcja jest dostępna z `src/formatPLN.ts`."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Ujemna kwota zaokrąglona do zera (np. -0.001, -0)", "decyzja": "„0,00 zł” bez minusa, bo „-0,00 zł” myli czytelnika."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "(Iteracja 2) Literał w teście dużej kwoty", "decyzja": "`1.2345678901234567e19` zamiast `12345678901234567890`, bo eslint (`no-loss-of-precision`) odrzuca literał, który traci precyzję; wartość w runtime jest ta sama."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "(Iteracja 2) Według czego rozstrzygać połówki groszy?", "decyzja": "według najkrótszego zapisu dziesiętnego liczby (`String(kwota)`), a nie dokładnej wartości binarnej. 1.005 jako double to 1.00499999…, ale w kodzie i w danych użytkownik pisze „1.005”, a review oczekuje „1,01 zł”. Arytmetyka na `bigint`, bo usuwa też przepełnienie dla dużych wartości."}]
-ostatnia_synchronizacja: 2026-11-04T17:44:37Z
+ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-13", "pytanie": "Brak `docs/04-architektura/architektura.md` i specyfikacji przywołanej przez issue", "decyzja": "pracowałem wyłącznie według kryteriów issue. Poza „Zakresem” przeczytałem `tests/formatPLN.test.ts`, żeby dopasować styl importów i testów."}, {"data": "2026-11-04", "zrodlo": "T-13", "pytanie": "Jaki jest scenariusz raportu (data + kwota)?", "decyzja": "Wiersz `RRRR-MM-DD: <formatPLN(kwota)>`. Issue nie określa formatu wiersza, więc test sprawdza tylko poprawne złożenie obu funkcji."}, {"data": "2026-11-04", "zrodlo": "T-13", "pytanie": "Jak traktować lata 0000–0099?", "decyzja": "Jako dosłowne lata, przez `setUTCFullYear`. `Date.UTC` przesuwa je do 1900–1999, co dawałoby błędną datę bez błędu."}, {"data": "2026-11-04", "zrodlo": "T-13", "pytanie": "Jak ścisły jest format?", "decyzja": "Dokładnie 2 cyfry dnia i miesiąca oraz 4 cyfry roku, tylko cyfry ASCII, bez spacji na brzegach i bez części czasu. Issue podaje wyłącznie `DD.MM.RRRR` i `RRRR-MM-DD`, a luźne parsowanie (np. `4.11.2026`) łatwo rozszerzyć później bez łamania zgodności."}, {"data": "2026-11-04", "zrodlo": "T-13", "pytanie": "Jaką strefę czasową ma wynik?", "decyzja": "Północ UTC, zgodnie z kryterium issue. Wynik nie zależy od strefy czasowej maszyny."}]
+ostatnia_synchronizacja: 2026-11-04T17:57:06Z
 ---
 
 # Status projektu

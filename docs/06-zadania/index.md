@@ -15,8 +15,8 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #9 | sum(a, b) z testami | todo | 0 | M1 | - | - |
 | #10 | slugify(text) z testami | todo | 0 | M1 | - | - |
 | #11 | formatPLN(kwota) z testami | done | 2 | M1 | #16 merged | pass |
-| #12 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | escalated | 3 | M1 | #15 open | fail |
-| #13 | parseDate(str) z testami | todo | 0 | M1 | - | - |
+| #12 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | review | 3 | M1 | #15 open | fail |
+| #13 | parseDate(str) z testami | done | 1 | M1 | #17 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu

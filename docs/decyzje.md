@@ -25,3 +25,8 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-04 | T-11 | Ujemna kwota zaokrąglona do zera (np. -0.001, -0) | „0,00 zł” bez minusa, bo „-0,00 zł” myli czytelnika. |
 | 2026-11-04 | T-11 | Eksport z `src/index.ts` | nie dodany, bo plik jest poza „Zakresem” issue; funkcja jest dostępna z `src/formatPLN.ts`. |
 | 2026-11-04 | T-11 | Przeczytane źródła spoza „Wejścia” | `docs/07-realizacja/T-8.md` (wzór raportu), `docs/_szablony/raport-zadania.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `src/index.ts`, `tests/smoke.test.ts` (konwencja importów). `docs/00-intake/specyfikacja.md` i `docs/04-architektura/architektura.md` nie istnieją w repo. |
+| 2026-11-04 | T-13 | Jaką strefę czasową ma wynik? | Północ UTC, zgodnie z kryterium issue. Wynik nie zależy od strefy czasowej maszyny. |
+| 2026-11-04 | T-13 | Jak ścisły jest format? | Dokładnie 2 cyfry dnia i miesiąca oraz 4 cyfry roku, tylko cyfry ASCII, bez spacji na brzegach i bez części czasu. Issue podaje wyłącznie `DD.MM.RRRR` i `RRRR-MM-DD`, a luźne parsowanie (np. `4.11.2026`) łatwo rozszerzyć później bez łamania zgodności. |
+| 2026-11-04 | T-13 | Jak traktować lata 0000–0099? | Jako dosłowne lata, przez `setUTCFullYear`. `Date.UTC` przesuwa je do 1900–1999, co dawałoby błędną datę bez błędu. |
+| 2026-11-04 | T-13 | Jaki jest scenariusz raportu (data + kwota)? | Wiersz `RRRR-MM-DD: <formatPLN(kwota)>`. Issue nie określa formatu wiersza, więc test sprawdza tylko poprawne złożenie obu funkcji. |
+| 2026-11-04 | T-13 | Brak `docs/04-architektura/architektura.md` i specyfikacji przywołanej przez issue | pracowałem wyłącznie według kryteriów issue. Poza „Zakresem” przeczytałem `tests/formatPLN.test.ts`, żeby dopasować styl importów i testów. |
