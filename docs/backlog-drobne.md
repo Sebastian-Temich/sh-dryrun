@@ -11,3 +11,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-04 | T-40 | `slugify` nie jest reeksportowany z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”; tak samo jak `formatPLN` z #41. Do dodania osobnym zadaniem. | otwarta |
 | 2026-11-04 | T-43 | `parseDate` nie jest reeksportowany z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”, tak jak `formatPLN` w T-41. Do dodania osobnym zadaniem. | otwarta |
 | 2026-11-04 | T-43 | Brak funkcji odwrotnej (`formatDate`) do raportów; test scenariusza raportu formatuje datę ręcznie. | otwarta |
+| 2026-11-04 | QA M1 | `wersja()` w `src/index.ts` zwraca literał `0.0.0` powielony z `package.json`; przy zmianie wersji łatwo o rozjazd | otwarta |

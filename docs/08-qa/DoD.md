@@ -26,4 +26,4 @@ akceptacja_wlasciciela: false
 
 ## Checkpoint
 
-- [ ] Review etapu dało PASS (zaznacza reviewer, nie autor)
+- [x] Review etapu dało PASS (zaznacza reviewer, nie autor)
