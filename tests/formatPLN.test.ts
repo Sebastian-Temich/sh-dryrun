@@ -30,6 +30,36 @@ describe("formatPLN", () => {
     expect(formatPLN(-2.345678)).toBe("-2,35 zł");
   });
 
+  // Iteracja 2: połówki groszy zaokrąglane od zera według zapisu dziesiętnego liczby,
+  // a nie według wyniku mnożenia zmiennoprzecinkowego (1.005 * 100 = 100.49999…).
+  it("zaokrągla połówki groszy od zera także tam, gdzie mnożenie przez 100 traci precyzję", () => {
+    expect(formatPLN(1.005)).toBe("1,01 zł");
+    expect(formatPLN(-1.005)).toBe("-1,01 zł");
+    expect(formatPLN(2.675)).toBe("2,68 zł");
+    expect(formatPLN(-2.675)).toBe("-2,68 zł");
+    expect(formatPLN(0.125)).toBe("0,13 zł");
+    expect(formatPLN(0.005)).toBe("0,01 zł");
+    expect(formatPLN(1.0049)).toBe("1,00 zł");
+  });
+
+  // Iteracja 2: duże i bardzo małe skończone liczby bez przepełnienia i notacji wykładniczej.
+  it("formatuje duże kwoty bez przepełnienia i zapisu wykładniczego", () => {
+    expect(formatPLN(1e21)).toBe(`1${" 000".repeat(7)},00 zł`);
+    expect(formatPLN(1.2345678901234567e19)).toBe("12 345 678 901 234 567 000,00 zł");
+    expect(formatPLN(1e308)).toBe(`100${" 000".repeat(102)},00 zł`);
+    expect(formatPLN(-1e308)).toBe(`-100${" 000".repeat(102)},00 zł`);
+
+    const max = formatPLN(Number.MAX_VALUE);
+    expect(max).toMatch(/^\d{1,3}( \d{3})*,00 zł$/);
+    expect(max.startsWith("179 769 313 486 231 570")).toBe(true);
+  });
+
+  it("formatuje bardzo małe kwoty bez zapisu wykładniczego", () => {
+    expect(formatPLN(1.5e-7)).toBe("0,00 zł");
+    expect(formatPLN(Number.MIN_VALUE)).toBe("0,00 zł");
+    expect(formatPLN(-Number.MIN_VALUE)).toBe("0,00 zł");
+  });
+
   it("nie zwraca „-0,00 zł”, gdy ujemna kwota zaokrągla się do zera", () => {
     expect(formatPLN(-0.001)).toBe("0,00 zł");
     expect(formatPLN(-0)).toBe("0,00 zł");
