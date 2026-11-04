@@ -1,11 +1,13 @@
 #!/usr/bin/env bats
 # Testy wstrzymań w scripts/sync-status.sh na kopii repo, gh zastąpiony atrapą bez zadań.
+# docs/ pochodzi z własnych fixture'ów (stan szablonu: puste status.md, decyzje.md i indeks
+# zadań), nie z żywego docs/ repo, które orkiestrator wypełnia danymi projektu.
 # Uruchomienie: bats scripts/tests/sync-status.bats
 
 setup() {
   ROOT="$BATS_TEST_TMPDIR/repo"
   mkdir -p "$ROOT/scripts" "$BATS_TEST_TMPDIR/bin" "$BATS_TEST_TMPDIR/sh"
-  cp -R "$BATS_TEST_DIRNAME/../../docs" "$ROOT/docs"
+  cp -R "$BATS_TEST_DIRNAME/fixtures/sync-status/docs" "$ROOT/docs"
   cp "$BATS_TEST_DIRNAME/../sync-status.sh" "$ROOT/scripts/"
   printf '#!/bin/sh\necho "[]"\n' >"$BATS_TEST_TMPDIR/bin/gh"
   chmod +x "$BATS_TEST_TMPDIR/bin/gh"
