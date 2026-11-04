@@ -1,7 +1,7 @@
 ---
 etap: 08-qa
 status: review
-iteracja: 0
+iteracja: 1
 akceptacja_wlasciciela: false
 ---
 
@@ -9,18 +9,24 @@ akceptacja_wlasciciela: false
 
 ## Dokumentacja
 
-- [ ] Raport QA powstał dla każdego kamienia milowego
+- [x] Raport QA powstał dla każdego kamienia milowego
+
+  M1 jest jedynym kamieniem: `raport-M1.md`.
 
 ## Funkcjonalność
 
 - [ ] Testy E2E przechodzą (chromium + webkit)
-- [ ] Integracja i zgodność z wymaganiami są sprawdzone
+
+  Nie dotyczy: biblioteka bez UI, bez Playwright; przepływy w `tests/qa/` (vitest).
+- [x] Integracja i zgodność z wymaganiami są sprawdzone
 - [ ] Błędy z QA są issue i zostały zamknięte
+
+  QA-M1-1 do założenia po merge'u (`zadania-M1.yaml`).
 
 ## Checklisty jakości
 
 - [ ] Nie ma otwartych zgłoszeń krytycznych ani istotnych
-- [ ] Bezpieczeństwo i sekrety są sprawdzone
+- [x] Bezpieczeństwo i sekrety są sprawdzone
 
 ## Checkpoint
 
