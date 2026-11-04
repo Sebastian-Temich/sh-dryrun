@@ -17,7 +17,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #11 | formatPLN(kwota) z testami | done | 2 | M1 | #16 merged | pass |
 | #12 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 3 | M1 | #15 closed | fail |
 | #13 | parseDate(str) z testami | done | 1 | M1 | #17 merged | pass |
-| #21 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | todo | 0 | M1 | - | - |
+| #21 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #22 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
