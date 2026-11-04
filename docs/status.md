@@ -31,5 +31,4 @@ Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i â€žwznÃ
 
 ## Otwarte eskalacje
 
-- E-001 (#27): 3 iteracje bez PASS
-
+(brak)
