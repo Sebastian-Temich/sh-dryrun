@@ -1,0 +1,19 @@
+# QA M1, commit 231eb11, 2026-11-04T18:50Z (UTC)
+zadania:
+  - id: QA-M1-1
+    tytul: "QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki"
+    cel: >-
+      Pakiet ma exports "." → dist/index.js, a src/index.ts eksportuje tylko VERSION. Użytkownik
+      biblioteki nie może zaimportować sum, slugify, formatPLN ani parseDate z pakietu (tylko głębokim
+      importem z dist/, którego exports nie udostępnia). Kroki: pnpm build, potem
+      node -e "import('./dist/index.js').then(m=>console.log(Object.keys(m)))". Oczekiwane: sum,
+      slugify, formatPLN, parseDate, VERSION. Jest: [ 'VERSION' ].
+    kryteria:
+      - "src/index.ts reeksportuje sum, slugify, formatPLN i parseDate (z typami)"
+      - "po pnpm build dist/index.js eksportuje te cztery funkcje i VERSION"
+      - "test QA-M1-1 w tests/qa/M1-przeplywy.test.ts przechodzi jako zwykły it, bez it.fails"
+    pliki: [src/index.ts, tests/qa/M1-przeplywy.test.ts, tests/smoke.test.ts]
+    testy: pnpm lint && pnpm typecheck && pnpm test && pnpm build
+    typ: qa
+    waga: istotne
+    milestone: M1
