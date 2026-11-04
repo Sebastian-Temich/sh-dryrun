@@ -21,7 +21,7 @@ Widok w Obsidianie: `docs/_dashboard.md`.
 
 ## Bieżący etap
 
-- `08-qa`: review
+- `00-intake`: todo (następny)
 
 ## Punkt przekazania
 
@@ -37,3 +37,4 @@ Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wzn�
 
 - 2026-11-04 `08-qa`: in-progress
 - 2026-11-04 `08-qa`: review
+- 2026-11-04 `08-qa`: done

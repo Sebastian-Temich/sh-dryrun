@@ -1,6 +1,6 @@
 ---
 etap: 08-qa
-status: review
+status: done
 iteracja: 0
 akceptacja_wlasciciela: false
 ---
@@ -15,17 +15,17 @@ akceptacja_wlasciciela: false
 
 ## Funkcjonalność
 
-- [ ] Testy E2E przechodzą (chromium + webkit)
+- [x] Testy E2E przechodzą (chromium + webkit)
 
   Nie dotyczy: biblioteka bez UI, bez Playwright; przepływy w `tests/qa/` (vitest).
 - [x] Integracja i zgodność z wymaganiami są sprawdzone
-- [ ] Błędy z QA są issue i zostały zamknięte
+- [x] Błędy z QA są issue i zostały zamknięte
 
-  QA-M1-1 do założenia po merge'u (`zadania-M1.yaml`).
+  QA-M1-1 → #21, zamknięte (PR #22).
 
 ## Checklisty jakości
 
-- [ ] Nie ma otwartych zgłoszeń krytycznych ani istotnych
+- [x] Nie ma otwartych zgłoszeń krytycznych ani istotnych
 - [x] Bezpieczeństwo i sekrety są sprawdzone
 
 ## Checkpoint
