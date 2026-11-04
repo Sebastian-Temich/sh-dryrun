@@ -8,3 +8,4 @@ Plik wspólny. Aktualizuje go wyłącznie orkiestrator przez `shctl task close`.
 - #41: formatPLN(kwota) z testami (PR #46)
 - #39: sum(a, b) z testami (PR #47)
 - #40: slugify(text) z testami (PR #48)
+- #43: parseDate(str) z testami (PR #49)

@@ -9,3 +9,5 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-04 | T-41 | `formatPLN` nie jest reeksportowany z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”. Bez tego funkcja nie jest dostępna przez `import { formatPLN } from 'sh-dryrun'`. Do dodania osobnym zadaniem. | otwarta |
 | 2026-11-04 | T-39 | `sum` nie jest reeksportowana z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”; to samo dotyczy `formatPLN` (uwaga z T-41). Do dodania jednym osobnym zadaniem. | otwarta |
 | 2026-11-04 | T-40 | `slugify` nie jest reeksportowany z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”; tak samo jak `formatPLN` z #41. Do dodania osobnym zadaniem. | otwarta |
+| 2026-11-04 | T-43 | `parseDate` nie jest reeksportowany z `src/index.ts` (punkt wejścia pakietu), bo plik jest poza „Zakresem”, tak jak `formatPLN` w T-41. Do dodania osobnym zadaniem. | otwarta |
+| 2026-11-04 | T-43 | Brak funkcji odwrotnej (`formatDate`) do raportów; test scenariusza raportu formatuje datę ręcznie. | otwarta |

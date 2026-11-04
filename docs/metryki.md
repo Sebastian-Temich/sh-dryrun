@@ -122,3 +122,4 @@ Reset do baseline `624bd6f` o 22:27 UTC. Wiersze zadań dopisuje `shctl task clo
 | #41 formatPLN(kwota) z testami | M | 5min | 1 | 1 | 0 | PR #46 |
 | #39 sum(a, b) z testami | M | 3min | 1 | 1 | 0 | PR #47 |
 | #40 slugify(text) z testami | M | 5min | 1 | 1 | 0 | PR #48 |
+| #43 parseDate(str) z testami | M | 4min | 1 | 1 | 0 | PR #49 |
