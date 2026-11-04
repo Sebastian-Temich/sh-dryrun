@@ -24,7 +24,7 @@ Przepływy między funkcjami (`tests/qa/M1-przeplywy.test.ts`):
 - raport: `parseDate` → data, `sum` → `formatPLN` → kwota, `slugify` → nazwa pliku;
 - `sum` z błędem zmiennoprzecinkowym (0.1 + 0.2) → `formatPLN` daje poprawne grosze;
 - format polski i ISO w `parseDate` → ta sama nazwa pliku ze `slugify`;
-- punkt wejścia pakietu (`exports "."`) udostępnia wszystkie funkcje kamienia.
+- punkt wejścia pakietu (`exports "."` w `package.json`) udostępnia wszystkie funkcje kamienia.
 
 Scenariusze odbioru i wymagania `W-n`: brak, bo etapy `00-intake` i `05-plan` nie były prowadzone
 (projekt wzorcowy, decyzja właściciela w `docs/decyzje.md`). Sprawdzono kryteria zamkniętych issue.
@@ -49,7 +49,7 @@ Niestabilnych testów nie było. `gitleaks git --redact --no-banner .`: brak wyc
 | #25 kryteria slugify | spełnione | `tests/slugify.test.ts`, przepływ „raport” |
 | #26 kryteria formatPLN | spełnione | `tests/formatPLN.test.ts`, przepływ „sum → formatPLN” |
 | #28 kryteria parseDate | spełnione | `tests/parseDate.test.ts`, przepływ „ISO i polski format” |
-| Biblioteka używalna z pakietu | niespełnione | `node -e "import('./dist/index.js')…"` daje tylko `VERSION`; QA-M1-1 |
+| Biblioteka używalna z pakietu | niespełnione | brak `main`/`exports` w `package.json`; `dist/index.js` daje tylko `VERSION`; QA-M1-1 |
 
 ## Zgłoszenia
 
@@ -57,7 +57,7 @@ Tylko 🔴 krytyczne i 🟡 istotne; każde staje się issue `typ:qa` przez `shc
 
 | Issue | Waga | Opis |
 |---|---|---|
-| QA-M1-1 | 🟡 istotne | Punkt wejścia pakietu nie eksportuje funkcji. Kroki: `pnpm build`, `node -e "import('./dist/index.js').then(m=>console.log(Object.keys(m)))"`. Oczekiwane: sum, slugify, formatPLN, parseDate, VERSION. Jest: `[ 'VERSION' ]`. Przyczyna: zadania mają rozłączne listy plików bez wspólnego pliku eksportów (`zadania.yaml`), więc nikt nie dopisał reeksportów do `src/index.ts`. |
+| QA-M1-1 | 🟡 istotne | Pakiet nie ma punktu wejścia z funkcjami: `package.json` nie ma `main`, `types` ani `exports`, a `src/index.ts` eksportuje tylko `VERSION`. Kroki: `pnpm build`, `node -e "import('./dist/index.js').then(m=>console.log(Object.keys(m)))"`. Oczekiwane: sum, slugify, formatPLN, parseDate, VERSION. Jest: `[ 'VERSION' ]`. Przyczyna: zadania mają rozłączne listy plików bez wspólnego pliku eksportów (`zadania.yaml`), więc nikt nie dopisał reeksportów do `src/index.ts`. |
 
 ## Drobne uwagi
 
