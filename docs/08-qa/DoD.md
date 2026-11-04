@@ -1,6 +1,6 @@
 ---
 etap: 08-qa
-status: review
+status: done
 iteracja: 2
 akceptacja_wlasciciela: false
 ---
@@ -15,13 +15,11 @@ akceptacja_wlasciciela: false
 
 - [-] Testy E2E przechodzą (chromium + webkit) (nie dotyczy: biblioteka bez UI, testy QA w vitest)
 - [x] Integracja i zgodność z wymaganiami są sprawdzone
-- [ ] Błędy z QA są issue i zostały zamknięte
-
-  Notatka: QA-M1-1 stanie się issue po merge'u raportu; pole zaznacza się po jego zamknięciu.
+- [x] Błędy z QA są issue i zostały zamknięte (QA-M1-1 → #51, PR #52)
 
 ## Checklisty jakości
 
-- [ ] Nie ma otwartych zgłoszeń krytycznych ani istotnych
+- [x] Nie ma otwartych zgłoszeń krytycznych ani istotnych
 - [x] Bezpieczeństwo i sekrety są sprawdzone
 
 ## Checkpoint
