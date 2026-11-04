@@ -27,4 +27,5 @@ Widok w Obsidianie: `docs/_dashboard.md`.
 
 Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wznów”.
 
-(brak)
+- 2026-11-04T22:29Z: przebieg dryrun 3 (reset do baseline `624bd6f`, issue #38–#43, M1).
+  `shctl doctor`: 0 błędów, 1 uwaga (repo testowe do usunięcia). Następny krok: dispatch szkieletu #38.
