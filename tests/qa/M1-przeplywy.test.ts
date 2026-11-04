@@ -25,9 +25,8 @@ describe('QA M1: przepływ raportu (parseDate → sum → formatPLN → slugify)
 });
 
 describe('QA M1: publiczny punkt wejścia pakietu', () => {
-  // QA-M1-1: src/index.ts (exports "." → dist/index.js) nie reeksportuje funkcji biblioteki.
-  // test.fails: oczekiwane niepowodzenie do naprawy; po naprawie zwykły test (kryterium issue).
-  test.fails('QA-M1-1: punkt wejścia eksportuje sum, slugify, formatPLN, parseDate', () => {
+  // QA-M1-1: src/index.ts (exports "." → dist/index.js) reeksportuje funkcje biblioteki.
+  test('QA-M1-1: punkt wejścia eksportuje sum, slugify, formatPLN, parseDate', () => {
     const p = pakiet as Record<string, unknown>;
     for (const nazwa of ['sum', 'slugify', 'formatPLN', 'parseDate']) {
       expect(typeof p[nazwa]).toBe('function');
