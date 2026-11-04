@@ -1,12 +1,45 @@
 #!/usr/bin/env bats
-# Testy wstrzymań w scripts/sync-status.sh na kopii repo, gh zastąpiony atrapą bez zadań.
+# Testy wstrzymań w scripts/sync-status.sh na izolowanym repo, gh zastąpiony atrapą bez zadań.
+# Pliki wspólne (status.md, decyzje.md, 06-zadania/index.md) to własne fixture'y w stanie
+# „brak zadań i decyzji”, a nie kopia żywego docs/, który orkiestrator zmienia na main.
 # Uruchomienie: bats scripts/tests/sync-status.bats
 
 setup() {
   ROOT="$BATS_TEST_TMPDIR/repo"
-  mkdir -p "$ROOT/scripts" "$BATS_TEST_TMPDIR/bin" "$BATS_TEST_TMPDIR/sh"
-  cp -R "$BATS_TEST_DIRNAME/../../docs" "$ROOT/docs"
+  mkdir -p "$ROOT/scripts" "$ROOT/docs/06-zadania" "$BATS_TEST_TMPDIR/bin" "$BATS_TEST_TMPDIR/sh"
   cp "$BATS_TEST_DIRNAME/../sync-status.sh" "$ROOT/scripts/"
+  cat >"$ROOT/docs/status.md" <<'EOF'
+---
+zadania_todo: 0
+zadania_in_progress: 0
+zadania_review: 0
+zadania_blocked: 0
+zadania_escalated: 0
+zadania_done: 0
+zadania_anulowane: 0
+pr_otwarte: 0
+ci_fail: 0
+wstrzymania: []
+ostatnie_decyzje: []
+ostatnia_synchronizacja: brak
+---
+
+# Status projektu
+EOF
+  cat >"$ROOT/docs/decyzje.md" <<'EOF'
+# Decyzje projektu
+
+| Data | Źródło | Pytanie | Decyzja |
+|---|---|---|---|
+EOF
+  cat >"$ROOT/docs/06-zadania/index.md" <<'EOF'
+# Zadania
+
+<!-- sync-status:start -->
+| Zadanie | Tytuł | Status | Iteracja | Kamień milowy | PR | CI |
+|---|---|---|---|---|---|---|
+<!-- sync-status:end -->
+EOF
   printf '#!/bin/sh\necho "[]"\n' >"$BATS_TEST_TMPDIR/bin/gh"
   chmod +x "$BATS_TEST_TMPDIR/bin/gh"
   export PATH="$BATS_TEST_TMPDIR/bin:$PATH" SH_DIR="$BATS_TEST_TMPDIR/sh"
