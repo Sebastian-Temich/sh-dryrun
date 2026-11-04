@@ -28,3 +28,8 @@ Widok w Obsidianie: `docs/_dashboard.md`.
 Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wznów”.
 
 (brak)
+
+## Otwarte eskalacje
+
+- E-001 (#27): 3 iteracje bez PASS
+
