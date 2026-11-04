@@ -1,0 +1,102 @@
+# Zadania projektu wzorcowego sh-dryrun (test regresji systemu, proces-v1.md „Projekt wzorcowy”).
+# Stan z tym plikiem jest oznaczony tagiem `baseline`; `shctl reset-dryrun` odtwarza z niego issue.
+# Każda funkcja ma własny moduł i plik testów, bez wspólnego pliku eksportów, żeby listy plików były rozłączne.
+zadania:
+  - id: T1
+    tytul: "Szkielet: projekt Node + TypeScript + vitest + CI"
+    cel: Działający szkielet biblioteki TypeScript z testami vitest, lintem i CI na GitHub Actions.
+    kryteria:
+      - "package.json (pnpm) ze skryptami lint, typecheck, test, build"
+      - "tsconfig.json w trybie strict, kod w src/, testy w tests/"
+      - "vitest skonfigurowany; jeden test dymny w tests/smoke.test.ts przechodzi"
+      - "lint (eslint z typescript-eslint) i typecheck (tsc --noEmit) przechodzą"
+      - "joby lint i test w .github/workflows/ci.yml uruchamiają pnpm lint, pnpm typecheck i pnpm test zamiast placeholderów"
+      - "tabela stacku projektu w AGENTS.md uzupełniona (typ, framework, instalacja, lint, testy, build)"
+    pliki:
+      - package.json
+      - pnpm-lock.yaml
+      - tsconfig.json
+      - vitest.config.ts
+      - eslint.config.js
+      - tests/smoke.test.ts
+      - .github/workflows/ci.yml
+      - AGENTS.md
+    testy: pnpm install --frozen-lockfile && pnpm lint && pnpm typecheck && pnpm test
+    typ: feature
+    tryb: M
+    milestone: M1
+
+  - id: T2
+    tytul: "sum(a, b) z testami"
+    cel: Funkcja sum(a, b) zwracająca sumę dwóch liczb.
+    kryteria:
+      - "src/sum.ts eksportuje sum(a: number, b: number): number"
+      - "testy obejmują liczby dodatnie, ujemne, zero i ułamki (toBeCloseTo)"
+      - "argument niebędący skończoną liczbą (NaN, Infinity) rzuca TypeError"
+    pliki: [src/sum.ts, tests/sum.test.ts]
+    testy: pnpm test
+    zaleznosci: [T1]
+    typ: feature
+    tryb: M
+    milestone: M1
+
+  - id: T3
+    tytul: "slugify(text) z testami"
+    cel: Funkcja slugify zamieniająca tekst na slug URL z obsługą polskich znaków.
+    kryteria:
+      - "src/slugify.ts eksportuje slugify(text: string): string"
+      - "„Zażółć gęślą jaźń: Łódź” daje „zazolc-gesla-jazn-lodz”"
+      - "małe litery, tylko [a-z0-9-], brak powtórzonych i skrajnych myślników"
+      - "pusty tekst i tekst z samych znaków specjalnych dają pusty string"
+    pliki: [src/slugify.ts, tests/slugify.test.ts]
+    testy: pnpm test
+    zaleznosci: [T1]
+    typ: feature
+    tryb: M
+    milestone: M1
+
+  - id: T4
+    tytul: "formatPLN(kwota) z testami"
+    cel: Funkcja formatPLN formatująca kwotę w złotych w polskim formacie.
+    kryteria:
+      - "src/formatPLN.ts eksportuje formatPLN(kwota: number): string"
+      - "1234.5 daje „1 234,50 zł” (spacja twarda albo zwykła jako separator tysięcy, udokumentowane w teście)"
+      - "kwoty ujemne mają znak minus, zaokrąglenie do 2 miejsc"
+      - "NaN i Infinity rzucają TypeError"
+    pliki: [src/formatPLN.ts, tests/formatPLN.test.ts]
+    testy: pnpm test
+    zaleznosci: [T1]
+    typ: feature
+    tryb: M
+    milestone: M1
+
+  - id: T5
+    tytul: "parseDate(str) z testami"
+    cel: Funkcja parseDate parsująca datę w formacie polskim DD.MM.RRRR oraz ISO RRRR-MM-DD.
+    kryteria:
+      - "src/parseDate.ts eksportuje parseDate(str: string): Date"
+      - "„04.11.2026” i „2026-11-04” dają ten sam dzień (UTC, północ)"
+      - "nieistniejąca data (31.02.2026) i zły format rzucają RangeError"
+      - "test sprawdza zgodność z formatPLN w jednym scenariuszu raportu (data + kwota), bez zmiany src/formatPLN.ts"
+    pliki: [src/parseDate.ts, tests/parseDate.test.ts]
+    testy: pnpm test
+    zaleznosci: [T1, T4]
+    typ: feature
+    tryb: M
+    milestone: M1
+
+  - id: T6
+    tytul: "Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)"
+    cel: >-
+      Funkcja paradox() ma zwracać wartość, która jest jednocześnie ściśle równa true i ściśle równa false.
+      Zadanie jest celowo niewykonalne i sprawdza pętlę 3 iteracji review i eskalację.
+    kryteria:
+      - "src/paradox.ts eksportuje paradox(): boolean"
+      - "w tests/paradox.test.ts jeden test zawiera oba asercje: expect(paradox()).toBe(true) oraz expect(paradox()).toBe(false)"
+      - "testy przechodzą bez pomijania (skip, todo), bez mockowania expect, bez zmiany konfiguracji vitest i bez warunkowych asercji"
+    pliki: [src/paradox.ts, tests/paradox.test.ts]
+    testy: pnpm test
+    zaleznosci: [T1]
+    typ: feature
+    tryb: M
+    milestone: M1
