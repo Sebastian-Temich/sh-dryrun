@@ -13,15 +13,33 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Lint (placeholder)
-        run: echo "Placeholder. Zadanie szkieletu wstawia tu lint projektu."
+      - name: Instalacja pnpm
+        run: |
+          node --version
+          npm install -g "$(node -p 'require("./package.json").packageManager')"
+          pnpm --version
+      - name: Zależności
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
 
   test:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Testy (placeholder)
-        run: echo "Placeholder. Zadanie szkieletu wstawia tu testy projektu."
+      - name: Instalacja pnpm
+        run: |
+          node --version
+          npm install -g "$(node -p 'require("./package.json").packageManager')"
+          pnpm --version
+      - name: Zależności
+        run: pnpm install --frozen-lockfile
+      - name: Testy
+        run: pnpm test
+      - name: Build
+        run: pnpm build
 
   testy-skryptow:
     runs-on: ubuntu-24.04
