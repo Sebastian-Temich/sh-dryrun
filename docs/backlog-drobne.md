@@ -6,3 +6,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 |---|---|---|---|
 | 2026-11-04 | T-8 | Brak pliku `.node-version` / `.nvmrc` dla fnm; warto dodać w osobnym zadaniu, żeby lokalna wersja Node była przypięta. | otwarta |
 | 2026-11-04 | T-8 | `README.md` nie opisuje jeszcze komend projektu (poza zakresem). | otwarta |
+| 2026-11-04 | T-11 | `src/index.ts` nie reeksportuje `formatPLN`; publiczne API paczki (`dist/index.js`) jej nie zawiera. Warto dodać reeksport w osobnym zadaniu. | otwarta |

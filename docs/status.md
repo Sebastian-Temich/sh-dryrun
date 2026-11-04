@@ -1,16 +1,16 @@
 ---
-zadania_todo: 5
+zadania_todo: 3
 zadania_in_progress: 0
 zadania_review: 0
 zadania_blocked: 0
-zadania_escalated: 0
-zadania_done: 1
+zadania_escalated: 1
+zadania_done: 2
 zadania_anulowane: 6
-pr_otwarte: 0
-ci_fail: 0
+pr_otwarte: 1
+ci_fail: 1
 wstrzymania: []
-ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-8", "pytanie": "Przeczytane źródła spoza „Wejścia”", "decyzja": "`docs/konfiguracja.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `.gitignore`, `docs/_szablony/raport-zadania.md`, `.claude/roles/worker/settings.json` (lista dozwolonych komend), API GitHub z tagami akcji (SHA do przypięcia). `docs/00-intake/specyfikacja.md` i `docs/04-architektura/architektura.md` nie istnieją w repo."}, {"data": "2026-11-04", "zrodlo": "T-8", "pytanie": "Gdzie trzymać fixture'y?", "decyzja": "`scripts/tests/fixtures/sync-status/docs/`, obok testów i poza `docs/`, żeby Obsidian i `check-dod.sh` nie traktowały ich jako dokumentacji projektu."}, {"data": "2026-11-04", "zrodlo": "T-8", "pytanie": "Które pliki dostają fixture'y w `sync-status.bats`?", "decyzja": "`status.md`, `decyzje.md` i także `06-zadania/index.md`. Skrypt czyta wszystkie trzy, a indeks na `main` ma już wiersze zadań, więc bez trzeciego fixture'u test „bez zmian” dalej byłby czerwony. Zawartość: stan szablonu z `2eb3af5`, czyli puste tabele i zerowe liczniki, których oczekują testy."}, {"data": "2026-11-04", "zrodlo": "T-8", "pytanie": "Poziom reguł lint", "decyzja": "`strictTypeChecked`, bo szkielet jest pusty i łatwiej zacząć od ostrych reguł niż je później zaostrzać."}, {"data": "2026-11-04", "zrodlo": "T-8", "pytanie": "Instalacja pnpm w CI", "decyzja": "`pnpm/action-setup` czyta wersję z pola `packageManager`, więc wersja pnpm jest w jednym miejscu."}]
-ostatnia_synchronizacja: 2026-11-04T17:04:48Z
+ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Przeczytane źródła spoza „Wejścia”", "decyzja": "`docs/07-realizacja/T-8.md` (wzór raportu), `docs/_szablony/raport-zadania.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `src/index.ts`, `tests/smoke.test.ts` (konwencja importów). `docs/00-intake/specyfikacja.md` i `docs/04-architektura/architektura.md` nie istnieją w repo."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Eksport z `src/index.ts`", "decyzja": "nie dodany, bo plik jest poza „Zakresem” issue; funkcja jest dostępna z `src/formatPLN.ts`."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "Ujemna kwota zaokrąglona do zera (np. -0.001, -0)", "decyzja": "„0,00 zł” bez minusa, bo „-0,00 zł” myli czytelnika."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "(Iteracja 2) Literał w teście dużej kwoty", "decyzja": "`1.2345678901234567e19` zamiast `12345678901234567890`, bo eslint (`no-loss-of-precision`) odrzuca literał, który traci precyzję; wartość w runtime jest ta sama."}, {"data": "2026-11-04", "zrodlo": "T-11", "pytanie": "(Iteracja 2) Według czego rozstrzygać połówki groszy?", "decyzja": "według najkrótszego zapisu dziesiętnego liczby (`String(kwota)`), a nie dokładnej wartości binarnej. 1.005 jako double to 1.00499999…, ale w kodzie i w danych użytkownik pisze „1.005”, a review oczekuje „1,01 zł”. Arytmetyka na `bigint`, bo usuwa też przepełnienie dla dużych wartości."}]
+ostatnia_synchronizacja: 2026-11-04T17:44:37Z
 ---
 
 # Status projektu
