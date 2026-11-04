@@ -10,3 +10,5 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-04 | T-9 | `src/index.ts` nie reeksportuje funkcji biblioteki (`formatPLN`, `parseDate`, `sum`); publiczne API pakietu warto uzupełnić osobnym zadaniem. | otwarta |
 | 2026-11-04 | review PR #18 | Raport deklaruje testy ±Infinity na każdej pozycji, ale testy nie obejmują -Infinity jako pierwszego argumentu ani +Infinity jako drugiego. Dopasuj opis do rzeczywistego pokrycia. (`docs/07-realizacja/T-9.md:13`) | otwarta |
 | 2026-11-04 | T-10 | `src/index.ts` nie reeksportuje funkcji biblioteki (`formatPLN`, `parseDate`, `sum`, `slugify`); publiczne API pakietu warto uzupełnić osobnym zadaniem. | otwarta |
+| 2026-11-04 | QA M1 | `sum(1e308, 1e308)` zwraca `Infinity` bez błędu, a `formatPLN` na takim wyniku rzuca `TypeError`; kryteria #9 tego nie obejmują. | otwarta |
+| 2026-11-04 | QA M1 | `slugify("Straße")` daje `"stra-e"`: `ß` nie jest transliterowane. | otwarta |
