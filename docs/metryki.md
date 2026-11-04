@@ -35,3 +35,4 @@ Przebieg:
 | Pliki wspólne | Brak konfliktów merge'a. Odstępstwa: worker #12 przez `shctl escalate` zmienił `docs/status.md` w worktree i dodał `escalations/E-001.md` na gałęzi (kolizja numeru z E-001 na `main`); `stage review` zmienia `DoD.md` na `main` równolegle z PR etapu (bez konfliktu, inne fragmenty) |
 | Szablon CI | `testy-skryptow` czerwony od baseline (`sync-status.bats` czyta żywe `docs/`), naprawiony w #8 decyzją orkiestratora |
 | #23 Szkielet: projekt Node + TypeScript + vitest + CI | M | 7min | 1 | 1 | 0 | PR #29 |
+| #26 formatPLN(kwota) z testami | M | 4min | 1 | 1 | 0 | PR #31 |

@@ -21,8 +21,8 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #23 | Szkielet: projekt Node + TypeScript + vitest + CI | done | 1 | M1 | #29 merged | pass |
 | #24 | sum(a, b) z testami | todo | 0 | M1 | - | - |
 | #25 | slugify(text) z testami | todo | 0 | M1 | - | - |
-| #26 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |
-| #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | todo | 0 | M1 | - | - |
+| #26 | formatPLN(kwota) z testami | done | 1 | M1 | #31 merged | pass |
+| #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | in-progress | 2 | M1 | #30 open | pass |
 | #28 | parseDate(str) z testami | todo | 0 | M1 | - | - |
 <!-- sync-status:end -->
 
