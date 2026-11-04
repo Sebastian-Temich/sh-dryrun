@@ -2,7 +2,7 @@
 etap_wdrozenia: A
 tryb_procesu: M
 auto_merge_S: false
-max_local: 1
+max_local: 2
 max_review_queue: 3
 min_wolne_gb: 15
 # Dodatkowe pliki env (ścieżki względne w repo, bez ..) kopiowane do worktree workera obok .env.local.
