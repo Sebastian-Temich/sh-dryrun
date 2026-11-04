@@ -25,7 +25,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 3 | M1 | #30 closed | pass |
 | #28 | parseDate(str) z testami | done | 1 | M1 | #34 merged | pass |
 | #36 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #37 merged | pass |
-| #38 | Szkielet: projekt Node + TypeScript + vitest + CI | todo | 0 | M1 | - | - |
+| #38 | Szkielet: projekt Node + TypeScript + vitest + CI | done | 1 | M1 | #44 merged | pass |
 | #39 | sum(a, b) z testami | todo | 0 | M1 | - | - |
 | #40 | slugify(text) z testami | todo | 0 | M1 | - | - |
 | #41 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |

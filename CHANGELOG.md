@@ -1,3 +1,7 @@
 # Changelog
 
 Plik wspólny. Aktualizuje go wyłącznie orkiestrator przez `shctl task close`.
+
+## Niewydane
+
+- #38: Szkielet: projekt Node + TypeScript + vitest + CI (PR #44)
