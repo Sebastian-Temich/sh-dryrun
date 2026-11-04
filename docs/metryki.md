@@ -37,3 +37,4 @@ Przebieg:
 | #23 Szkielet: projekt Node + TypeScript + vitest + CI | M | 7min | 1 | 1 | 0 | PR #29 |
 | #26 formatPLN(kwota) z testami | M | 4min | 1 | 1 | 0 | PR #31 |
 | #24 sum(a, b) z testami | M | 4min | 1 | 1 | 0 | PR #32 |
+| #25 slugify(text) z testami | M | 3min | 1 | 1 | 0 | PR #33 |

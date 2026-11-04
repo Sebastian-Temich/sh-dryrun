@@ -20,10 +20,10 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #21 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #22 merged | pass |
 | #23 | Szkielet: projekt Node + TypeScript + vitest + CI | done | 1 | M1 | #29 merged | pass |
 | #24 | sum(a, b) z testami | done | 1 | M1 | #32 merged | pass |
-| #25 | slugify(text) z testami | todo | 0 | M1 | - | - |
+| #25 | slugify(text) z testami | done | 1 | M1 | #33 merged | pass |
 | #26 | formatPLN(kwota) z testami | done | 1 | M1 | #31 merged | pass |
-| #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | review | 3 | M1 | #30 open | pass |
-| #28 | parseDate(str) z testami | todo | 0 | M1 | - | - |
+| #27 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 3 | M1 | #30 closed | pass |
+| #28 | parseDate(str) z testami | in-progress | 1 | M1 | #34 open | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
