@@ -28,6 +28,8 @@ hosting:
   region: eu
   konta: klient
   zaakceptowany: false
+data: "2026-11-04"
+blok_portow: 55221-55229
 ---
 
 # Konfiguracja projektu
