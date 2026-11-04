@@ -5,4 +5,31 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 <!-- sync-status:start -->
 | Zadanie | Tytuł | Status | Iteracja | Kamień milowy | PR | CI |
 |---|---|---|---|---|---|---|
+| #1 | Szkielet: projekt Node + TypeScript + vitest + CI | anulowane | 1 | M1 | #7 closed | pass |
+| #2 | sum(a, b) z testami | anulowane | 0 | M1 | - | - |
+| #3 | slugify(text) z testami | anulowane | 0 | M1 | - | - |
+| #4 | formatPLN(kwota) z testami | anulowane | 0 | M1 | - | - |
+| #5 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 0 | M1 | - | - |
+| #6 | parseDate(str) z testami | anulowane | 0 | M1 | - | - |
+| #8 | Szkielet: projekt Node + TypeScript + vitest + CI | todo | 0 | M1 | - | - |
+| #9 | sum(a, b) z testami | todo | 0 | M1 | - | - |
+| #10 | slugify(text) z testami | todo | 0 | M1 | - | - |
+| #11 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |
+| #12 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | todo | 0 | M1 | - | - |
+| #13 | parseDate(str) z testami | todo | 0 | M1 | - | - |
 <!-- sync-status:end -->
+
+## Mapa zadań z planu
+
+Sekcję uzupełnia `shctl task create`: ID z pliku YAML i numer issue.
+
+<!-- shctl:mapa:start -->
+| ID | Issue | Tytuł | Zależności |
+|---|---|---|---|
+| T1 | #8 | Szkielet: projekt Node + TypeScript + vitest + CI | - |
+| T2 | #9 | sum(a, b) z testami | #8 |
+| T3 | #10 | slugify(text) z testami | #8 |
+| T4 | #11 | formatPLN(kwota) z testami | #8 |
+| T6 | #12 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | #8 |
+| T5 | #13 | parseDate(str) z testami | #8, #11 |
+<!-- shctl:mapa:end -->
