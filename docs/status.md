@@ -28,3 +28,8 @@ Widok w Obsidianie: `docs/_dashboard.md`.
 Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wznów”.
 
 (brak)
+
+## Otwarte eskalacje
+
+- E-001 (#1): Worker nie może zapisywać plików: Claude Code odrzuca Write/Edit dla ścieżek pod /Users/sebastiant./ (komunikat: suspicious Windows path pattern that requires manual approval; katalog domowy kończy się kropką). Reguły allow i acceptEdits tego nie obchodzą, symlink też nie; poza katalogiem domowym (/Users/Shared) zapis działa, bypassPermissions też. Blokuje to każdy dispatch na tym Macu.
+
