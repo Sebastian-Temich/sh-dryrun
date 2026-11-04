@@ -1,0 +1,19 @@
+# QA M1, commit 0b510ca, 2026-11-04T22:53Z (UTC)
+zadania:
+  - id: QA-M1-1
+    tytul: "QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki"
+    cel: >-
+      Publiczny punkt wejścia pakietu (package.json exports "." → dist/index.js, źródło src/index.ts)
+      eksportuje tylko NAZWA i wersja. Kroki: pnpm build, potem
+      node --input-type=module -e "import * as m from 'sh-dryrun'; console.log(Object.keys(m))".
+      Oczekiwane: sum, slugify, formatPLN, parseDate. Jest: NAZWA, wersja. Import ścieżek
+      dist/sum.js itd. blokuje pole exports, więc funkcje M1 są nieosiągalne dla użytkownika pakietu.
+    kryteria:
+      - "src/index.ts reeksportuje sum, slugify, formatPLN i parseDate (bez zmiany ich modułów)"
+      - "test 'QA-M1-1' w tests/qa/M1-przeplywy.test.ts jest zwykłym testem (bez test.fails) i przechodzi"
+      - "po pnpm build import * from 'sh-dryrun' zwraca te cztery funkcje"
+    pliki: [src/index.ts, tests/qa/M1-przeplywy.test.ts]
+    testy: pnpm test
+    typ: qa
+    waga: istotne
+    milestone: M1
