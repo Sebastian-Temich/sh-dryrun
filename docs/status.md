@@ -29,6 +29,10 @@ Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wzn�
 
 - 2026-11-04T22:29Z: przebieg dryrun 3 (reset do baseline `624bd6f`, issue #38–#43, M1).
   `shctl doctor`: 0 błędów, 1 uwaga (repo testowe do usunięcia). Następny krok: dispatch szkieletu #38.
+- 2026-11-04T23:05Z: M1 zakończony. Zamknięte #38, #39, #40, #41, #43, #51
+  (QA-M1-1); #42 anulowane (E-001 zamknięta). QA M1: PR #50, `08-qa` done. Brak zadań i PR w toku,
+  brak eskalacji i wstrzymań. `doctor` jak wyżej. Autoryzacja: decyzja właściciela o przebiegu
+  dryrun. Następny krok: brak (koniec przebiegu 3), kolejny przebieg przez `shctl reset-dryrun`.
 
 ## Otwarte eskalacje
 
