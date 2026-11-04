@@ -6,3 +6,4 @@ Plik wspólny. Aktualizuje go wyłącznie orkiestrator przez `shctl task close`.
 
 - #23: Szkielet: projekt Node + TypeScript + vitest + CI (PR #29)
 - #26: formatPLN(kwota) z testami (PR #31)
+- #24: sum(a, b) z testami (PR #32)

@@ -36,3 +36,4 @@ Przebieg:
 | Szablon CI | `testy-skryptow` czerwony od baseline (`sync-status.bats` czyta żywe `docs/`), naprawiony w #8 decyzją orkiestratora |
 | #23 Szkielet: projekt Node + TypeScript + vitest + CI | M | 7min | 1 | 1 | 0 | PR #29 |
 | #26 formatPLN(kwota) z testami | M | 4min | 1 | 1 | 0 | PR #31 |
+| #24 sum(a, b) z testami | M | 4min | 1 | 1 | 0 | PR #32 |

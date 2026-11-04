@@ -21,3 +21,7 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-04 | T-26 | Minus przy kwocie, która po zaokrągleniu wynosi zero | bez minusa („0,00 zł”), bo „-0,00 zł” myli czytelnika. |
 | 2026-11-04 | T-26 | Eksport z `src/index.ts` | nie dodany, bo `src/index.ts` nie jest w „Zakresie” issue; funkcja dostępna z `src/formatPLN.ts`. |
 | 2026-11-04 | T-26 | - | Specyfikacji i architektury nie ma w repo (`docs/00-intake/specyfikacja.md`, `docs/04-architektura/architektura.md`), pracowałem z issue. Dodatkowo przeczytane: `src/index.ts`, `tests/smoke.test.ts`, `eslint.config.js`, `vitest.config.ts`, `docs/07-realizacja/T-23.md` (format raportu). |
+| 2026-11-04 | T-24 | Który argument sprawdzać | oba (`a` i `b`), bo kryterium mówi o „argumencie”, nie o konkretnym; komunikat błędu podaje obie wartości. |
+| 2026-11-04 | T-24 | Przepełnienie (`sum(Number.MAX_VALUE, Number.MAX_VALUE)` | `Infinity`) → nie rzucamy błędu, bo kryterium dotyczy argumentów, nie wyniku; opisane w „Ryzykach”. |
+| 2026-11-04 | T-24 | Eksport z `src/index.ts` | nie dodany, bo `src/index.ts` nie jest w „Zakresie” issue (tak samo jak w T-26). |
+| 2026-11-04 | T-24 | - | Specyfikacji i architektury nie ma w repo (`docs/00-intake/specyfikacja.md`, `docs/04-architektura/architektura.md`), pracowałem z issue. Dodatkowo przeczytane: `src/formatPLN.ts`, `tests/formatPLN.test.ts` (wzorzec stylu), `docs/07-realizacja/T-26.md` (format raportu), `.github/PULL_REQUEST_TEMPLATE.md`, `.claude/roles/worker/settings.json` (dozwolone komendy). |
