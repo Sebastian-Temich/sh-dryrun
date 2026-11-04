@@ -4,3 +4,4 @@ Plik wspólny, aktualizuje orkiestrator. Pomiar poglądowy, służy też do por�
 
 | Zlecenie | Tryb | Czas | Zadania | Iteracje | Eskalacje | Uwagi |
 |---|---|---|---|---|---|---|
+| #8 Szkielet: projekt Node + TypeScript + vitest + CI | M | 11min | 1 | 1 | 0 | PR #14 |
