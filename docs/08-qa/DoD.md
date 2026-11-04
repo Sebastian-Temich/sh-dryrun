@@ -1,7 +1,7 @@
 ---
 etap: 08-qa
 status: review
-iteracja: 0
+iteracja: 1
 akceptacja_wlasciciela: false
 ---
 
