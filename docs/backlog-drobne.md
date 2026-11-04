@@ -4,3 +4,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 
 | Data | Źródło | Uwaga | Stan |
 |---|---|---|---|
+| 2026-11-04 | T-23 | `scripts/check-dod.sh` i bats w CI nie zależą od Node; job `testy-skryptow` bez zmian. | otwarta |
