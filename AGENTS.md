@@ -34,13 +34,13 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 
 | Obszar | Wartość |
 |---|---|
-| Typ projektu | (do uzupełnienia) |
-| Framework | (do uzupełnienia) |
-| Instalacja | (do uzupełnienia) |
-| Lint | (do uzupełnienia) |
-| Testy | (do uzupełnienia) |
-| Build | (do uzupełnienia) |
-| Uruchomienie lokalne | (do uzupełnienia) |
+| Typ projektu | Biblioteka Node (ESM) |
+| Framework | TypeScript 6.0 (strict), vitest, eslint + typescript-eslint |
+| Instalacja | `pnpm install --frozen-lockfile` |
+| Lint | `pnpm lint` (eslint) i `pnpm typecheck` (`tsc --noEmit`) |
+| Testy | `pnpm test` (vitest, testy w `tests/`) |
+| Build | `pnpm build` (`tsc -p tsconfig.build.json`, wynik w `dist/`) |
+| Uruchomienie lokalne | Brak: biblioteka, sprawdzana testami (`pnpm test`) |
 
 Zmiana kontraktu wymaga ADR w `docs/04-architektura/adr/`.
 
