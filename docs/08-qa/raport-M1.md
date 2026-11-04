@@ -38,7 +38,7 @@ Biblioteka nie ma UI ani `playwright.config`: testy QA napisane w vitest (`tests
 | E2E chromium | nie dotyczy | biblioteka bez UI, brak `playwright.config` w stacku projektu |
 | E2E webkit | nie dotyczy | jak wyżej |
 | Integracja | pass: 66/66, 5 plików | `pnpm install --frozen-lockfile && pnpm lint && pnpm typecheck && pnpm test && pnpm build`, wszystkie kod 0 |
-| Testy QA (`tests/qa/`) | pass: 2/2, 1 pominięty (`QA-M1-1`) | `pnpm test`: razem 68 pass, 1 skipped; brak testów niestabilnych |
+| Testy QA (`tests/qa/`) | pass: 3/3, w tym `QA-M1-1` jako `test.fails` (oczekiwane niepowodzenie) | `pnpm test`: razem 68 pass i 1 expected fail; brak testów niestabilnych |
 | Punkt wejścia pakietu | fail | `node --input-type=module -e "import * as m from 'sh-dryrun'; console.log(Object.keys(m))"` po `pnpm build`: `NAZWA,wersja` |
 | Sekrety | pass | `gitleaks git --redact --no-banner .`: no leaks found |
 
@@ -59,7 +59,7 @@ Tylko 🔴 krytyczne i 🟡 istotne; każde staje się issue `typ:qa` przez `shc
 
 | Issue | Waga | Opis |
 |---|---|---|
-| QA-M1-1 | 🟡 istotne | Punkt wejścia pakietu (`src/index.ts` → `dist/index.js`) eksportuje tylko `NAZWA` i `wersja`. Kroki: `pnpm build`, `node --input-type=module -e "import * as m from 'sh-dryrun'; console.log(Object.keys(m))"`. Oczekiwane: `sum`, `slugify`, `formatPLN`, `parseDate`; jest: `NAZWA`, `wersja`. Pole `exports` blokuje import `dist/sum.js` itd. Kryteria issue zadań są spełnione (eksport z `src/X.ts`), dlatego waga istotna, nie krytyczna. Test: `QA-M1-1` (`test.skip`) w `tests/qa/M1-przeplywy.test.ts` |
+| QA-M1-1 | 🟡 istotne | Punkt wejścia pakietu (`src/index.ts` → `dist/index.js`) eksportuje tylko `NAZWA` i `wersja`. Kroki: `pnpm build`, `node --input-type=module -e "import * as m from 'sh-dryrun'; console.log(Object.keys(m))"`. Oczekiwane: `sum`, `slugify`, `formatPLN`, `parseDate`; jest: `NAZWA`, `wersja`. Pole `exports` blokuje import `dist/sum.js` itd. Kryteria issue zadań są spełnione (eksport z `src/X.ts`), dlatego waga istotna, nie krytyczna. Test: `QA-M1-1` (`test.fails`, aktywny w CI) w `tests/qa/M1-przeplywy.test.ts` |
 
 ## Drobne uwagi
 

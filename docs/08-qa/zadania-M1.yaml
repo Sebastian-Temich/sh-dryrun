@@ -10,7 +10,7 @@ zadania:
       dist/sum.js itd. blokuje pole exports, więc funkcje M1 są nieosiągalne dla użytkownika pakietu.
     kryteria:
       - "src/index.ts reeksportuje sum, slugify, formatPLN i parseDate (bez zmiany ich modułów)"
-      - "test 'QA-M1-1' w tests/qa/M1-przeplywy.test.ts przechodzi bez test.skip"
+      - "test 'QA-M1-1' w tests/qa/M1-przeplywy.test.ts jest zwykłym testem (bez test.fails) i przechodzi"
       - "po pnpm build import * from 'sh-dryrun' zwraca te cztery funkcje"
     pliki: [src/index.ts, tests/qa/M1-przeplywy.test.ts]
     testy: pnpm test
