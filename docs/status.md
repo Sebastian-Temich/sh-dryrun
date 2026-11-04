@@ -1,16 +1,16 @@
 ---
-zadania_todo: 5
+zadania_todo: 3
 zadania_in_progress: 0
 zadania_review: 0
 zadania_blocked: 0
-zadania_escalated: 0
-zadania_done: 13
+zadania_escalated: 1
+zadania_done: 14
 zadania_anulowane: 8
-pr_otwarte: 0
-ci_fail: 0
+pr_otwarte: 1
+ci_fail: 1
 wstrzymania: []
-ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-38", "pytanie": "Czerwony job `testy-skryptow` (testy 53 i 57 w `sync-status.bats` czytały żywe `docs/` repo)", "decyzja": "na polecenie orkiestratora przeniesiona poprawka z `main` szablonu `sh-template-projekt` (PR #12, commit f6a59c0): `scripts/tests/sync-status.bats` i nowy katalog `scripts/tests/dane/`, w niezmienionej postaci. Testy kopiują teraz `scripts/tests/dane/docs` zamiast `docs/`. Pliki spoza „Zakresu”, zmiana konieczna, żeby CI PR było zielone. Pozostałe różnice `scripts/` względem szablonu (`check-dod.sh`, `sync-status.sh`, `deploy-prod.sh`, `dane-testowe.bats`, inne pliki `.bats`) świadomie nieprzeniesione, bo są poza poleceniem. Zmiana w `sync-status.sh` w szablonie to tylko domyślna ścieżka `limity.md`, a testy ustawiają własne `SH_DIR`. Szablon pobrany przez `git fetch`, bo profil workera blokuje `gh api`."}, {"data": "2026-11-04", "zrodlo": "T-38", "pytanie": "Projekt bez `docs/00-intake/specyfikacja.md` i `docs/04-architektura/architektura.md`", "decyzja": "typ projektu „biblioteka Node (ESM)” przyjęty z celu issue; dodatkowo przeczytane `docs/konfiguracja.md`, `.gitignore`, `.github/PULL_REQUEST_TEMPLATE.md`, `docs/_szablony/raport-zadania.md`."}, {"data": "2026-11-04", "zrodlo": "T-38", "pytanie": "Wersja Node w CI", "decyzja": "`lts/*` w `actions/setup-node`, zgodnie z kontraktem „Node LTS”; wersja pnpm z pola `packageManager`."}, {"data": "2026-11-04", "zrodlo": "T-38", "pytanie": "Kod w `src/`", "decyzja": "dodany `src/index.ts` spoza listy plików „Zakresu”, bo kryterium „kod w src/” i test dymny wymagają modułu źródłowego."}, {"data": "2026-11-04", "zrodlo": "T-38", "pytanie": "Build bez bundlera", "decyzja": "`tsc -p tsconfig.build.json`; dodany plik `tsconfig.build.json` spoza „Zakresu”, bo główny `tsconfig.json` obejmuje `tests/` i pliki konfiguracyjne (typecheck), a build ma emitować tylko `src/` do `dist/`."}]
-ostatnia_synchronizacja: 2026-11-04T22:38:33Z
+ostatnie_decyzje: [{"data": "2026-11-04", "zrodlo": "T-41", "pytanie": "Plik spoza „Zakresu”", "decyzja": "`docs/07-realizacja/T-41.md` (raport wymagany przez proces). Projekt nie ma `docs/00-intake/specyfikacja.md` ani `docs/04-architektura/architektura.md`; dodatkowo przeczytane `src/index.ts`, `tests/smoke.test.ts`, `package.json`, `vitest.config.ts`, `eslint.config.js`, `docs/07-realizacja/T-38.md`, szablony raportu i PR."}, {"data": "2026-11-04", "zrodlo": "T-41", "pytanie": "Znak minus", "decyzja": "ASCII `-` (U+002D) na początku napisu; kwota ujemna zaokrąglona do zera (`-0.004`, `-0`) bez minusa, bo „-0,00 zł” nie ma sensu księgowego."}, {"data": "2026-11-04", "zrodlo": "T-41", "pytanie": "Sposób zaokrąglania", "decyzja": "„połówki od zera” na zapisie dziesiętnym liczby (`String(kwota)`) z arytmetyką `BigInt`, a nie `Math.round(kwota * 100)`, bo `1.005 * 100` daje `100.49999…` i wynik `1,00`. Kwoty od `1e21` (zawsze całkowite) przez `BigInt(kwota)`, kwoty poniżej `1e-6` dają `0,00 zł`."}, {"data": "2026-11-04", "zrodlo": "T-41", "pytanie": "`Intl.NumberFormat('pl-PL')` czy własne formatowanie?", "decyzja": "własne, bo `pl-PL` w ICU nie grupuje liczb czterocyfrowych (daje „1234,50 zł”, wbrew kryterium), a wynik `Intl` zależy od wersji ICU w Node."}, {"data": "2026-11-04", "zrodlo": "T-41", "pytanie": "Spacja twarda czy zwykła jako separator tysięcy?", "decyzja": "spacja twarda U+00A0, także przed „zł”, bo nie pozwala przełamać kwoty między wierszami; udokumentowane w komentarzu i asercjach `tests/formatPLN.test.ts`."}]
+ostatnia_synchronizacja: 2026-11-04T22:44:11Z
 ---
 
 # Status projektu
@@ -29,3 +29,8 @@ Stan po ostatnim kamieniu milowym, potrzebny do wznowienia po `/clear` i „wzn�
 
 - 2026-11-04T22:29Z: przebieg dryrun 3 (reset do baseline `624bd6f`, issue #38–#43, M1).
   `shctl doctor`: 0 błędów, 1 uwaga (repo testowe do usunięcia). Następny krok: dispatch szkieletu #38.
+
+## Otwarte eskalacje
+
+- E-001 (#42): Sprzeczne wymagania: kryteria wymagają, by paradox() była ściśle równa (Object.is) jednocześnie true i false w jednym teście, bez warunkowych asercji, mocków i zmian vitest. Takiej wartości nie ma; test zawsze będzie czerwony.
+
