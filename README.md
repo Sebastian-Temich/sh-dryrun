@@ -2,6 +2,20 @@
 
 Szablon repozytorium projektu AI Software House. Proces opisuje `sh-system/docs/proces-v1.md`.
 
+## Użycie
+
+`capitalize` zamienia pierwszą literę tekstu na wielką według reguł pl-PL. Pozostałe znaki zostają
+bez zmian.
+
+```ts
+import { capitalize } from 'sh-dryrun';
+
+capitalize('ala ma kota'); // 'Ala ma kota'
+capitalize('łódź'); // 'Łódź'
+capitalize('aBC'); // 'ABC'
+capitalize(''); // ''
+```
+
 ## Jak powstaje projekt
 
 Projekt zakłada orkiestrator lub właściciel jedną komendą:
