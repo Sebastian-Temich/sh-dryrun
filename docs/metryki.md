@@ -132,6 +132,7 @@ nie są w pełni porównywalne z przebiegami 1 i 2.
 | #40 slugify(text) z testami | M | 5min | 1 | 1 | 0 | PR #48 |
 | #43 parseDate(str) z testami | M | 4min | 1 | 1 | 0 | PR #49 |
 | #51 QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | M | 4min | 1 | 1 | 0 | PR #52 |
+| #53 capitalize(text) z testami i przykładem w README | S | 25min | 1 | 1 | 0 | PR #54 |
 
 ### Miary
 

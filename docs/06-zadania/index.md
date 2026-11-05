@@ -32,7 +32,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #42 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 1 | M1 | #45 closed | fail |
 | #43 | parseDate(str) z testami | done | 1 | M1 | #49 merged | pass |
 | #51 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #52 merged | pass |
-| #53 | capitalize(text) z testami i przykładem w README | todo | 0 | - | - | - |
+| #53 | capitalize(text) z testami i przykładem w README | done | 1 | - | #54 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
