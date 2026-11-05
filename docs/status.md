@@ -1,5 +1,5 @@
 ---
-zadania_todo: 0
+zadania_todo: 1
 zadania_in_progress: 0
 zadania_review: 0
 zadania_blocked: 0
@@ -10,7 +10,7 @@ pr_otwarte: 0
 ci_fail: 0
 wstrzymania: []
 ostatnie_decyzje: [{"data": "2026-11-05", "zrodlo": "T-51", "pytanie": "Czy kryterium „po pnpm build import zwraca cztery funkcje” sprawdzić testem automatycznym?", "decyzja": "nie, sprawdzam je komendą z raportu. Test vitest wymagałby uruchomienia `pnpm build` przed testami, czyli zmiany skryptów albo CI spoza zakresu."}, {"data": "2026-11-05", "zrodlo": "T-51", "pytanie": "Czy usunąć `NAZWA` i `wersja` z punktu wejścia?", "decyzja": "nie, bo issue tego nie wymaga, a usunięcie zepsułoby `tests/smoke.test.ts` i publiczne API."}, {"data": "2026-11-05", "zrodlo": "qa", "pytanie": "QA-M1-1 jako 🟡 istotne, nie 🔴", "decyzja": "kryteria issue zadań (eksport z src/X.ts) spełnione, brak W-n o punkcie wejścia (PR #50). Cofnięcie: podnieść wagę decyzją właściciela"}, {"data": "2026-11-05", "zrodlo": "qa", "pytanie": "Testy QA biblioteki w vitest (tests/qa/) zamiast Playwright e2e/qa/", "decyzja": "projekt bez UI i bez playwright.config, vitest obejmuje tylko tests/** (PR #50). Cofnięcie: przenieść do e2e/qa/, gdy projekt dostanie UI"}, {"data": "2026-11-04", "zrodlo": "T-43", "pytanie": "Plik spoza „Zakresu”", "decyzja": "`docs/07-realizacja/T-43.md` (raport wymagany przez proces). Projekt nie ma `docs/00-intake/specyfikacja.md` ani `docs/04-architektura/architektura.md`; dodatkowo przeczytane `src/formatPLN.ts`, `src/index.ts`, `tests/formatPLN.test.ts`, `tests/sum.test.ts`, `docs/07-realizacja/T-41.md`, szablony raportu i PR."}]
-ostatnia_synchronizacja: 2026-11-04T23:04:48Z
+ostatnia_synchronizacja: 2026-11-05T08:23:16Z
 ---
 
 # Status projektu

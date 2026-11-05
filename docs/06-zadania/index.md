@@ -32,6 +32,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #42 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 1 | M1 | #45 closed | fail |
 | #43 | parseDate(str) z testami | done | 1 | M1 | #49 merged | pass |
 | #51 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #52 merged | pass |
+| #53 | capitalize(text) z testami i przykładem w README | todo | 0 | - | - | - |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
@@ -48,4 +49,5 @@ Sekcję uzupełnia `shctl task create`: ID z pliku YAML i numer issue.
 | T6 | #42 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | #38 |
 | T5 | #43 | parseDate(str) z testami | #38, #41 |
 | QA-M1-1 | #51 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | - |
+| S-20261105-capitalize | #53 | capitalize(text) z testami i przykładem w README | - |
 <!-- shctl:mapa:end -->
