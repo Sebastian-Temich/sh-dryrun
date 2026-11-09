@@ -12,8 +12,11 @@ ROOT="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DOCS="$ROOT/docs"
 KONFIG="$DOCS/konfiguracja.md"
 
-ETAPY="00-intake 01-brief 02-design 03-wymagania 04-architektura 05-plan 06-zadania 07-realizacja 08-qa wydanie"
-ETAPY_M="00-intake 04-architektura 05-plan 06-zadania 07-realizacja 08-qa wydanie"
+# Etapy z DoD.md (tryb M) według wersja_procesu z konfiguracja.md: 2 ma jeden etap 04-plan, a brak pola
+# (wersja 1, projekty sprzed migracji) osobne 04-architektura i 05-plan. Tryb L jest odłożony; stan
+# realizacji jest w issue.
+ETAPY_V1="00-intake 04-architektura 05-plan 06-zadania 08-qa wydanie"
+ETAPY_V2="00-intake 04-plan 06-zadania 08-qa wydanie"
 SEKCJE=("Dokumentacja" "Funkcjonalność" "Checklisty jakości" "Checkpoint")
 
 bledy=0
@@ -40,7 +43,9 @@ ma_frontmatter() {
   [ "$(head -n 1 "$1")" = "---" ] && [ "$(awk 'NR > 1 && $0 == "---" { n++ } END { print n + 0 }' "$1")" -ge 1 ]
 }
 
-# Wypisuje: "niezaznaczone zaznaczone".
+# Wypisuje: "niezaznaczone zaznaczone nie-dotyczy błędne-nie-dotyczy".
+# Pole „nie dotyczy”: `- [-] treść (nie dotyczy: powód)`, np. E2E w bibliotece bez UI. Powód jest
+# obowiązkowy; pole bez niego liczy się jako błąd.
 policz_checkboxy() {
   awk -v tryb="$2" '
     /^[ \t]*(```|~~~)/ { kod = !kod; next }
@@ -50,15 +55,11 @@ policz_checkboxy() {
     tylko_l && tryb != "L" { next }
     /^[ \t]*[-*+] \[ \]/ { puste++ }
     /^[ \t]*[-*+] \[[xX]\]/ { pelne++ }
-    END { print puste + 0, pelne + 0 }' "$1"
-}
-
-etap_w_trybie() {
-  case "$2" in
-    S) return 1 ;;
-    L) return 0 ;;
-    M) case " $ETAPY_M " in *" $1 "*) return 0 ;; *) return 1 ;; esac ;;
-  esac
+    /^[ \t]*[-*+] \[-\]/ {
+      if ($0 ~ /nie dotyczy: *[^ )]/) nd++
+      else zle++
+    }
+    END { print puste + 0, pelne + 0, nd + 0, zle + 0 }' "$1"
 }
 
 if [ ! -f "$KONFIG" ]; then
@@ -67,6 +68,15 @@ if [ ! -f "$KONFIG" ]; then
 fi
 
 TRYB="$(fm_get "$KONFIG" tryb_procesu)"
+WERSJA="$(fm_get "$KONFIG" wersja_procesu)"
+case "${WERSJA:-1}" in
+  1) ETAPY="$ETAPY_V1" ;;
+  2) ETAPY="$ETAPY_V2" ;;
+  *)
+    echo "BŁĄD: konfiguracja.md: wersja_procesu='$WERSJA', dozwolone 1 albo 2" >&2
+    exit 1
+    ;;
+esac
 ETAP_WDROZENIA="$(fm_get "$KONFIG" etap_wdrozenia)"
 
 case "$ETAP_WDROZENIA" in
@@ -111,18 +121,22 @@ for etap in $ETAPY; do
     grep -qxF "## $sekcja" "$plik" || blad "$wzgl: brak sekcji '$sekcja'"
   done
 
+  read -r puste pelne nd zle <<EOF
+$(policz_checkboxy "$plik" "$TRYB")
+EOF
+  [ "$zle" -eq 0 ] || blad "$wzgl: $zle pól [-] bez „(nie dotyczy: powód)”"
+
   case "$status" in
     todo | in-progress | review | escalated) ;;
     done)
-      read -r puste pelne <<EOF
-$(policz_checkboxy "$plik" "$TRYB")
-EOF
       [ "$puste" -eq 0 ] || blad "$wzgl: status done, ale $puste pól nie jest zaznaczonych"
       [ "$pelne" -gt 0 ] || blad "$wzgl: status done bez żadnego zaznaczonego pola"
       ;;
     pominiety)
-      if etap_w_trybie "$etap" "$TRYB"; then
-        blad "$wzgl: status pominiety niedozwolony, bo etap należy do trybu $TRYB"
+      # Pominięcie etapu to decyzja orkiestratora (shctl decision add) zapisana w polu decyzja.
+      # Tryb S nie ma etapów: new-project oznacza wszystkie jako pominiety.
+      if [ "$TRYB" != S ] && [ -z "$(fm_get "$plik" decyzja)" ]; then
+        blad "$wzgl: status pominiety wymaga pola decyzja (shctl decision add, potem decyzja: \"...\" w DoD.md)"
       fi
       ;;
     *) blad "$wzgl: status='$status', dozwolone todo|in-progress|review|done|escalated|pominiety" ;;
