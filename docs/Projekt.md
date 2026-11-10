@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Plan"
-postep_etapy: "1/3"
+etap_opis: "Realizacja, kamień M1"
+postep_etapy: "2/3"
 postep_zadania: "0/6"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Review etapu plan, potem Twoja akceptacja"
-ostatnia_synchronizacja: 2026-11-10T22:01:43Z
+nastepny_krok: "Start #66"
+ostatnia_synchronizacja: 2026-11-10T22:04:29Z
 ---
 
 # sh-dryrun
@@ -16,10 +16,10 @@ ostatnia_synchronizacja: 2026-11-10T22:01:43Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Plan
-- **Postęp:** Etapy 1/3 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
-- **Co się dzieje:** etap plan w review
-- **Następny krok:** Review etapu plan, potem Twoja akceptacja
+- **Etap:** Realizacja, kamień M1
+- **Postęp:** Etapy 2/3 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
+- **Co się dzieje:** nic w toku
+- **Następny krok:** Start #66
 - **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
@@ -58,6 +58,7 @@ Otwartych brak.
 
 - [Specyfikacja](00-intake/specyfikacja.md)
 - [Lista startowa](00-intake/lista-startowa.md)
+- [Plan](04-plan/plan.md)
 - [Decyzje](decyzje.md)
 - Karty funkcji: [W-01](00-intake/funkcje/W-01.md), [W-02](00-intake/funkcje/W-02.md), [W-03](00-intake/funkcje/W-03.md), [W-04](00-intake/funkcje/W-04.md), [W-05](00-intake/funkcje/W-05.md)
 - [Historia](historia.md): punkt przekazania, dziennik etapów, wszystkie zadania
