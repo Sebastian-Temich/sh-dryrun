@@ -41,6 +41,14 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #69 | formatPLN(kwota) z testami | anulowane | 0 | M1 | - | - |
 | #70 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 0 | M1 | - | - |
 | #71 | parseDate(str) z testami | anulowane | 0 | M1 | - | - |
+| #75 | Szkielet: projekt Node + TypeScript + vitest + CI | todo | 0 | M1 | - | - |
+| #76 | sum(a, b) z testami | todo | 0 | M1 | - | - |
+| #77 | slugify(text) z testami | todo | 0 | M1 | - | - |
+| #78 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |
+| #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | todo | 0 | M1 | - | - |
+| #80 | parseDate(str) z testami | todo | 0 | M1 | - | - |
+| #81 | Punkt wejścia pakietu: src/index.ts i exports | todo | 0 | M1 | - | - |
+| #82 | Dokumentacja wydania: README z użyciem biblioteki | todo | 0 | M1 | - | - |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
@@ -56,4 +64,12 @@ Sekcję uzupełnia `shctl task create`: ID z pliku YAML i numer issue.
 | T4 | #69 | formatPLN(kwota) z testami | #66 |
 | T6 | #70 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | #66 |
 | T5 | #71 | parseDate(str) z testami | #66, #69 |
+| T11 | #75 | Szkielet: projekt Node + TypeScript + vitest + CI | - |
+| T12 | #76 | sum(a, b) z testami | #75 |
+| T13 | #77 | slugify(text) z testami | #75 |
+| T14 | #78 | formatPLN(kwota) z testami | #75 |
+| T16 | #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | #75 |
+| T15 | #80 | parseDate(str) z testami | #75, #78 |
+| T17 | #81 | Punkt wejścia pakietu: src/index.ts i exports | #76, #77, #78, #80 |
+| T18 | #82 | Dokumentacja wydania: README z użyciem biblioteki | #75, #76, #77, #78, #80, #79, #81 |
 <!-- shctl:mapa:end -->
