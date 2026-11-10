@@ -31,10 +31,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (22)
+## Wszystkie zadania zrobione (23)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #78 formatPLN(kwota) z testami | M1 | #87 | 2026-11-10 |
 | #77 slugify(text) z testami | M1 | #86 | 2026-11-10 |
 | #76 sum(a, b) z testami | M1 | #84 | 2026-11-10 |
 | #75 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #83 | 2026-11-10 |
