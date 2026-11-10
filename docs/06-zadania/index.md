@@ -33,6 +33,8 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #43 | parseDate(str) z testami | done | 1 | M1 | #49 merged | pass |
 | #51 | QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | done | 1 | M1 | #52 merged | pass |
 | #53 | capitalize(text) z testami i przykładem w README | done | 1 | - | #54 merged | pass |
+| #60 | test F6: slug (review zwykle) | review | 1 | - | #62 open | fail |
+| #61 | test F6: notatki z RLS (review ryzyko) | review | 1 | - | #63 open | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
