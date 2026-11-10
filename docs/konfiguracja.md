@@ -16,7 +16,7 @@ env_files: []
 playwright_version: 1.61.1
 playwright_workers: 1
 # Adres stagingu dla joba qa-staging w CI (e2e i Lighthouse na gałęzi stage/08-qa); pusty: job pomija testy.
-staging_url: ""
+staging_url: "https://example.com"
 modele:
   orkiestrator: opus
   intake: opus
@@ -31,11 +31,11 @@ modele:
 #   zwykle: {silnik: codex, model: gpt-6-astra, effort: medium}
 #   gdy_limit: drugi_silnik
 hosting:
-  aplikacja: vercel
-  baza: supabase-cloud
+  aplikacja: brak
+  baza: brak
   region: eu
   konta: klient
-  zaakceptowany: false
+  zaakceptowany: true
 data: "2026-11-04"
 blok_portow: 55221-55229
 ---
