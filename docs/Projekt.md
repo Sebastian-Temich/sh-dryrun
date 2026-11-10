@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1"
 postep_etapy: "3/4"
-postep_zadania: "5/8"
+postep_zadania: "6/8"
 czeka_na_ciebie: 1
 eskalacje: 1
 nastepny_krok: "Twoja odpowiedź: E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony."
-ostatnia_synchronizacja: 2026-11-10T22:43:11Z
+ostatnia_synchronizacja: 2026-11-10T22:47:31Z
 ---
 
 # sh-dryrun
@@ -17,36 +17,36 @@ ostatnia_synchronizacja: 2026-11-10T22:43:11Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1
-- **Postęp:** Etapy 3/4 · Zadania 5/8 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) (eskalacja, od 16 min); #81 Punkt wejścia pakietu: src/index.ts i exports (worker, od 0 min)
+- **Postęp:** Etapy 3/4 · Zadania 6/8 w bieżącym przebiegu (łącznie 27)
+- **Co się dzieje:** #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) (eskalacja, od 20 min)
 - **Następny krok:** Twoja odpowiedź: E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony.
-- **Szacowany czas:** ok. 6 min pracy agentów (3 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
+- **Szacowany czas:** ok. 6 min pracy agentów (2 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
-1. E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony. (czeka 14 min)  
+1. E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony. (czeka 19 min)  
    Wpisz orkiestratorowi: `E-001: Zamknąć`  
    Zamknąć #79 jako niewykonalne (proponowane, zgodnie z Z5 karty W-05); Zmienić kryterium K2 na wykonalne
 
 ## Zadania
 
-### W realizacji (2)
+### W realizacji (1)
 
 | Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
 |---|---|---|---|---|---|---|
-| #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | M1 | eskalacja | 1 | #85 | fail | 16 min |
-| #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | worker | 0 | - | - | 0 min |
+| #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | M1 | eskalacja | 1 | #85 | fail | 20 min |
 
 ### Zaplanowane (1)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #79, #81 |
+| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #79 |
 
-### Zrobione w bieżącym przebiegu (5)
+### Zrobione w bieżącym przebiegu (6)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #89 |
 | #80 parseDate(str) z testami | M1 | #88 |
 | #78 formatPLN(kwota) z testami | M1 | #87 |
 | #77 slugify(text) z testami | M1 | #86 |

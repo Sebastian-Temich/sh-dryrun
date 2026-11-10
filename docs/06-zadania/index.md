@@ -47,7 +47,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #78 | formatPLN(kwota) z testami | done | 1 | M1 | #87 merged | pass |
 | #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | escalated | 1 | M1 | #85 open | fail |
 | #80 | parseDate(str) z testami | done | 1 | M1 | #88 merged | pass |
-| #81 | Punkt wejścia pakietu: src/index.ts i exports | in-progress | 0 | M1 | - | - |
+| #81 | Punkt wejścia pakietu: src/index.ts i exports | done | 1 | M1 | #89 merged | pass |
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | todo | 0 | M1 | - | - |
 <!-- sync-status:end -->
 

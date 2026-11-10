@@ -9,3 +9,4 @@ Plik wspólny. Aktualizuje go wyłącznie orkiestrator przez `shctl task close`.
 - #77: slugify(text) z testami (PR #86)
 - #78: formatPLN(kwota) z testami (PR #87)
 - #80: parseDate(str) z testami (PR #88)
+- #81: Punkt wejścia pakietu: src/index.ts i exports (PR #89)

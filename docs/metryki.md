@@ -179,6 +179,7 @@ Reset do baseline `2ded36e` o 20:34 UTC. Wiersze zadań dopisuje `shctl task clo
 | #77 slugify(text) z testami | M | 6min | 1 | 1 | 0 | PR #86 |
 | #78 formatPLN(kwota) z testami | M | 5min | 1 | 1 | 0 | PR #87 |
 | #80 parseDate(str) z testami | M | 5min | 1 | 1 | 0 | PR #88 |
+| #81 Punkt wejścia pakietu: src/index.ts i exports | M | 4min | 1 | 1 | 0 | PR #89 |
 
 ## Przyczyny uwag
 
