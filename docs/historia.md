@@ -31,10 +31,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (25)
+## Wszystkie zadania zrobione (26)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #90 | 2026-11-10 |
 | #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #89 | 2026-11-10 |
 | #80 parseDate(str) z testami | M1 | #88 | 2026-11-10 |
 | #78 formatPLN(kwota) z testami | M1 | #87 | 2026-11-10 |

@@ -16,3 +16,5 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-10 | T-78 | Karta W-03 ma Z3 (bardzo duże kwoty) ze statusem „do potwierdzenia”; implementacja przyjmuje proponowaną odpowiedź (bez błędu). Warto zaktualizować status w karcie. | otwarta |
 | 2026-11-10 | T-80 | Karta W-04 ma Z4 (lata przed 1000) ze statusem „do potwierdzenia”; implementacja przyjmuje proponowaną odpowiedź. Warto zaktualizować status w karcie. | otwarta |
 | 2026-11-10 | review PR #88 | Testy przypadków brzegowych sprawdzają tylko typ RangeError, a nie komunikat „parseDate: nieprawidłowa data”. Warto dodać toThrow(KOMUNIKAT), tak jak w teście K3. (`tests/parseDate.test.ts:46`) | otwarta |
+| 2026-11-11 | T-82 | README nadal zawiera długie sekcje z szablonu („Jak powstaje projekt”, „Droga na produkcję”) o deployu przez Vercel i Supabase, które w tej bibliotece nie mają zastosowania. | otwarta |
+| 2026-11-11 | T-82 | `docs/07-realizacja/escalations/E-001.md` na `main` ma `status: otwarta` i pustą sekcję „Rozstrzygnięcie”, choć #79 jest zamknięte. | otwarta |

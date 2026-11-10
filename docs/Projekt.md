@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Realizacja, kamień M1"
+etap_opis: "Zakończony"
 postep_etapy: "3/4"
-postep_zadania: "6/7"
+postep_zadania: "7/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Dokończenie #82"
-ostatnia_synchronizacja: 2026-11-10T23:54:56Z
+nastepny_krok: "Brak, zlecenie zakończone"
+ostatnia_synchronizacja: 2026-11-10T23:58:50Z
 ---
 
 # sh-dryrun
@@ -16,28 +16,24 @@ ostatnia_synchronizacja: 2026-11-10T23:54:56Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Realizacja, kamień M1
-- **Postęp:** Etapy 3/4 · Zadania 6/7 w bieżącym przebiegu (łącznie 26)
-- **Co się dzieje:** #82 Dokumentacja wydania: README z użyciem biblioteki (worker, od 0 min)
-- **Następny krok:** Dokończenie #82
-- **Szacowany czas:** ok. 6 min pracy agentów (1 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
+- **Etap:** Zakończony
+- **Postęp:** Etapy 3/4 · Zadania 7/7 w bieżącym przebiegu (łącznie 26)
+- **Co się dzieje:** nic w toku
+- **Następny krok:** Brak, zlecenie zakończone
 
 ## Czeka na Ciebie
 
-Nic. Agenci pracują sami.
+Nic. Projekt zakończony.
 
 ## Zadania
 
-### W realizacji (1)
+Nic w toku.
 
-| Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
-|---|---|---|---|---|---|---|
-| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | worker | 0 | - | - | 0 min |
-
-### Zrobione w bieżącym przebiegu (6)
+### Zrobione w bieżącym przebiegu (7)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #90 |
 | #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #89 |
 | #80 parseDate(str) z testami | M1 | #88 |
 | #78 formatPLN(kwota) z testami | M1 | #87 |

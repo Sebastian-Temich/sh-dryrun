@@ -48,7 +48,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 1 | M1 | #85 closed | fail |
 | #80 | parseDate(str) z testami | done | 1 | M1 | #88 merged | pass |
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | done | 1 | M1 | #89 merged | pass |
-| #82 | Dokumentacja wydania: README z użyciem biblioteki | in-progress | 0 | M1 | - | - |
+| #82 | Dokumentacja wydania: README z użyciem biblioteki | done | 1 | M1 | #90 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
