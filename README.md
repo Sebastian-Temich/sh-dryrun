@@ -14,6 +14,66 @@ Szczegóły: `docs/00-intake/specyfikacja.md`.
 - Pakiet tylko ESM ze wspólnym punktem wejścia.
 - Poza zakresem: publikacja w npm, wersja CommonJS, strona WWW.
 
+## Instalacja
+
+Pakiet nie jest publikowany w npm, a `dist/` nie jest w repo. Instalujesz go z kopii repo po buildzie
+(Node z `.nvmrc`, pnpm z `packageManager`):
+
+```bash
+git clone https://github.com/Sebastian-Temich/sh-dryrun.git
+cd sh-dryrun
+pnpm install --frozen-lockfile
+pnpm build
+```
+
+W swoim projekcie (ESM, `"type": "module"`) dodajesz zależność ze ścieżki do tej kopii:
+
+```bash
+pnpm add file:../sh-dryrun
+```
+
+Pakiet jest tylko ESM: `exports` w `package.json` wskazuje `./dist/index.js` i typy
+`./dist/index.d.ts`, bez wersji CommonJS (`require`).
+
+## Użycie
+
+```ts
+import { sum, slugify, formatPLN, parseDate } from "sh-dryrun";
+```
+
+| Funkcja | Wymaganie | Przykład | Wynik |
+|---|---|---|---|
+| `sum(a, b)` | W-01 | `sum(2, 3)` | `5` |
+| `slugify(text)` | W-02 | `slugify("Zażółć gęślą jaźń: Łódź")` | `"zazolc-gesla-jazn-lodz"` |
+| `formatPLN(kwota)` | W-03 | `formatPLN(1234.5)` | `"1 234,50 zł"` (separatory to twarda spacja U+00A0) |
+| `parseDate(str)` | W-04 | `parseDate("04.11.2026")` | `Date` 2026-11-04T00:00:00.000Z (północ UTC) |
+
+```ts
+sum(2, 3); // 5
+sum(Number.NaN, 1); // TypeError: sum: argumenty muszą być skończonymi liczbami
+
+slugify("Zażółć gęślą jaźń: Łódź"); // "zazolc-gesla-jazn-lodz"
+slugify(""); // ""
+
+formatPLN(1234.5); // "1 234,50 zł", czyli „1 234,50 zł”
+formatPLN(Number.NaN); // TypeError: formatPLN: kwota musi być skończoną liczbą
+
+parseDate("04.11.2026").toISOString(); // "2026-11-04T00:00:00.000Z"
+parseDate("2026-11-04").toISOString(); // "2026-11-04T00:00:00.000Z"
+parseDate("31.02.2026"); // RangeError: parseDate: nieprawidłowa data
+```
+
+Wyniki są te same co w testach `tests/*.test.ts` (wywołania przez punkt wejścia: `tests/index.test.ts`).
+Szczegóły i przypadki brzegowe: karty `docs/00-intake/funkcje/W-01.md`–`W-04.md`.
+
+## Środowiska
+
+| Środowisko | Stan |
+|---|---|
+| Podgląd (preview) | Brak: biblioteka nie ma wdrożeń |
+| Produkcja | Brak: biblioteka nie ma wdrożeń, publikacja w npm poza zakresem |
+| Staging | `https://example.com` (`staging_url` w `docs/konfiguracja.md`), tylko dla joba `qa-staging` w CI: test dymny e2e i Lighthouse; to zewnętrzna strona testowa, nie biblioteka |
+
 ## Uruchomienie
 
 Wymagania: Node z `.nvmrc` (26, LTS, przez fnm) i pnpm z pola `packageManager` w `package.json`.
