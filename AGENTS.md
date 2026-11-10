@@ -38,11 +38,11 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 |---|---|
 | Typ projektu | Inny: biblioteka TypeScript (ESM), bez UI |
 | Framework | Brak; TypeScript strict, vitest, eslint (typescript-eslint) |
-| Instalacja | (do uzupełnienia) |
-| Lint | (do uzupełnienia) |
-| Testy | (do uzupełnienia) |
-| Build | (do uzupełnienia) |
-| Uruchomienie lokalne | (do uzupełnienia) |
+| Instalacja | `pnpm install --frozen-lockfile` (zamierzone, sprawdza `T1`) |
+| Lint | `pnpm lint` (eslint) i `pnpm typecheck` (tsc --noEmit) |
+| Testy | `pnpm test` (vitest); e2e `e2e/` tylko w CI (`qa-staging`) |
+| Build | `pnpm build` (tsc do `dist/`, ESM) |
+| Uruchomienie lokalne | Nie dotyczy: biblioteka; użycie przez import z pakietu |
 
 Zmiana kontraktu wymaga ADR w `docs/04-plan/adr/`.
 
