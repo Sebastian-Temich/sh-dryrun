@@ -7,7 +7,7 @@ postep_zadania: "0/6"
 czeka_na_ciebie: 0
 eskalacje: 0
 nastepny_krok: "Agent przygotowuje etap specyfikacja"
-ostatnia_synchronizacja: 2026-11-10T20:35:40Z
+ostatnia_synchronizacja: 2026-11-10T21:18:48Z
 ---
 
 # sh-dryrun
