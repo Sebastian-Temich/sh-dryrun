@@ -1,5 +1,6 @@
-# Zadania projektu wzorcowego sh-dryrun (test regresji systemu, proces-v1.md „Projekt wzorcowy”).
-# Stan z tym plikiem jest oznaczony tagiem `baseline`; `shctl reset-dryrun` odtwarza z niego issue.
+# Zadania projektu wzorcowego sh-dryrun (test regresji systemu SH v2, proces.md: `sh-dryrun` i `reset-dryrun`).
+# Stan z tym plikiem jest oznaczony tagiem baseline-RRRRMMDD; `shctl reset-dryrun` odtwarza z niego issue.
+# Kategoria, stack i skille to warstwy skilli workera (sh-system/plugin/warstwy-skilli.yaml).
 # Każda funkcja ma własny moduł i plik testów, bez wspólnego pliku eksportów, żeby listy plików były rozłączne.
 zadania:
   - id: T1
@@ -25,6 +26,8 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: ci
+    stack: [node, typescript]
 
   - id: T2
     tytul: "sum(a, b) z testami"
@@ -39,6 +42,8 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: backend
+    stack: [typescript]
 
   - id: T3
     tytul: "slugify(text) z testami"
@@ -54,6 +59,9 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: backend
+    stack: [typescript]
+    skille: [sh-kat-bezpieczenstwo]
 
   - id: T4
     tytul: "formatPLN(kwota) z testami"
@@ -69,6 +77,8 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: backend
+    stack: [typescript]
 
   - id: T5
     tytul: "parseDate(str) z testami"
@@ -84,6 +94,8 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: backend
+    stack: [typescript]
 
   - id: T6
     tytul: "Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)"
@@ -100,3 +112,5 @@ zadania:
     typ: feature
     tryb: M
     milestone: M1
+    kategoria: testy
+    stack: [typescript]
