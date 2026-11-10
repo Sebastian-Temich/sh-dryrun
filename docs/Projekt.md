@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Realizacja, kamień M1"
-postep_etapy: "1/2"
+etap_opis: "Plan"
+postep_etapy: "1/3"
 postep_zadania: "0/6"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start #66"
-ostatnia_synchronizacja: 2026-11-10T21:59:32Z
+nastepny_krok: "Agent przygotowuje etap plan"
+ostatnia_synchronizacja: 2026-11-10T22:00:02Z
 ---
 
 # sh-dryrun
@@ -16,10 +16,10 @@ ostatnia_synchronizacja: 2026-11-10T21:59:32Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Realizacja, kamień M1
-- **Postęp:** Etapy 1/2 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
-- **Co się dzieje:** nic w toku
-- **Następny krok:** Start #66
+- **Etap:** Plan
+- **Postęp:** Etapy 1/3 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
+- **Co się dzieje:** etap plan w przygotowaniu
+- **Następny krok:** Agent przygotowuje etap plan
 - **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
