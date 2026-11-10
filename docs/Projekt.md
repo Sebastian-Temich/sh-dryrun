@@ -6,8 +6,8 @@ postep_etapy: "2/4"
 postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Agent przygotowuje etap rozpisanie zadań"
-ostatnia_synchronizacja: 2026-11-10T22:13:53Z
+nastepny_krok: "Review etapu rozpisanie zadań, potem Twoja akceptacja"
+ostatnia_synchronizacja: 2026-11-10T22:14:31Z
 ---
 
 # sh-dryrun
@@ -18,8 +18,8 @@ ostatnia_synchronizacja: 2026-11-10T22:13:53Z
 
 - **Etap:** Rozpisanie zadań
 - **Postęp:** Etapy 2/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 19)
-- **Co się dzieje:** etap rozpisanie zadań w przygotowaniu
-- **Następny krok:** Agent przygotowuje etap rozpisanie zadań
+- **Co się dzieje:** etap rozpisanie zadań w review
+- **Następny krok:** Review etapu rozpisanie zadań, potem Twoja akceptacja
 
 ## Czeka na Ciebie
 
