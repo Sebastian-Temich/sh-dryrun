@@ -31,10 +31,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (23)
+## Wszystkie zadania zrobione (24)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #80 parseDate(str) z testami | M1 | #88 | 2026-11-10 |
 | #78 formatPLN(kwota) z testami | M1 | #87 | 2026-11-10 |
 | #77 slugify(text) z testami | M1 | #86 | 2026-11-10 |
 | #76 sum(a, b) z testami | M1 | #84 | 2026-11-10 |
