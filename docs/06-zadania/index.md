@@ -41,11 +41,11 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #69 | formatPLN(kwota) z testami | anulowane | 0 | M1 | - | - |
 | #70 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 0 | M1 | - | - |
 | #71 | parseDate(str) z testami | anulowane | 0 | M1 | - | - |
-| #75 | Szkielet: projekt Node + TypeScript + vitest + CI | todo | 0 | M1 | - | - |
-| #76 | sum(a, b) z testami | todo | 0 | M1 | - | - |
-| #77 | slugify(text) z testami | todo | 0 | M1 | - | - |
+| #75 | Szkielet: projekt Node + TypeScript + vitest + CI | done | 1 | M1 | #83 merged | pass |
+| #76 | sum(a, b) z testami | in-progress | 1 | M1 | - | - |
+| #77 | slugify(text) z testami | in-progress | 1 | M1 | - | - |
 | #78 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |
-| #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | todo | 0 | M1 | - | - |
+| #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | in-progress | 0 | M1 | - | - |
 | #80 | parseDate(str) z testami | todo | 0 | M1 | - | - |
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | todo | 0 | M1 | - | - |
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | todo | 0 | M1 | - | - |

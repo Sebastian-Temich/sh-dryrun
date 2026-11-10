@@ -174,3 +174,4 @@ Reset do baseline `2ded36e` o 20:34 UTC. Wiersze zadań dopisuje `shctl task clo
 
 | Zlecenie | Tryb | Czas | Zadania | Iteracje | Eskalacje | Uwagi |
 |---|---|---|---|---|---|---|
+| #75 Szkielet: projekt Node + TypeScript + vitest + CI | M | 8min | 1 | 1 | 0 | PR #83 |
