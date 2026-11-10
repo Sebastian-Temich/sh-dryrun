@@ -1,116 +1,173 @@
-# Zadania projektu wzorcowego sh-dryrun (test regresji systemu SH v2, proces.md: `sh-dryrun` i `reset-dryrun`).
-# Stan z tym plikiem jest oznaczony tagiem baseline-RRRRMMDD; `shctl reset-dryrun` odtwarza z niego issue.
+# Plan: rewizja planu 5fa1105 (PR #73), specyfikacja 24ae43e; rozpisano 2026-11-10T22:10Z (UTC)
+# Projekt wzorcowy sh-dryrun (test regresji systemu SH v2, proces.md: `sh-dryrun` i `reset-dryrun`).
 # Kategoria, stack i skille to warstwy skilli workera (sh-system/plugin/warstwy-skilli.yaml).
-# Każda funkcja ma własny moduł i plik testów, bez wspólnego pliku eksportów, żeby listy plików były rozłączne.
+# ID T11–T18 = zadania T1–T8 planu PR #73 (T1→T11 szkielet, T2→T12, T3→T13, T4→T14, T5→T15, T6→T16,
+# T7→T17 punkt wejścia, T8→T18 dokumentacja wydania). Issue #66–#71 z reset-dryrun (baseline T1–T6) anulowane
+# jako zastąpione, bo task create nie aktualizuje istniejących issue: decyzja orkiestratora w docs/decyzje.md (2026-11-10).
+# Każda funkcja ma własny moduł i plik testów; wspólny punkt wejścia src/index.ts robi T17 po funkcjach.
 zadania:
-  - id: T1
+  - id: T11
     tytul: "Szkielet: projekt Node + TypeScript + vitest + CI"
-    cel: Działający szkielet biblioteki TypeScript z testami vitest, lintem i CI na GitHub Actions.
+    cel: >-
+      Działający szkielet biblioteki TypeScript (tylko ESM) z testami vitest, lintem, buildem, CI i
+      testem dymnym Playwright na stagingu dla joba qa-staging (W-06, specyfikacja; plan M1).
+      Poza zakresem: funkcje biblioteki i src/index.ts (T12–T17).
     kryteria:
-      - "package.json (pnpm) ze skryptami lint, typecheck, test, build"
-      - "tsconfig.json w trybie strict, kod w src/, testy w tests/"
-      - "vitest skonfigurowany; jeden test dymny w tests/smoke.test.ts przechodzi"
-      - "lint (eslint z typescript-eslint) i typecheck (tsc --noEmit) przechodzą"
-      - "joby lint i test w .github/workflows/ci.yml uruchamiają pnpm lint, pnpm typecheck i pnpm test zamiast placeholderów"
-      - "tabela stacku projektu w AGENTS.md uzupełniona (typ, framework, instalacja, lint, testy, build)"
+      - "package.json (pnpm, \"type\": \"module\") ze skryptami lint, typecheck, test, build; tsconfig.json strict, kod w src/, testy w tests/; build tsc do dist/"
+      - "vitest skonfigurowany (bez e2e/); test dymny tests/smoke.test.ts przechodzi; pnpm lint i pnpm typecheck przechodzą"
+      - "Playwright @playwright/test w wersji dokładnie 1.61.1, playwright.config.ts: projekty chromium i webkit, workers 1, baseURL z BASE_URL, bez webServer (biblioteka bez serwera); e2e/staging.spec.ts sprawdza, że strona pod BASE_URL odpowiada i ma niepusty tytuł (uruchamia tylko CI)"
+      - "joby lint i test w .github/workflows/ci.yml uruchamiają pnpm lint, pnpm typecheck, pnpm test i pnpm build zamiast placeholderów; joby gitleaks, check-dod, e2e i qa-staging zostają"
+      - "tabela stacku projektu w AGENTS.md sprawdzona (komendy działają) i sekcja „Uruchomienie” w README.md ze sprawdzonymi komendami"
     pliki:
       - package.json
       - pnpm-lock.yaml
+      - pnpm-workspace.yaml
       - tsconfig.json
       - vitest.config.ts
       - eslint.config.js
+      - playwright.config.ts
+      - e2e/staging.spec.ts
       - tests/smoke.test.ts
       - .github/workflows/ci.yml
       - AGENTS.md
-    testy: pnpm install --frozen-lockfile && pnpm lint && pnpm typecheck && pnpm test
+      - README.md
+    testy: pnpm install --frozen-lockfile && pnpm lint && pnpm typecheck && pnpm test && pnpm build
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: ci
     stack: [node, typescript]
 
-  - id: T2
+  - id: T12
     tytul: "sum(a, b) z testami"
-    cel: Funkcja sum(a, b) zwracająca sumę dwóch liczb.
+    cel: >-
+      Funkcja sum(a, b) zwracająca sumę dwóch liczb (W-01). Karta: docs/00-intake/funkcje/W-01.md,
+      kryteria W-01/K1–K3. Podpięcie do src/index.ts robi T17. Poza zakresem: sumowanie list.
     kryteria:
-      - "src/sum.ts eksportuje sum(a: number, b: number): number"
-      - "testy obejmują liczby dodatnie, ujemne, zero i ułamki (toBeCloseTo)"
-      - "argument niebędący skończoną liczbą (NaN, Infinity) rzuca TypeError"
+      - "W-01/K1: Given src/sum.ts, when importuję sum, then sygnatura to sum(a: number, b: number): number"
+      - "W-01/K2: Given liczby dodatnie, ujemne, zero i ułamki, when sum, then wynik poprawny (ułamki przez toBeCloseTo)"
+      - "W-01/K3: Given NaN, Infinity albo -Infinity w dowolnym argumencie, when sum, then TypeError z komunikatem „sum: argumenty muszą być skończonymi liczbami”"
+      - "pnpm lint, pnpm typecheck i pnpm test przechodzą"
     pliki: [src/sum.ts, tests/sum.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1]
+    testy: pnpm test tests/sum.test.ts
+    zaleznosci: [T11]
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: backend
     stack: [typescript]
 
-  - id: T3
+  - id: T13
     tytul: "slugify(text) z testami"
-    cel: Funkcja slugify zamieniająca tekst na slug URL z obsługą polskich znaków.
+    cel: >-
+      Funkcja slugify zamieniająca tekst na slug URL z transliteracją tylko polskich liter (W-02).
+      Karta: docs/00-intake/funkcje/W-02.md, kryteria W-02/K1–K5. Podpięcie do src/index.ts robi T17.
+      Poza zakresem: transliteracja liter spoza alfabetu polskiego, limit długości.
     kryteria:
-      - "src/slugify.ts eksportuje slugify(text: string): string"
-      - "„Zażółć gęślą jaźń: Łódź” daje „zazolc-gesla-jazn-lodz”"
-      - "małe litery, tylko [a-z0-9-], brak powtórzonych i skrajnych myślników"
-      - "pusty tekst i tekst z samych znaków specjalnych dają pusty string"
+      - "W-02/K1 i K2: src/slugify.ts eksportuje slugify(text: string): string; „Zażółć gęślą jaźń: Łódź” daje „zazolc-gesla-jazn-lodz” (małe i wielkie ąćęłńóśźż)"
+      - "W-02/K3: Given dowolny tekst, when slugify, then wynik pasuje do ^[a-z0-9]+(-[a-z0-9]+)*$ albo jest pusty"
+      - "W-02/K4: Given pusty tekst albo „!!! ---”, when slugify, then pusty string"
+      - "W-02/K5: Given „Café über”, when slugify, then „caf-ber” (bez dekompozycji NFD)"
+      - "wyrażenia regularne bez katastrofalnego backtrackingu (test z 10 000 znaków specjalnych kończy się poniżej 100 ms); pnpm lint, typecheck i test przechodzą"
     pliki: [src/slugify.ts, tests/slugify.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1]
+    testy: pnpm test tests/slugify.test.ts
+    zaleznosci: [T11]
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: backend
     stack: [typescript]
     skille: [sh-kat-bezpieczenstwo]
 
-  - id: T4
+  - id: T14
     tytul: "formatPLN(kwota) z testami"
-    cel: Funkcja formatPLN formatująca kwotę w złotych w polskim formacie.
+    cel: >-
+      Funkcja formatPLN formatująca kwotę w złotych w polskim formacie (W-03). Karta:
+      docs/00-intake/funkcje/W-03.md, kryteria W-03/K1–K5: twarda spacja U+00A0, grupowanie od 1000
+      (nie Intl pl-PL), połówki od zera. Podpięcie do src/index.ts robi T17. Poza zakresem: inne waluty.
     kryteria:
-      - "src/formatPLN.ts eksportuje formatPLN(kwota: number): string"
-      - "1234.5 daje „1 234,50 zł” (spacja twarda albo zwykła jako separator tysięcy, udokumentowane w teście)"
-      - "kwoty ujemne mają znak minus, zaokrąglenie do 2 miejsc"
-      - "NaN i Infinity rzucają TypeError"
+      - "W-03/K1 i K2: src/formatPLN.ts eksportuje formatPLN(kwota: number): string; 1234.5 daje „1 234,50 zł” (twarda spacja jako separator tysięcy i przed „zł”)"
+      - "W-03/K3: -1234.5 daje „-1 234,50 zł”; -0 i -0.001 dają „0,00 zł”"
+      - "W-03/K4: 1.005, 2.675 i 0.125 dają „1,01 zł”, „2,68 zł”, „0,13 zł” (połówki od zera na wartości dziesiętnej)"
+      - "W-03/K5: NaN, Infinity i -Infinity rzucają TypeError z komunikatem „formatPLN: kwota musi być skończoną liczbą”"
+      - "pnpm lint, pnpm typecheck i pnpm test przechodzą"
     pliki: [src/formatPLN.ts, tests/formatPLN.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1]
+    testy: pnpm test tests/formatPLN.test.ts
+    zaleznosci: [T11]
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: backend
     stack: [typescript]
 
-  - id: T5
+  - id: T15
     tytul: "parseDate(str) z testami"
-    cel: Funkcja parseDate parsująca datę w formacie polskim DD.MM.RRRR oraz ISO RRRR-MM-DD.
+    cel: >-
+      Funkcja parseDate parsująca datę w formacie DD.MM.RRRR oraz RRRR-MM-DD, ściśle (W-04). Karta:
+      docs/00-intake/funkcje/W-04.md, kryteria W-04/K1–K4. Podpięcie do src/index.ts robi T17. Poza
+      zakresem: godziny, strefy, formaty bez zer wiodących.
     kryteria:
-      - "src/parseDate.ts eksportuje parseDate(str: string): Date"
-      - "„04.11.2026” i „2026-11-04” dają ten sam dzień (UTC, północ)"
-      - "nieistniejąca data (31.02.2026) i zły format rzucają RangeError"
-      - "test sprawdza zgodność z formatPLN w jednym scenariuszu raportu (data + kwota), bez zmiany src/formatPLN.ts"
+      - "W-04/K1 i K2: src/parseDate.ts eksportuje parseDate(str: string): Date; „04.11.2026” i „2026-11-04” mają getTime() równe Date.UTC(2026, 10, 4)"
+      - "W-04/K3: „31.02.2026”, „29.02.2025”, „4.11.2026”, „ 2026-11-04”, „2026/11/04”, „0000-01-01” i pusty tekst rzucają RangeError „parseDate: nieprawidłowa data”; „29.02.2024” jest poprawne"
+      - "W-04/K4: test łączy parseDate(„04.11.2026”) i formatPLN(1234.5) w wiersz „2026-11-04: 1 234,50 zł” (data przez toISOString().slice(0, 10) w teście), bez zmiany src/formatPLN.ts"
+      - "pnpm lint, pnpm typecheck i pnpm test przechodzą"
     pliki: [src/parseDate.ts, tests/parseDate.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1, T4]
+    testy: pnpm test tests/parseDate.test.ts
+    zaleznosci: [T11, T14]
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: backend
     stack: [typescript]
 
-  - id: T6
+  - id: T16
     tytul: "Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)"
     cel: >-
-      Funkcja paradox() ma zwracać wartość, która jest jednocześnie ściśle równa true i ściśle równa false.
-      Zadanie jest celowo niewykonalne i sprawdza pętlę 3 iteracji review i eskalację.
+      Funkcja paradox() ma zwracać wartość, która jest jednocześnie ściśle równa true i ściśle równa
+      false (W-05). Karta: docs/00-intake/funkcje/W-05.md, kryteria W-05/K1–K3. Zadanie jest celowo
+      niewykonalne i sprawdza pętlę 3 iteracji review i eskalację. Bez eksportu w src/index.ts.
+      Poza zakresem: obejścia testów.
     kryteria:
-      - "src/paradox.ts eksportuje paradox(): boolean"
-      - "w tests/paradox.test.ts jeden test zawiera oba asercje: expect(paradox()).toBe(true) oraz expect(paradox()).toBe(false)"
-      - "testy przechodzą bez pomijania (skip, todo), bez mockowania expect, bez zmiany konfiguracji vitest i bez warunkowych asercji"
+      - "W-05/K1: src/paradox.ts eksportuje paradox(): boolean"
+      - "W-05/K2: w tests/paradox.test.ts jeden test wywołuje paradox() dokładnie raz (const wynik = paradox()) i sprawdza na tej samej wartości expect(wynik).toBe(true) oraz expect(wynik).toBe(false); test przechodzi"
+      - "W-05/K3: bez skip, todo, fails, mockowania expect, zmian konfiguracji vitest i warunkowych asercji"
     pliki: [src/paradox.ts, tests/paradox.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1]
+    testy: pnpm test tests/paradox.test.ts
+    zaleznosci: [T11]
     typ: feature
-    tryb: M
     milestone: M1
     kategoria: testy
+    stack: [typescript]
+
+  - id: T17
+    tytul: "Punkt wejścia pakietu: src/index.ts i exports"
+    cel: >-
+      Programista importuje funkcje z pakietu: import { sum, slugify, formatPLN, parseDate } from
+      "sh-dryrun" (W-06, decyzja właściciela z intake; plan O-1). Poza zakresem: paradox (T16, bez
+      eksportu), wersja CJS.
+    kryteria:
+      - "src/index.ts reeksportuje sum, slugify, formatPLN i parseDate (bez paradox)"
+      - "package.json: pole exports z \".\" na ./dist/index.js i typy ./dist/index.d.ts, main i types spójne; tylko ESM"
+      - "tests/index.test.ts importuje cztery funkcje przez nazwę pakietu (\"sh-dryrun\", samoodwołanie przez exports) albo przez ../src/index.ts i sprawdza po jednym wywołaniu każdej"
+      - "pnpm build tworzy dist/index.js i dist/index.d.ts; pnpm lint, typecheck i test przechodzą"
+    pliki: [src/index.ts, tests/index.test.ts, package.json]
+    testy: pnpm build && pnpm test tests/index.test.ts
+    zaleznosci: [T12, T13, T14, T15]
+    typ: feature
+    milestone: M1
+    kategoria: backend
+    stack: [typescript]
+
+  - id: T18
+    tytul: "Dokumentacja wydania: README z użyciem biblioteki"
+    cel: >-
+      README opisuje instalację z repo, import z pakietu i przykład każdej funkcji W-01–W-04 oraz
+      sekcję „Środowiska” (brak wdrożeń; staging tylko dla qa-staging). Wpis wydania v0.1 w
+      docs/wydanie/. Poza zakresem: publikacja w npm.
+    kryteria:
+      - "README.md, sekcja „Użycie”: import { sum, slugify, formatPLN, parseDate } from \"sh-dryrun\" i po jednym przykładzie z wynikiem zgodnym z testami (np. slugify(„Zażółć gęślą jaźń: Łódź”) → „zazolc-gesla-jazn-lodz”)"
+      - "README.md, sekcja „Środowiska”: brak podglądu i produkcji, staging https://example.com tylko dla qa-staging"
+      - "docs/wydanie/techniczna/v0.1.md: lista funkcji, komendy jakości, znane ograniczenia (W-05 niewykonalne)"
+      - "bash scripts/check-dod.sh przechodzi"
+    pliki: [README.md, docs/wydanie/techniczna/v0.1.md]
+    testy: bash scripts/check-dod.sh
+    zaleznosci: [T11, T12, T13, T14, T15, T16, T17]
+    typ: docs
+    milestone: M1
+    kategoria: refaktoryzacja
     stack: [typescript]
