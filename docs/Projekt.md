@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Specyfikacja"
-postep_etapy: "0/2"
+etap_opis: "Realizacja, kamień M1"
+postep_etapy: "1/2"
 postep_zadania: "0/6"
-czeka_na_ciebie: 1
+czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Twoja odpowiedź: Akceptacja: Specyfikacja (PR #72, review PASS)"
-ostatnia_synchronizacja: 2026-11-10T21:20:39Z
+nastepny_krok: "Start #66"
+ostatnia_synchronizacja: 2026-11-10T21:59:32Z
 ---
 
 # sh-dryrun
@@ -16,16 +16,15 @@ ostatnia_synchronizacja: 2026-11-10T21:20:39Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Specyfikacja
-- **Postęp:** Etapy 0/2 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
-- **Co się dzieje:** etap specyfikacja w review
-- **Następny krok:** Twoja odpowiedź: Akceptacja: Specyfikacja (PR #72, review PASS)
+- **Etap:** Realizacja, kamień M1
+- **Postęp:** Etapy 1/2 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
+- **Co się dzieje:** nic w toku
+- **Następny krok:** Start #66
 - **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
-1. Akceptacja: Specyfikacja (PR #72, review PASS) (czeka 0 min)  
-   Wpisz orkiestratorowi: `akceptuję specyfikacja PR #72`
+Nic. Agenci pracują sami.
 
 ## Zadania
 
@@ -57,6 +56,8 @@ Otwartych brak.
 
 ## Dokumenty
 
+- [Specyfikacja](00-intake/specyfikacja.md)
 - [Lista startowa](00-intake/lista-startowa.md)
 - [Decyzje](decyzje.md)
+- Karty funkcji: [W-01](00-intake/funkcje/W-01.md), [W-02](00-intake/funkcje/W-02.md), [W-03](00-intake/funkcje/W-03.md), [W-04](00-intake/funkcje/W-04.md), [W-05](00-intake/funkcje/W-05.md)
 - [Historia](historia.md): punkt przekazania, dziennik etapów, wszystkie zadania
