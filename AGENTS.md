@@ -25,7 +25,7 @@ Stałe dla wszystkich projektów:
 | Obszar | Kontrakt |
 |---|---|
 | Node | LTS przez fnm |
-| Pakiety JS | Wyłącznie pnpm |
+| Pakiety JS | Wyłącznie pnpm; skrypty budowania zależności tylko z `allowBuilds` w `pnpm-workspace.yaml` |
 | Python | uv |
 | Baza lokalnie | Supabase CLI, blok portów z `/Users/Shared/sh/porty.md` |
 | Docker | Tylko dla usług (Supabase) |
@@ -68,7 +68,8 @@ liście eskalacji.
 
 Worker NIE edytuje tych plików. Aktualizuje je wyłącznie orkiestrator, na `main`, po merge'u:
 
-- `docs/status.md`
+- `docs/Projekt.md` (generuje `scripts/sync-status.sh`)
+- `docs/historia.md` (punkt przekazania, dziennik etapów, lista zadań z `scripts/sync-status.sh`)
 - `docs/decyzje.md`
 - `docs/metryki.md`
 - `docs/backlog-drobne.md`
@@ -83,7 +84,7 @@ Worker działa w trybie `dontAsk` z `.claude/roles/worker/settings.json`: polece
 dozwolonych dostaje odmowę bez pytania. Jedno wywołanie Bash to jedna prosta komenda: bez `&&`, `;`,
 pętli, `$(...)`, heredoców, `cd` i przekierowań do pliku (szczegóły i przykłady: skill `sh-worker`).
 
-- Dozwolone: `git`, `gh`, `pnpm`, `npm`, `npx`, `node`, `uv`, lokalne `supabase` (init, start, stop,
+- Dozwolone: `git`, `gh`, `pnpm`, `npm`, `npx`, `node`, `uv`, `fnm list|current|exec`, lokalne `supabase` (init, start, stop,
   status, migration, db reset/diff, gen types, test db), `gitleaks`, `bats`, `shellcheck`,
   `bash scripts/check-dod.sh`, `shctl escalate`; `rm`, `mv`, `cp`, `mkdir`, `touch` w worktree;
   pomocnicze `cat`, `head`, `tail`, `grep`, `wc`, `sort`, `uniq`, `cut`, `diff`, `echo`, `which`.
@@ -108,10 +109,19 @@ pętli, `$(...)`, heredoców, `cd` i przekierowań do pliku (szczegóły i przyk
 - Do czytania plików używaj narzędzi Read, Grep i Glob, do zmian Edit i Write, nie `sed`, `cat >`
   ani skryptów `python3 -`/`node -e`.
 
+## Profil reviewera
+
+`shctl review run` uruchamia reviewera Claude w świeżej sesji (`claude -p`) z
+`.claude/roles/reviewer/settings.json` wziętym z `main`, nie z gałęzi PR. Profil jest tylko do odczytu:
+bez Edit i Write, Bash tylko `git diff|log|show|status|ls-files|grep|merge-base|rev-parse`, `ls`,
+`wc`, sandbox bez sieci, te same hooki odczytu i `.env*` co u workera. Zmiana profilu to zmiana
+uprawnień: tylko przez PR szablonu z akceptacją właściciela.
+
 ## Raport zadania
 
 Każde zadanie kończy się raportem `docs/07-realizacja/T-NR.md`, szablon:
-`docs/_szablony/raport-zadania.md`. Bez raportu zadanie nie jest gotowe. Sekcje obowiązkowe:
+`docs/_szablony/raport-zadania.md`. Bez raportu zadanie nie jest gotowe. Linię `PR:` wpisuje
+`shctl task close` po merge'u, więc numer PR nie wymaga drugiego commita. Sekcje obowiązkowe:
 
 - **Decyzje** (orkiestrator przenosi do `decyzje.md`),
 - **Drobne uwagi** (orkiestrator przenosi do `backlog-drobne.md`),
@@ -158,6 +168,10 @@ Eskalujesz tylko gdy:
 - decyzja jest nieodwracalna,
 - wymagania są sprzeczne,
 - jest ryzyko bezpieczeństwa lub prawne.
+
+Niejasności UX (stan ekranu, komunikat, przebieg) i reguły biznesowej worker nie zgaduje i nie
+rozstrzyga sam: `shctl escalate --typ pytanie` i dalej części niezależne. Pytanie nie jest iteracją ani
+porażką i nie zwalnia slotu. Szczegóły funkcji są w karcie `docs/00-intake/funkcje/W-NN.md`.
 
 Eskalacja to `shctl escalate`, który zakłada `docs/07-realizacja/escalations/E-NNN.md` i wysyła
 powiadomienie. Eskalacja nie zatrzymuje zadań niezależnych.
