@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1"
 postep_etapy: "3/4"
-postep_zadania: "1/8"
-czeka_na_ciebie: 0
-eskalacje: 0
-nastepny_krok: "Dokończenie #76, #77, #79, potem #78"
-ostatnia_synchronizacja: 2026-11-10T22:27:14Z
+postep_zadania: "2/8"
+czeka_na_ciebie: 1
+eskalacje: 1
+nastepny_krok: "Twoja odpowiedź: E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony."
+ostatnia_synchronizacja: 2026-11-10T22:31:41Z
 ---
 
 # sh-dryrun
@@ -17,14 +17,16 @@ ostatnia_synchronizacja: 2026-11-10T22:27:14Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1
-- **Postęp:** Etapy 3/4 · Zadania 1/8 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** #76 sum(a, b) z testami (worker, od 0 min); #77 slugify(text) z testami (worker, od 0 min); #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) (worker, od 0 min)
-- **Następny krok:** Dokończenie #76, #77, #79, potem #78
-- **Szacowany czas:** ok. 18 min pracy agentów (7 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 2/8 w bieżącym przebiegu (łącznie 27)
+- **Co się dzieje:** #77 slugify(text) z testami (worker, od 4 min); #78 formatPLN(kwota) z testami (worker, od 0 min); #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) (eskalacja, od 4 min)
+- **Następny krok:** Twoja odpowiedź: E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony.
+- **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
-Nic. Agenci pracują sami.
+1. E-001 (#79): W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony. (czeka 3 min)  
+   Wpisz orkiestratorowi: `E-001: Zamknąć`  
+   Zamknąć #79 jako niewykonalne (proponowane, zgodnie z Z5 karty W-05); Zmienić kryterium K2 na wykonalne
 
 ## Zadania
 
@@ -32,28 +34,23 @@ Nic. Agenci pracują sami.
 
 | Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
 |---|---|---|---|---|---|---|
-| #76 sum(a, b) z testami | M1 | worker | 1 | - | - | 0 min |
-| #77 slugify(text) z testami | M1 | worker | 1 | - | - | 0 min |
-| #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | M1 | worker | 0 | - | - | 0 min |
-
-### Gotowe do startu (1)
-
-| Zadanie | Kamień | Zależności |
-|---|---|---|
-| #78 formatPLN(kwota) z testami | M1 | #75 ✓ |
+| #77 slugify(text) z testami | M1 | worker | 1 | #86 | pass | 4 min |
+| #78 formatPLN(kwota) z testami | M1 | worker | 0 | - | - | 0 min |
+| #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | M1 | eskalacja | 1 | #85 | fail | 4 min |
 
 ### Zaplanowane (3)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
 | #80 parseDate(str) z testami | M1 | #78 |
-| #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #76, #77, #78, #80 |
-| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #76, #77, #78, #80, #79, #81 |
+| #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #77, #78, #80 |
+| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #77, #78, #80, #79, #81 |
 
-### Zrobione w bieżącym przebiegu (1)
+### Zrobione w bieżącym przebiegu (2)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #76 sum(a, b) z testami | M1 | #84 |
 | #75 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #83 |
 
 Wcześniejsze przebiegi (19 zadań): [Historia](historia.md).
@@ -69,7 +66,9 @@ Wcześniejsze przebiegi (19 zadań): [Historia](historia.md).
 
 ## Eskalacje i pytania
 
-Otwartych brak.
+| Nr | Rodzaj | Dotyczy | Powód |
+|---|---|---|---|
+| E-001 | eskalacja | #79 | W-05: kryteria K2 i K3 są sprzeczne. Żadna wartość boolean nie jest jednocześnie toBe(true) i toBe(false) (Object.is), a K3 zabrania obejść. K1 zrobione, test K2 napisany dokładnie wg karty i jest czerwony. |
 
 ## Dokumenty
 

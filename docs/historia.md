@@ -31,10 +31,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (20)
+## Wszystkie zadania zrobione (21)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #76 sum(a, b) z testami | M1 | #84 | 2026-11-10 |
 | #75 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #83 | 2026-11-10 |
 | #53 capitalize(text) z testami i przykładem w README | - | #54 | 2026-11-05 |
 | #51 QA M1: punkt wejścia pakietu nie eksportuje funkcji biblioteki | M1 | #52 | 2026-11-04 |
