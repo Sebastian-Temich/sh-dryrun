@@ -35,7 +35,7 @@ hosting:
   baza: brak
   region: eu
   konta: klient
-  zaakceptowany: false
+  zaakceptowany: true
 data: "2026-11-04"
 blok_portow: 55221-55229
 ---

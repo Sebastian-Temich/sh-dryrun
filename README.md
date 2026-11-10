@@ -1,6 +1,18 @@
-# sh-template-projekt
+# sh-dryrun
 
-Szablon repozytorium projektu AI Software House. Proces opisuje `sh-system/docs/proces-v1.md`.
+Projekt wzorcowy procesu AI Software House. Szablon repo i proces: `sh-system/docs/proces.md`.
+
+## Cel
+
+Mała biblioteka funkcji pomocniczych w TypeScript dla programistów: suma liczb, slug z polskiego
+tekstu, kwota w złotych i data z tekstu. Służy też do pomiaru przebiegu procesu (`docs/metryki.md`).
+Szczegóły: `docs/00-intake/specyfikacja.md`.
+
+## Zakres
+
+- Funkcje sum, slugify, formatPLN i parseDate z testami; paradox jako zadanie celowo niewykonalne.
+- Pakiet tylko ESM ze wspólnym punktem wejścia.
+- Poza zakresem: publikacja w npm, wersja CommonJS, strona WWW.
 
 ## Jak powstaje projekt
 
