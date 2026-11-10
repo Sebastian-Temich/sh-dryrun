@@ -14,6 +14,22 @@ Szczegóły: `docs/00-intake/specyfikacja.md`.
 - Pakiet tylko ESM ze wspólnym punktem wejścia.
 - Poza zakresem: publikacja w npm, wersja CommonJS, strona WWW.
 
+## Uruchomienie
+
+Wymagania: Node z `.nvmrc` (26, LTS, przez fnm) i pnpm z pola `packageManager` w `package.json`.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm lint        # eslint (typescript-eslint)
+pnpm typecheck   # tsc --noEmit
+pnpm test        # vitest, testy z tests/
+pnpm build       # tsc z src/ do dist/ (ESM)
+```
+
+Kod biblioteki leży w `src/`, testy jednostkowe w `tests/`. Test dymny stagingu `e2e/staging.spec.ts`
+(Playwright, chromium i webkit) uruchamia tylko CI w jobie `qa-staging` z `BASE_URL` równym
+`staging_url` z `docs/konfiguracja.md`; lokalnie przeglądarki nie startują w sandboxie.
+
 ## Jak powstaje projekt
 
 Projekt zakłada orkiestrator lub właściciel jedną komendą:
