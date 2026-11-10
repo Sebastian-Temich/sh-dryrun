@@ -74,7 +74,7 @@ bash_regula() {
 }
 
 @test "pliki wspolne i konfiguracja produkcji zablokowane" {
-  for f in docs/status.md docs/decyzje.md docs/06-zadania/index.md CHANGELOG.md \
+  for f in docs/Projekt.md docs/historia.md docs/decyzje.md docs/06-zadania/index.md CHANGELOG.md \
     .github/workflows/deploy-prod.yml scripts/deploy-prod.sh .claude/roles/worker/settings.json; do
     [ "$(edycja "$f")" = deny ] || { echo "dozwolone: $f"; false; }
   done
@@ -142,6 +142,14 @@ bash_regula() {
   [ "$(bash_regula "supabase initx")" = brak ]
   [ "$(bash_regula "python3 a.py")" = brak ]
   [ "$(bash_regula "curl https://example.com")" = brak ]
+}
+
+@test "fnm: list, current i exec dozwolone, install i use nie (wersje Node zmienia dispatch)" {
+  for c in "fnm list" "fnm list --help" "fnm current" "fnm exec --using=22 pnpm build" "fnm exec --using=.nvmrc node -v"; do
+    [ "$(bash_regula "$c")" = allow ] || { echo "nie dozwolone: $c"; false; }
+  done
+  [ "$(bash_regula "fnm install 22")" = brak ]
+  [ "$(bash_regula "fnm use 22")" = brak ]
 }
 
 @test "odczyt: bez ogolnego Read, Glob i Grep; zakres pilnuje hook odczyt-hook.sh" {
