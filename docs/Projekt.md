@@ -6,8 +6,8 @@ postep_etapy: "0/2"
 postep_zadania: "0/6"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Agent przygotowuje etap specyfikacja"
-ostatnia_synchronizacja: 2026-11-10T21:18:48Z
+nastepny_krok: "Review etapu specyfikacja, potem Twoja akceptacja"
+ostatnia_synchronizacja: 2026-11-10T21:19:17Z
 ---
 
 # sh-dryrun
@@ -18,8 +18,8 @@ ostatnia_synchronizacja: 2026-11-10T21:18:48Z
 
 - **Etap:** Specyfikacja
 - **Postęp:** Etapy 0/2 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
-- **Co się dzieje:** etap specyfikacja w przygotowaniu
-- **Następny krok:** Agent przygotowuje etap specyfikacja
+- **Co się dzieje:** etap specyfikacja w review
+- **Następny krok:** Review etapu specyfikacja, potem Twoja akceptacja
 - **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
