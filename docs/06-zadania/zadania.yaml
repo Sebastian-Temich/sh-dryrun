@@ -1,8 +1,9 @@
 # Plan: rewizja planu 5fa1105 (PR #73), specyfikacja 24ae43e; rozpisano 2026-11-10T22:10Z (UTC)
 # Projekt wzorcowy sh-dryrun (test regresji systemu SH v2, proces.md: `sh-dryrun` i `reset-dryrun`).
 # Kategoria, stack i skille to warstwy skilli workera (sh-system/plugin/warstwy-skilli.yaml).
-# ID T11–T18: issue #66–#71 z reset-dryrun (baseline T1–T6) zastąpione, bo task create nie aktualizuje
-# istniejących issue (decyzja orkiestratora 2026-11-10).
+# ID T11–T18 = zadania T1–T8 planu PR #73 (T1→T11 szkielet, T2→T12, T3→T13, T4→T14, T5→T15, T6→T16,
+# T7→T17 punkt wejścia, T8→T18 dokumentacja wydania). Issue #66–#71 z reset-dryrun (baseline T1–T6) anulowane
+# jako zastąpione, bo task create nie aktualizuje istniejących issue: decyzja orkiestratora w docs/decyzje.md (2026-11-10).
 # Każda funkcja ma własny moduł i plik testów; wspólny punkt wejścia src/index.ts robi T17 po funkcjach.
 zadania:
   - id: T11

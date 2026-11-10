@@ -9,7 +9,7 @@ akceptacja_wlasciciela: false
 
 ## Dokumentacja
 
-- [ ] `zadania.yaml` jest kompletny, a `index.md` zsynchronizowany z issue
+- [ ] `zadania.yaml` jest kompletny, a `index.md` zsynchronizowany z issue (spełnia orkiestrator po merge'u: `shctl task create` zakłada T11–T18 i dopisuje mapę; stare T1–T6 → #66–#71 anulowane 2026-11-10, `task ready` ich nie bierze)
 
 ## Funkcjonalność
 
