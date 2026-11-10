@@ -27,6 +27,7 @@ zadań `scripts/sync-status.sh`.
 - 2026-11-10 `06-zadania`: review
 - 2026-11-10 `06-zadania`: iteracja 2 (FAIL review PR #74)
 - 2026-11-10 `06-zadania`: done
+- 2026-11-11 `08-qa`: in-progress
 
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
