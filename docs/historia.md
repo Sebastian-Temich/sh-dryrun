@@ -5,7 +5,14 @@ zadań `scripts/sync-status.sh`.
 
 ## Punkt przekazania
 
-(brak)
+2026-11-10T22:17Z, przed pierwszym dispatchem (przebieg dryrun 5):
+
+- Etapy 00-intake, 04-plan, 06-zadania: done (PR #72, #73, #74). Kamień bieżący: M1.
+- Zadania: #75–#82 (T11–T18) `status:todo`; #66–#71 anulowane jako zastąpione. Brak PR w toku.
+- Eskalacje: brak. Wstrzymania: brak. Lista startowa kompletna (staging example.com).
+- `shctl doctor` 2026-11-10T22:16Z: 0 błędów; uwagi: dysk 17 GB (min. 15), Obsidian sh-dryrun różni się od origin.
+- Autoryzacja: „Autoryzacja planu PR #73” (decyzje.md, 2026-11-10, wlasciciel).
+- Następny krok: dispatch #75 (szkielet), sam do zamknięcia.
 
 ## Dziennik etapów
 
