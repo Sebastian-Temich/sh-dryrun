@@ -176,9 +176,11 @@ Reset do baseline `2ded36e` o 20:34 UTC. Wiersze zadań dopisuje `shctl task clo
 |---|---|---|---|---|---|---|
 | #75 Szkielet: projekt Node + TypeScript + vitest + CI | M | 8min | 1 | 1 | 0 | PR #83 |
 | #76 sum(a, b) z testami | M | 4min | 1 | 1 | 0 | PR #84 |
+| #77 slugify(text) z testami | M | 6min | 1 | 1 | 0 | PR #86 |
 
 ## Przyczyny uwag
 
 | Źródło | Wymaganie | Kod | Test | Design | Bez przyczyny |
 |---|---|---|---|---|---|
 | review PR #84 (#76 sum(a, b) z testami) | 0 | 0 | 1 | 0 | 0 |
+| review PR #86 (#77 slugify(text) z testami) | 1 | 0 | 1 | 0 | 0 |

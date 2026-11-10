@@ -43,8 +43,8 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #71 | parseDate(str) z testami | anulowane | 0 | M1 | - | - |
 | #75 | Szkielet: projekt Node + TypeScript + vitest + CI | done | 1 | M1 | #83 merged | pass |
 | #76 | sum(a, b) z testami | done | 1 | M1 | #84 merged | pass |
-| #77 | slugify(text) z testami | in-progress | 1 | M1 | #86 open | pass |
-| #78 | formatPLN(kwota) z testami | in-progress | 0 | M1 | - | - |
+| #77 | slugify(text) z testami | done | 1 | M1 | #86 merged | pass |
+| #78 | formatPLN(kwota) z testami | in-progress | 1 | M1 | - | - |
 | #79 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | escalated | 1 | M1 | #85 open | fail |
 | #80 | parseDate(str) z testami | todo | 0 | M1 | - | - |
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | todo | 0 | M1 | - | - |
