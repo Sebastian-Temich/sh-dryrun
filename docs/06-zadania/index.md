@@ -35,12 +35,12 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #53 | capitalize(text) z testami i przykładem w README | done | 1 | - | #54 merged | pass |
 | #60 | test F6: slug (review zwykle) | anulowane | 1 | - | #62 closed | fail |
 | #61 | test F6: notatki z RLS (review ryzyko) | anulowane | 1 | - | #64 closed | pass |
-| #66 | Szkielet: projekt Node + TypeScript + vitest + CI | todo | 0 | M1 | - | - |
-| #67 | sum(a, b) z testami | todo | 0 | M1 | - | - |
-| #68 | slugify(text) z testami | todo | 0 | M1 | - | - |
-| #69 | formatPLN(kwota) z testami | todo | 0 | M1 | - | - |
-| #70 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | todo | 0 | M1 | - | - |
-| #71 | parseDate(str) z testami | todo | 0 | M1 | - | - |
+| #66 | Szkielet: projekt Node + TypeScript + vitest + CI | anulowane | 0 | M1 | - | - |
+| #67 | sum(a, b) z testami | anulowane | 0 | M1 | - | - |
+| #68 | slugify(text) z testami | anulowane | 0 | M1 | - | - |
+| #69 | formatPLN(kwota) z testami | anulowane | 0 | M1 | - | - |
+| #70 | Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | anulowane | 0 | M1 | - | - |
+| #71 | parseDate(str) z testami | anulowane | 0 | M1 | - | - |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu

@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Rozpisanie zadań"
 postep_etapy: "2/4"
-postep_zadania: "0/6"
+postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
 nastepny_krok: "Agent przygotowuje etap rozpisanie zadań"
-ostatnia_synchronizacja: 2026-11-10T22:04:50Z
+ostatnia_synchronizacja: 2026-11-10T22:13:53Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,9 @@ ostatnia_synchronizacja: 2026-11-10T22:04:50Z
 ## Gdzie jesteśmy
 
 - **Etap:** Rozpisanie zadań
-- **Postęp:** Etapy 2/4 · Zadania 0/6 w bieżącym przebiegu (łącznie 25)
+- **Postęp:** Etapy 2/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 19)
 - **Co się dzieje:** etap rozpisanie zadań w przygotowaniu
 - **Następny krok:** Agent przygotowuje etap rozpisanie zadań
-- **Szacowany czas:** ok. 12 min pracy agentów (6 zadań, średnio 6 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -28,27 +27,22 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### Gotowe do startu (1)
-
-| Zadanie | Kamień | Zależności |
-|---|---|---|
-| #66 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | brak |
-
-### Zaplanowane (5)
-
-| Zadanie | Kamień | Czeka na |
-|---|---|---|
-| #67 sum(a, b) z testami | M1 | #66 |
-| #68 slugify(text) z testami | M1 | #66 |
-| #69 formatPLN(kwota) z testami | M1 | #66 |
-| #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe) | M1 | #66 |
-| #71 parseDate(str) z testami | M1 | #66, #69 |
+Nic w toku.
 
 ### Zrobione w bieżącym przebiegu (0)
 
 Jeszcze nic.
 
 Wcześniejsze przebiegi (19 zadań): [Historia](historia.md).
+
+### Anulowane w bieżącym przebiegu (6)
+
+- #66 Szkielet: projekt Node + TypeScript + vitest + CI
+- #67 sum(a, b) z testami
+- #68 slugify(text) z testami
+- #69 formatPLN(kwota) z testami
+- #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
+- #71 parseDate(str) z testami
 
 ## Eskalacje i pytania
 

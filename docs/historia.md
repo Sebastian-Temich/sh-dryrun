@@ -17,6 +17,8 @@ zadań `scripts/sync-status.sh`.
 - 2026-11-10 `04-plan`: review
 - 2026-11-10 `04-plan`: done
 - 2026-11-10 `06-zadania`: in-progress
+- 2026-11-10 `06-zadania`: review
+- 2026-11-10 `06-zadania`: iteracja 2 (FAIL review PR #74)
 
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
@@ -45,7 +47,7 @@ zadań `scripts/sync-status.sh`.
 | #11 formatPLN(kwota) z testami | M1 | #16 | 2026-11-04 |
 | #8 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #14 | 2026-11-04 |
 
-## Wszystkie zadania anulowane (11)
+## Wszystkie zadania anulowane (17)
 
 - #1 Szkielet: projekt Node + TypeScript + vitest + CI
 - #2 sum(a, b) z testami
@@ -58,4 +60,10 @@ zadań `scripts/sync-status.sh`.
 - #42 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
 - #60 test F6: slug (review zwykle)
 - #61 test F6: notatki z RLS (review ryzyko)
+- #66 Szkielet: projekt Node + TypeScript + vitest + CI
+- #67 sum(a, b) z testami
+- #68 slugify(text) z testami
+- #69 formatPLN(kwota) z testami
+- #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
+- #71 parseDate(str) z testami
 <!-- historia:end -->
