@@ -16,6 +16,8 @@ Format pozycji: `- [ ] CO, PO CO (W-NN), JAK: kroki dla właściciela; GDZIE wpi
 
 ## Domeny i DNS
 
+- [ ] Adres stagingu dla joba qa-staging, PO CO: e2e i Lighthouse w QA kamienia (W-06), JAK: właściciel potwierdza adres https://example.com (stała publiczna strona testowa, bez konta); GDZIE: pole staging_url w docs/konfiguracja.md (wpisuje intake); JAK sprawdzimy: job qa-staging w PR z stage/08-qa wykonuje kroki „E2E na stagingu” i „Lighthouse na stagingu”, a nie notice o braku staging_url
+
 ## Klucze testowe i zmienne
 
 ## Limity i płatności usług
