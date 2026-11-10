@@ -40,8 +40,9 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 | Framework | Brak; TypeScript strict, vitest, eslint (typescript-eslint) |
 | Instalacja | `pnpm install --frozen-lockfile` (zamierzone, sprawdza `T1`) |
 | Lint | `pnpm lint` (eslint) i `pnpm typecheck` (tsc --noEmit) |
-| Testy | `pnpm test` (vitest); e2e `e2e/` tylko w CI (`qa-staging`) |
-| Build | `pnpm build` (tsc do `dist/`, ESM) |
+| Node | wersja z `.nvmrc` (26, LTS), lokalnie przez fnm |
+| Testy | `pnpm test` (vitest, `tests/**/*.test.ts`); e2e `e2e/` tylko w CI (`qa-staging`, z `BASE_URL`; bez `BASE_URL` `pnpm test:e2e` nie wybiera `staging.spec.ts`) |
+| Build | `pnpm build` (`tsc -p tsconfig.build.json`, z `src/` do `dist/`, ESM) |
 | Uruchomienie lokalne | Nie dotyczy: biblioteka; użycie przez import z pakietu |
 
 Zmiana kontraktu wymaga ADR w `docs/04-plan/adr/`.
