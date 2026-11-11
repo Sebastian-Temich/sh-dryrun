@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1 Biblioteka"
 postep_etapy: "3/4"
-postep_zadania: "0/8"
+postep_zadania: "1/8"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Dokończenie #97"
-ostatnia_synchronizacja: 2026-11-11T19:20:00Z
+nastepny_krok: "Start #98, #99, #100"
+ostatnia_synchronizacja: 2026-11-11T19:28:44Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,10 @@ ostatnia_synchronizacja: 2026-11-11T19:20:00Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 0/8 w bieżącym przebiegu (łącznie 35)
-- **Co się dzieje:** #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI (worker, od 0 min)
-- **Następny krok:** Dokończenie #97
-- **Szacowany czas:** ok. 1 h 27 min pracy agentów (8 zadań, średnio 29 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 1/8 w bieżącym przebiegu (łącznie 35)
+- **Co się dzieje:** nic w toku
+- **Następny krok:** Start #98, #99, #100
+- **Szacowany czas:** ok. 1 h 24 min pracy agentów (7 zadań, średnio 28 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -28,27 +28,28 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### W realizacji (1)
+### Gotowe do startu (5)
 
-| Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
-|---|---|---|---|---|---|---|
-| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | worker | 0 | - | - | 0 min |
+| Zadanie | Kamień | Zależności |
+|---|---|---|
+| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #97 ✓ |
+| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #97 ✓ |
+| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #97 ✓ |
+| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #97 ✓ |
+| #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | M1 Biblioteka | #97 ✓ |
 
-### Zaplanowane (7)
+### Zaplanowane (2)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #97 |
-| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #97 |
-| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #97 |
-| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #97 |
-| #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | M1 Biblioteka | #97 |
-| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #97, #102 |
+| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #102 |
 | #104 Dokumentacja wydania M1 | M1 Biblioteka | #98, #99, #100, #101, #102, #103 |
 
-### Zrobione w bieżącym przebiegu (0)
+### Zrobione w bieżącym przebiegu (1)
 
-Jeszcze nic.
+| Zadanie | Kamień | PR |
+|---|---|---|
+| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 |
 
 Wcześniejsze przebiegi (27 zadań): [Historia](historia.md).
 

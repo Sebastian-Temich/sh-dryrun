@@ -7,3 +7,6 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-11 | review PR #95 (04-plan) | ADR-002: polecenie `shctl task deps 7 --usun T6` miesza numer issue z ID planu; zapisać opisowo | otwarte |
 | 2026-11-11 | review PR #96 (06-zadania) | T8 zależy od T6 (anulowane wg ADR-002): usunąć zależność także z T8 przez shctl task deps | otwarte |
 | 2026-11-11 | review PR #96 (06-zadania) | DoD 06-zadania: pola index.md i Milestones bez notatki „(po merge: shctl task create)” | otwarte |
+| 2026-11-11 | T-97 | `README.md` ma tytuł `# sh-template-projekt` i opis szablonu zamiast projektu sh-dryrun; poza zakresem T1 (dokumentacja wydania T8). | otwarta |
+| 2026-11-11 | T-97 | Job `e2e` i `qa-staging` w `ci.yml` używają `node-version-file: .nvmrc`, którego repo nie ma; dziś bez skutku (e2e i qa-staging pomijane), ale pierwszy projekt z Playwrightem dostanie błąd `setup-node`. | otwarta |
+| 2026-11-11 | T-97 | `pnpm-workspace.yaml` ma `allowBuilds.sharp: true`, choć projekt nie używa sharp. | otwarta |

@@ -249,3 +249,4 @@ Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task clo
 
 | Zlecenie | Tryb | Czas | Zadania | Iteracje | Eskalacje | Uwagi |
 |---|---|---|---|---|---|---|
+| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M | 8min | 1 | 1 | 0 | PR #105 |

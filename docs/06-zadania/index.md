@@ -50,7 +50,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | done | 1 | M1 | #89 merged | pass |
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | done | 1 | M1 | #90 merged | pass |
 | #92 | slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | done | 1 | M1 | #93 merged | pass |
-| #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | in-progress | 0 | M1 Biblioteka | - | - |
+| #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | done | 1 | M1 Biblioteka | #105 merged | pass |
 | #98 | slugify: slug z tekstu (W-01) | todo | 0 | M1 Biblioteka | - | - |
 | #99 | formatPLN: kwota w złotych (W-02) | todo | 0 | M1 Biblioteka | - | - |
 | #100 | chunk: dzielenie tablicy na części (W-03) | todo | 0 | M1 Biblioteka | - | - |

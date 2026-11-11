@@ -29,10 +29,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (27)
+## Wszystkie zadania zrobione (28)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 | 2026-11-11 |
 | #92 slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | M1 | #93 | 2026-11-11 |
 | #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #90 | 2026-11-10 |
 | #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #89 | 2026-11-10 |
