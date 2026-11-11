@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Plan"
-postep_etapy: "1/4"
+etap_opis: "Rozpisanie zadań"
+postep_etapy: "2/4"
 postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Review etapu plan, potem Twoja akceptacja"
-ostatnia_synchronizacja: 2026-11-11T19:09:47Z
+nastepny_krok: "Start etapu rozpisanie zadań"
+ostatnia_synchronizacja: 2026-11-11T19:11:42Z
 ---
 
 # sh-dryrun
@@ -16,10 +16,10 @@ ostatnia_synchronizacja: 2026-11-11T19:09:47Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Plan
-- **Postęp:** Etapy 1/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** etap plan w review
-- **Następny krok:** Review etapu plan, potem Twoja akceptacja
+- **Etap:** Rozpisanie zadań
+- **Postęp:** Etapy 2/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
+- **Co się dzieje:** etap rozpisanie zadań jeszcze nie rozpoczęty
+- **Następny krok:** Start etapu rozpisanie zadań
 
 ## Czeka na Ciebie
 
@@ -43,6 +43,7 @@ Otwartych brak.
 
 - [Specyfikacja](00-intake/specyfikacja.md)
 - [Lista startowa](00-intake/lista-startowa.md)
+- [Plan](04-plan/plan.md)
 - [Decyzje](decyzje.md)
 - Karty funkcji: [W-01](00-intake/funkcje/W-01.md), [W-02](00-intake/funkcje/W-02.md), [W-03](00-intake/funkcje/W-03.md), [W-04](00-intake/funkcje/W-04.md), [W-05](00-intake/funkcje/W-05.md), [W-06](00-intake/funkcje/W-06.md)
 - [Historia](historia.md): punkt przekazania, dziennik etapów, wszystkie zadania
