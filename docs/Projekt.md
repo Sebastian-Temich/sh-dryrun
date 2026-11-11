@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1 Biblioteka"
 postep_etapy: "3/4"
-postep_zadania: "1/7"
+postep_zadania: "2/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Dokończenie #98, #99, #103, potem #100, #101"
-ostatnia_synchronizacja: 2026-11-11T19:31:32Z
+nastepny_krok: "Dokończenie #99, #103, potem #100, #101"
+ostatnia_synchronizacja: 2026-11-11T19:35:52Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,10 @@ ostatnia_synchronizacja: 2026-11-11T19:31:32Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 1/7 w bieżącym przebiegu (łącznie 34)
-- **Co się dzieje:** #98 slugify: slug z tekstu (W-01) (worker, od 1 min); #99 formatPLN: kwota w złotych (W-02) (worker, od 1 min); #103 przelicz: kwota w walucie obcej na grosze (W-06) (worker, od 0 min)
-- **Następny krok:** Dokończenie #98, #99, #103, potem #100, #101
-- **Szacowany czas:** ok. 56 min pracy agentów (6 zadań, średnio 28 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 2/7 w bieżącym przebiegu (łącznie 34)
+- **Co się dzieje:** #99 formatPLN: kwota w złotych (W-02) (worker, od 6 min); #103 przelicz: kwota w walucie obcej na grosze (W-06) (worker, od 4 min)
+- **Następny krok:** Dokończenie #99, #103, potem #100, #101
+- **Szacowany czas:** ok. 54 min pracy agentów (5 zadań, średnio 27 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -28,13 +28,12 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### W realizacji (3)
+### W realizacji (2)
 
 | Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
 |---|---|---|---|---|---|---|
-| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | worker | 1 | - | - | 1 min |
-| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | worker | 1 | - | - | 1 min |
-| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | worker | 0 | - | - | 0 min |
+| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | worker | 1 | #107 | pass | 6 min |
+| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | worker | 1 | #108 | pass | 4 min |
 
 ### Gotowe do startu (2)
 
@@ -47,12 +46,13 @@ Nic. Agenci pracują sami.
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #104 Dokumentacja wydania M1 | M1 Biblioteka | #98, #99, #100, #101, #103 |
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #99, #100, #101, #103 |
 
-### Zrobione w bieżącym przebiegu (1)
+### Zrobione w bieżącym przebiegu (2)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #106 |
 | #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 |
 
 Wcześniejsze przebiegi (27 zadań): [Historia](historia.md).
