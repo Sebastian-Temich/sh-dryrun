@@ -2,7 +2,7 @@
 // w pustej linii pod komentarzem swojej sekcji, np. `export { slugify } from './slugify.js';`.
 
 // W-01 slug
-
+export { slugify } from './slugify.js';
 
 // W-02 format kwoty
 
