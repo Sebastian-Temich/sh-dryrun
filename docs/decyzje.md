@@ -43,3 +43,7 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-11 | T-100 | Walidacja rozmiaru przed sprawdzeniem tablicy | `chunk([], 0)` też rzuca `RangeError`, bo karta wiąże błąd z rozmiarem, nie z zawartością listy; spójne zachowanie niezależnie od wejścia. |
 | 2026-11-11 | T-100 | `NaN` i `Infinity` jako rozmiar | `RangeError` z tym samym komunikatem, bo nie są dodatnimi liczbami całkowitymi (`Number.isInteger` zwraca `false`); karta wymienia tylko 0, -1 i 1.5 jako przykłady. |
 | 2026-11-11 | T-100 | Karta W-03, P3 („Rozmiar zero albo ujemny | błąd z komunikatem”, status „do potwierdzenia”) → wdrożone zgodnie z proponowaną odpowiedzią, bo potwierdza ją kryterium K3 w issue. |
+| 2026-11-11 | T-101 | K4 „then RangeError” przy funkcji asynchronicznej | `retry` zwraca odrzuconą obietnicę z `RangeError` (a nie rzuca synchronicznie), bo cała funkcja jest `async` i wszystkie wyniki, także błędy, programista obsługuje jednym `await`/`catch`. |
+| 2026-11-11 | T-101 | Liczba prób ułamkowa albo NaN (karta mówi tylko o „mniejszej niż 1”) | ten sam `RangeError`, bo liczba prób to liczba wywołań i musi być całkowita; komunikat bez zmian z karty. |
+| 2026-11-11 | T-101 | Błąd rzucony synchronicznie przez `fn` | traktowany jak odrzucenie i ponawiany, bo `await fn()` w `try` obejmuje oba przypadki, a programista nie powinien ich rozróżniać. |
+| 2026-11-11 | T-101 | Ujemna przerwa | bez walidacji (`setTimeout` traktuje ją jak 0); karta nie przewiduje błędu dla przerwy. |
