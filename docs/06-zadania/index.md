@@ -50,4 +50,29 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | done | 1 | M1 | #89 merged | pass |
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | done | 1 | M1 | #90 merged | pass |
 | #92 | slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | done | 1 | M1 | #93 merged | pass |
+| #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | todo | 0 | M1 Biblioteka | - | - |
+| #98 | slugify: slug z tekstu (W-01) | todo | 0 | M1 Biblioteka | - | - |
+| #99 | formatPLN: kwota w złotych (W-02) | todo | 0 | M1 Biblioteka | - | - |
+| #100 | chunk: dzielenie tablicy na części (W-03) | todo | 0 | M1 Biblioteka | - | - |
+| #101 | retry: ponawianie wywołania (W-04) | todo | 0 | M1 Biblioteka | - | - |
+| #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | todo | 0 | M1 Biblioteka | - | - |
+| #103 | przelicz: kwota w walucie obcej na grosze (W-06) | todo | 0 | M1 Biblioteka | - | - |
+| #104 | Dokumentacja wydania M1 | todo | 0 | M1 Biblioteka | - | - |
 <!-- sync-status:end -->
+
+## Mapa zadań z planu
+
+Sekcję uzupełnia `shctl task create`: ID z pliku YAML i numer issue.
+
+<!-- shctl:mapa:start -->
+| ID | Issue | Tytuł | Zależności |
+|---|---|---|---|
+| T1 | #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | - |
+| T2 | #98 | slugify: slug z tekstu (W-01) | #97 |
+| T3 | #99 | formatPLN: kwota w złotych (W-02) | #97 |
+| T4 | #100 | chunk: dzielenie tablicy na części (W-03) | #97 |
+| T5 | #101 | retry: ponawianie wywołania (W-04) | #97 |
+| T6 | #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | #97 |
+| T7 | #103 | przelicz: kwota w walucie obcej na grosze (W-06) | #97, #102 |
+| T8 | #104 | Dokumentacja wydania M1 | #98, #99, #100, #101, #102, #103 |
+<!-- shctl:mapa:end -->

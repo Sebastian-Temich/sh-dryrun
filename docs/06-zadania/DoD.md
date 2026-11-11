@@ -1,6 +1,6 @@
 ---
 etap: 06-zadania
-status: review
+status: done
 iteracja: 0
 akceptacja_wlasciciela: false
 ---
@@ -9,7 +9,7 @@ akceptacja_wlasciciela: false
 
 ## Dokumentacja
 
-- [ ] `zadania.yaml` jest kompletny, a `index.md` zsynchronizowany z issue
+- [x] `zadania.yaml` jest kompletny, a `index.md` zsynchronizowany z issue
 
 ## Funkcjonalność
 
@@ -17,7 +17,7 @@ akceptacja_wlasciciela: false
 - [x] Kryteria każdego zadania z funkcją obejmują podpięcie do punktu wejścia lub routingu
 - [x] Zadania są grube: jedna funkcja albo strona to jedno zadanie
 - [-] Zadania z UI wskazują konkretne pliki designu (nie dotyczy: biblioteka bez UI)
-- [ ] Kamienie milowe są założone jako GitHub Milestones
+- [x] Kamienie milowe są założone jako GitHub Milestones
 
 ## Checklisty jakości
 
@@ -27,4 +27,4 @@ akceptacja_wlasciciela: false
 
 ## Checkpoint
 
-- [ ] Review etapu dało PASS (zaznacza reviewer, nie autor)
+- [x] Review etapu dało PASS (zaznacza reviewer, nie autor)
