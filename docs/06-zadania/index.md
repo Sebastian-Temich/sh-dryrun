@@ -53,8 +53,8 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | done | 1 | M1 Biblioteka | #105 merged | pass |
 | #98 | slugify: slug z tekstu (W-01) | done | 1 | M1 Biblioteka | #106 merged | pass |
 | #99 | formatPLN: kwota w złotych (W-02) | done | 1 | M1 Biblioteka | #107 merged | pass |
-| #100 | chunk: dzielenie tablicy na części (W-03) | in-progress | 1 | M1 Biblioteka | #109 open | pass |
-| #101 | retry: ponawianie wywołania (W-04) | in-progress | 1 | M1 Biblioteka | - | - |
+| #100 | chunk: dzielenie tablicy na części (W-03) | done | 1 | M1 Biblioteka | #109 merged | pass |
+| #101 | retry: ponawianie wywołania (W-04) | in-progress | 1 | M1 Biblioteka | #110 open | pass |
 | #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | anulowane | 1 | M1 Biblioteka | - | - |
 | #103 | przelicz: kwota w walucie obcej na grosze (W-06) | done | 1 | M1 Biblioteka | #108 merged | pass |
 | #104 | Dokumentacja wydania M1 | todo | 0 | M1 Biblioteka | - | - |

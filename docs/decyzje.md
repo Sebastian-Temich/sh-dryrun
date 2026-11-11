@@ -40,3 +40,6 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-11 | T-99 | `-0` | „0,00 zł” bez minusa (warunek `grosze < 0`), zgodnie z K2 dla zera. |
 | 2026-11-11 | T-99 | Wartość niebędąca liczbą (np. tekst) w czasie wykonania | `RangeError` z tym samym komunikatem (karta, stan „Błąd w danych”: „albo nie liczba”), a nie `TypeError`. |
 | 2026-11-11 | T-99 | - | Dodatkowo przeczytane: `docs/06-zadania/zadania.yaml` (konwencja sekcji `src/index.ts`) i `docs/07-realizacja/T-97.md` (testy szkieletu). |
+| 2026-11-11 | T-100 | Walidacja rozmiaru przed sprawdzeniem tablicy | `chunk([], 0)` też rzuca `RangeError`, bo karta wiąże błąd z rozmiarem, nie z zawartością listy; spójne zachowanie niezależnie od wejścia. |
+| 2026-11-11 | T-100 | `NaN` i `Infinity` jako rozmiar | `RangeError` z tym samym komunikatem, bo nie są dodatnimi liczbami całkowitymi (`Number.isInteger` zwraca `false`); karta wymienia tylko 0, -1 i 1.5 jako przykłady. |
+| 2026-11-11 | T-100 | Karta W-03, P3 („Rozmiar zero albo ujemny | błąd z komunikatem”, status „do potwierdzenia”) → wdrożone zgodnie z proponowaną odpowiedzią, bo potwierdza ją kryterium K3 w issue. |

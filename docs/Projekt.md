@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1 Biblioteka"
 postep_etapy: "3/4"
-postep_zadania: "4/7"
+postep_zadania: "5/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Dokończenie #100, #101"
-ostatnia_synchronizacja: 2026-11-11T19:40:34Z
+nastepny_krok: "Dokończenie #101"
+ostatnia_synchronizacja: 2026-11-11T19:42:15Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,10 @@ ostatnia_synchronizacja: 2026-11-11T19:40:34Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 4/7 w bieżącym przebiegu (łącznie 34)
-- **Co się dzieje:** #100 chunk: dzielenie tablicy na części (W-03) (worker, od 4 min); #101 retry: ponawianie wywołania (W-04) (worker, od 1 min)
-- **Następny krok:** Dokończenie #100, #101
-- **Szacowany czas:** ok. 25 min pracy agentów (3 zadań, średnio 25 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 5/7 w bieżącym przebiegu (łącznie 34)
+- **Co się dzieje:** #101 retry: ponawianie wywołania (W-04) (worker, od 3 min)
+- **Następny krok:** Dokończenie #101
+- **Szacowany czas:** ok. 25 min pracy agentów (2 zadań, średnio 25 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -28,23 +28,23 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### W realizacji (2)
+### W realizacji (1)
 
 | Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
 |---|---|---|---|---|---|---|
-| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | worker | 1 | #109 | pass | 4 min |
-| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | worker | 1 | - | - | 1 min |
+| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | worker | 1 | #110 | pass | 3 min |
 
 ### Zaplanowane (1)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #104 Dokumentacja wydania M1 | M1 Biblioteka | #100, #101 |
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #101 |
 
-### Zrobione w bieżącym przebiegu (4)
+### Zrobione w bieżącym przebiegu (5)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #109 |
 | #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #107 |
 | #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #108 |
 | #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #106 |

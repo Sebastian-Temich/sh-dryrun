@@ -255,3 +255,4 @@ Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task clo
 | #98 slugify: slug z tekstu (W-01) | M | 6min | 1 | 1 | 0 | PR #106 |
 | #103 przelicz: kwota w walucie obcej na grosze (W-06) | M | 6min | 1 | 1 | 0 | PR #108 |
 | #99 formatPLN: kwota w złotych (W-02) | M | 10min | 1 | 1 | 0 | PR #107 |
+| #100 chunk: dzielenie tablicy na części (W-03) | M | 5min | 1 | 1 | 0 | PR #109 |
