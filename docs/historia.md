@@ -11,6 +11,7 @@ zadań `scripts/sync-status.sh`.
 
 - 2026-11-11 `00-intake`: in-progress
 - 2026-11-11 `00-intake`: review
+- 2026-11-11 `00-intake`: iteracja 2 (FAIL review PR #94)
 
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
