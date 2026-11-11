@@ -9,7 +9,7 @@ zlecenie_od: ""
 # max_local: limit workerów Maca jest w /Users/Shared/sh/konfiguracja.md (domyślnie 2). Wpis tutaj
 # może go tylko obniżyć dla tego projektu, np. max_local: 1.
 max_review_queue: 3
-min_wolne_gb: 12  # przebieg 6: obniżone z 15 (dysk 13 GB, decyzje.md)
+min_wolne_gb: 15
 # Dodatkowe pliki env (ścieżki względne w repo, bez ..) kopiowane do worktree workera obok .env.local.
 # Reviewer ich nie dostaje. Przykład: [config/dev.local.json]
 env_files: []
