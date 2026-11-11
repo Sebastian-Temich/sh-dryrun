@@ -6,8 +6,8 @@ postep_etapy: "1/4"
 postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start etapu plan"
-ostatnia_synchronizacja: 2026-11-11T19:04:10Z
+nastepny_krok: "Agent przygotowuje etap plan"
+ostatnia_synchronizacja: 2026-11-11T19:04:29Z
 ---
 
 # sh-dryrun
@@ -18,8 +18,8 @@ ostatnia_synchronizacja: 2026-11-11T19:04:10Z
 
 - **Etap:** Plan
 - **Postęp:** Etapy 1/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** etap plan jeszcze nie rozpoczęty
-- **Następny krok:** Start etapu plan
+- **Co się dzieje:** etap plan w przygotowaniu
+- **Następny krok:** Agent przygotowuje etap plan
 
 ## Czeka na Ciebie
 
