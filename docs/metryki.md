@@ -189,3 +189,4 @@ Reset do baseline `2ded36e` o 20:34 UTC. Wiersze zadań dopisuje `shctl task clo
 | review PR #84 (#76 sum(a, b) z testami) | 0 | 0 | 1 | 0 | 0 |
 | review PR #86 (#77 slugify(text) z testami) | 1 | 0 | 1 | 0 | 0 |
 | review PR #88 (#80 parseDate(str) z testami) | 0 | 0 | 1 | 0 | 0 |
+| QA M1 (raport-M1.md, PR #91) | 1 | 0 | 1 | 0 | 0 |

@@ -18,3 +18,5 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-10 | review PR #88 | Testy przypadków brzegowych sprawdzają tylko typ RangeError, a nie komunikat „parseDate: nieprawidłowa data”. Warto dodać toThrow(KOMUNIKAT), tak jak w teście K3. (`tests/parseDate.test.ts:46`) | otwarta |
 | 2026-11-11 | T-82 | README nadal zawiera długie sekcje z szablonu („Jak powstaje projekt”, „Droga na produkcję”) o deployu przez Vercel i Supabase, które w tej bibliotece nie mają zastosowania. | otwarta |
 | 2026-11-11 | T-82 | `docs/07-realizacja/escalations/E-001.md` na `main` ma `status: otwarta` i pustą sekcję „Rozstrzygnięcie”, choć #79 jest zamknięte. | otwarta |
+| 2026-11-11 | QA M1 | (przyczyna: wymaganie) Lighthouse SEO 0,8 i e2e stagingu mierzą zewnętrzną stronę example.com, nie bibliotekę | otwarta |
+| 2026-11-11 | QA M1 | (przyczyna: test) O-1 w e2e/qa importuje src/index.ts, nie zbudowany pakiet „sh-dryrun” (dist/) | otwarta |
