@@ -243,6 +243,7 @@ Czasy UTC. Czekanie na właściciela liczone od pytania albo powiadomienia do od
 | review PR #88 (#80 parseDate(str) z testami) | 0 | 0 | 1 | 0 | 0 |
 | QA M1 (raport-M1.md, PR #91) | 1 | 0 | 1 | 0 | 0 |
 | review PR #106 (#98 slugify: slug z tekstu (W-01)) | 0 | 1 | 0 | 0 | 0 |
+| review PR #108 (#103 przelicz: kwota w walucie obcej na grosze (W-06)) | 0 | 0 | 1 | 0 | 0 |
 
 ## Przebieg dryrun 6 (2026-11-11)
 
@@ -252,3 +253,4 @@ Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task clo
 |---|---|---|---|---|---|---|
 | #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M | 8min | 1 | 1 | 0 | PR #105 |
 | #98 slugify: slug z tekstu (W-01) | M | 6min | 1 | 1 | 0 | PR #106 |
+| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M | 6min | 1 | 1 | 0 | PR #108 |

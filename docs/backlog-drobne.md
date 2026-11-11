@@ -11,3 +11,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-11 | T-97 | Job `e2e` i `qa-staging` w `ci.yml` używają `node-version-file: .nvmrc`, którego repo nie ma; dziś bez skutku (e2e i qa-staging pomijane), ale pierwszy projekt z Playwrightem dostanie błąd `setup-node`. | otwarta |
 | 2026-11-11 | T-97 | `pnpm-workspace.yaml` ma `allowBuilds.sharp: true`, choć projekt nie używa sharp. | otwarta |
 | 2026-11-11 | review PR #106 | Moduł ma już eksport slugify, więc `export {};` na końcu src/index.ts jest zbędne. Można je usunąć, gdy będzie okazja przy kolejnym zadaniu. (`src/index.ts:23`) | otwarta |
+| 2026-11-11 | review PR #108 | Wywołanie przelicz(2, 'EUR', {}) sprawdza tylko typ RangeError, a nie komunikat „Brak kursu: podaj kurs albo źródło kursu”. Warto użyć toThrow(new RangeError(BRAK_KURSU)) jak w linii wyżej. (`src/przelicz.test.ts:64`) | otwarta |
