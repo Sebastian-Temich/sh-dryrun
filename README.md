@@ -31,6 +31,69 @@ Po `pnpm build` biblioteka importuje się z `dist/index.js`:
 node --input-type=module -e "const m = await import('./dist/index.js'); console.log(Object.keys(m))"
 ```
 
+## Użycie
+
+Przykłady zakładają plik `.mjs` (albo `.ts`) w katalogu głównym repo po `pnpm build`. Wynik każdego
+wywołania jest w komentarzu. Kursu NBP (`kursNBP`, W-05) w tej wersji nie ma: zadanie anulowano
+(ADR-002), więc `przelicz` dostaje kurs wprost albo z własnego źródła.
+
+### slugify (W-01): slug adresu z tekstu
+
+```ts
+import { slugify } from './dist/index.js';
+
+slugify('Zażółć Gęślą Jaźń!'); // 'zazolc-gesla-jazn'
+```
+
+### formatPLN (W-02): kwota w groszach jako tekst w złotych
+
+```ts
+import { formatPLN } from './dist/index.js';
+
+formatPLN(123456); // '1 234,56 zł'
+formatPLN(12.5); // RangeError: Kwota musi być całkowitą liczbą groszy
+```
+
+### chunk (W-03): podział tablicy na części
+
+```ts
+import { chunk } from './dist/index.js';
+
+chunk([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4], [5]]
+chunk([1, 2], 0); // RangeError: Rozmiar części musi być dodatnią liczbą całkowitą
+```
+
+### retry (W-04): ponawianie wywołania asynchronicznego
+
+Domyślnie 3 próby, przerwa 200 ms po pierwszym błędzie i 400 ms po drugim. Po ostatniej nieudanej
+próbie `retry` rzuca błąd tej próby.
+
+```ts
+import { retry } from './dist/index.js';
+
+let proba = 0;
+const wynik = await retry(async () => {
+  proba += 1;
+  if (proba < 3) throw new Error('chwilowy błąd');
+  return 'ok';
+});
+// wynik: 'ok' po 3 próbach
+
+await retry(() => fetch('https://example.com/api').then((r) => r.json()), { proby: 5, przerwa: 100 });
+```
+
+### przelicz (W-06): kwota w walucie obcej na grosze
+
+Wynik zaokrąglony do pełnego grosza, połówki w górę. `kurs` ma pierwszeństwo przed `zrodloKursu`.
+
+```ts
+import { przelicz } from './dist/index.js';
+
+await przelicz(10, 'EUR', { kurs: 4.3 }); // 4300
+await przelicz(2, 'EUR', { zrodloKursu: async () => 4.25 }); // 850
+await przelicz(10, 'EUR'); // RangeError: Brak kursu: podaj kurs albo źródło kursu
+```
+
 ## Jak powstaje projekt
 
 Projekt zakłada orkiestrator lub właściciel jedną komendą:
