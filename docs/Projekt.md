@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Specyfikacja"
-postep_etapy: "0/4"
+etap_opis: "Plan"
+postep_etapy: "1/4"
 postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Review etapu specyfikacja, potem Twoja akceptacja"
-ostatnia_synchronizacja: 2026-11-11T19:02:05Z
+nastepny_krok: "Start etapu plan"
+ostatnia_synchronizacja: 2026-11-11T19:04:10Z
 ---
 
 # sh-dryrun
@@ -16,10 +16,10 @@ ostatnia_synchronizacja: 2026-11-11T19:02:05Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Specyfikacja
-- **Postęp:** Etapy 0/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** etap specyfikacja w review
-- **Następny krok:** Review etapu specyfikacja, potem Twoja akceptacja
+- **Etap:** Plan
+- **Postęp:** Etapy 1/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
+- **Co się dzieje:** etap plan jeszcze nie rozpoczęty
+- **Następny krok:** Start etapu plan
 
 ## Czeka na Ciebie
 
@@ -41,6 +41,8 @@ Otwartych brak.
 
 ## Dokumenty
 
+- [Specyfikacja](00-intake/specyfikacja.md)
 - [Lista startowa](00-intake/lista-startowa.md)
 - [Decyzje](decyzje.md)
+- Karty funkcji: [W-01](00-intake/funkcje/W-01.md), [W-02](00-intake/funkcje/W-02.md), [W-03](00-intake/funkcje/W-03.md), [W-04](00-intake/funkcje/W-04.md), [W-05](00-intake/funkcje/W-05.md), [W-06](00-intake/funkcje/W-06.md)
 - [Historia](historia.md): punkt przekazania, dziennik etapów, wszystkie zadania
