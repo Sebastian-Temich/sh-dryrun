@@ -84,7 +84,7 @@ Jako programista chcę pakietu z typami, bez błędów lint i z pokryciem testam
 | W-02 | `funkcje/W-02.md` | skrocona | nie dotyczy (biblioteka bez UI) |
 | W-03 | `funkcje/W-03.md` | skrocona | nie dotyczy (biblioteka bez UI) |
 | W-04 | `funkcje/W-04.md` | skrocona | nie dotyczy (biblioteka bez UI) |
-| W-05 | `funkcje/W-05.md` | skrocona | nie dotyczy (biblioteka bez UI) |
+| W-05 | `funkcje/W-05.md` | pelna | nie dotyczy (biblioteka bez UI) |
 | W-06 | `funkcje/W-06.md` | skrocona | nie dotyczy (biblioteka bez UI) |
 
 ## Lista startowa
@@ -112,8 +112,9 @@ Inny: biblioteka TypeScript bez interfejsu.
 
 ## Hosting
 
-Nie dotyczy: biblioteka bez aplikacji i bazy. W `konfiguracja.md` zostaje domyślny wpis z
-`zaakceptowany: false`; plan go nie używa.
+Nie dotyczy: biblioteka bez aplikacji i bazy. `konfiguracja.md` ma `hosting.aplikacja: brak`,
+`baza: brak`, `region` i `konta: nie_dotyczy` oraz `zaakceptowany: true` (właściciel zaakceptował
+specyfikację z góry). Job `qa-staging` bez `staging_url` pomija testy.
 
 ## Design
 
@@ -162,4 +163,5 @@ Paczka 1 miała 6 pytań.
 | P3 | W-03 | Rozmiar części 0 albo ujemny: błąd czy pusta lista? | Błąd z komunikatem | zdecyduj sam |
 | P4 | W-04 | Domyślna liczba prób i odstęp? | 3 próby, odstęp 200 ms podwajany | zdecyduj sam |
 | P5 | W-05 | Które waluty? | Wszystkie z tabeli A NBP, kod trzyliterowy | zdecyduj sam |
+| Z1 | W-05 | Limit czasu odpowiedzi NBP | 5 s | luka bez pytania |
 | P6 | W-06 | Zaokrąglanie przy przeliczeniu? | Do pełnego grosza, połówki w górę | zdecyduj sam |
