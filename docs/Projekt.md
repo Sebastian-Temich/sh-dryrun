@@ -6,8 +6,8 @@ postep_etapy: "0/4"
 postep_zadania: "0/0"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start etapu specyfikacja"
-ostatnia_synchronizacja: 2026-11-11T18:54:28Z
+nastepny_krok: "Agent przygotowuje etap specyfikacja"
+ostatnia_synchronizacja: 2026-11-11T18:54:50Z
 ---
 
 # sh-dryrun
@@ -18,8 +18,8 @@ ostatnia_synchronizacja: 2026-11-11T18:54:28Z
 
 - **Etap:** Specyfikacja
 - **Postęp:** Etapy 0/4 · Zadania 0/0 w bieżącym przebiegu (łącznie 27)
-- **Co się dzieje:** etap specyfikacja jeszcze nie rozpoczęty
-- **Następny krok:** Start etapu specyfikacja
+- **Co się dzieje:** etap specyfikacja w przygotowaniu
+- **Następny krok:** Agent przygotowuje etap specyfikacja
 
 ## Czeka na Ciebie
 
