@@ -57,7 +57,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #101 | retry: ponawianie wywołania (W-04) | done | 1 | M1 Biblioteka | #110 merged | pass |
 | #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | anulowane | 1 | M1 Biblioteka | - | - |
 | #103 | przelicz: kwota w walucie obcej na grosze (W-06) | done | 1 | M1 Biblioteka | #108 merged | pass |
-| #104 | Dokumentacja wydania M1 | todo | 0 | M1 Biblioteka | - | - |
+| #104 | Dokumentacja wydania M1 | done | 1 | M1 Biblioteka | #111 merged | pass |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu

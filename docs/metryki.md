@@ -257,3 +257,4 @@ Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task clo
 | #99 formatPLN: kwota w złotych (W-02) | M | 10min | 1 | 1 | 0 | PR #107 |
 | #100 chunk: dzielenie tablicy na części (W-03) | M | 5min | 1 | 1 | 0 | PR #109 |
 | #101 retry: ponawianie wywołania (W-04) | M | 5min | 1 | 1 | 0 | PR #110 |
+| #104 Dokumentacja wydania M1 | M | 5min | 1 | 1 | 0 | PR #111 |

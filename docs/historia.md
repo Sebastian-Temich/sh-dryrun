@@ -29,10 +29,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (33)
+## Wszystkie zadania zrobione (34)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #111 | 2026-11-11 |
 | #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #110 | 2026-11-11 |
 | #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #109 | 2026-11-11 |
 | #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #107 | 2026-11-11 |

@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Realizacja, kamień M1 Biblioteka"
+etap_opis: "Zakończony"
 postep_etapy: "3/4"
-postep_zadania: "6/7"
+postep_zadania: "7/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start #104"
-ostatnia_synchronizacja: 2026-11-11T19:43:59Z
+nastepny_krok: "Brak, zlecenie zakończone"
+ostatnia_synchronizacja: 2026-11-11T19:49:37Z
 ---
 
 # sh-dryrun
@@ -16,28 +16,24 @@ ostatnia_synchronizacja: 2026-11-11T19:43:59Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 6/7 w bieżącym przebiegu (łącznie 34)
+- **Etap:** Zakończony
+- **Postęp:** Etapy 3/4 · Zadania 7/7 w bieżącym przebiegu (łącznie 34)
 - **Co się dzieje:** nic w toku
-- **Następny krok:** Start #104
-- **Szacowany czas:** ok. 24 min pracy agentów (1 zadań, średnio 24 min na zadanie, 3 równolegle; orientacyjnie)
+- **Następny krok:** Brak, zlecenie zakończone
 
 ## Czeka na Ciebie
 
-Nic. Agenci pracują sami.
+Nic. Projekt zakończony.
 
 ## Zadania
 
-### Gotowe do startu (1)
+Nic w toku.
 
-| Zadanie | Kamień | Zależności |
-|---|---|---|
-| #104 Dokumentacja wydania M1 | M1 Biblioteka | #98 ✓, #99 ✓, #100 ✓, #101 ✓, #103 ✓ |
-
-### Zrobione w bieżącym przebiegu (6)
+### Zrobione w bieżącym przebiegu (7)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #111 |
 | #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #110 |
 | #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #109 |
 | #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #107 |
