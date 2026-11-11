@@ -25,3 +25,5 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-11 | T-97 | `.gitignore` z „Zakresu” | bez zmian: zawiera już `dist/`, `coverage/` i `node_modules/`. |
 | 2026-11-11 | T-97 | `pnpm-workspace.yaml` z „Zakresu” | bez zmian: `allowBuilds.esbuild: true` już jest (tsup i vitest używają esbuild, postinstall przeszedł). |
 | 2026-11-11 | T-97 | - | Dodatkowo przeczytane: `scripts/ci-zakres.sh` i `scripts/tests/ci-workflow.bats` (warunki pomijania e2e i reguły dla `ci.yml`), `docs/konfiguracja.md` (`staging_url`). |
+| 2026-11-11 | orkiestrator | Przebieg 6: commit pliku wspólnego na main w trakcie realizacji (test aktualizacji gałęzi workera przez gh pr update-branch) | polecenie właściciela przebiegu 6, punkt 3; dispatch #102, #98, #99 o 19:28Z. Cofnięcie: nie dotyczy (wpis informacyjny) |
+| 2026-11-11 | orkiestrator | #102 (T6) anulowane po E-001; zależność #102 usunięta z #103 i #104 przez shctl task deps | ADR-002 i autoryzacja planu PR #95: zadanie testowe z kryterium sprzecznym; T7 ma kontrakt bez kurs-nbp, T8 opisze brak W-05. Cofnięcie: ponowne zadanie W-05 bez kryterium live (zlecenie S) |

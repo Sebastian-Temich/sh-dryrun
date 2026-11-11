@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1 Biblioteka"
 postep_etapy: "3/4"
-postep_zadania: "1/8"
+postep_zadania: "1/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start #98, #99, #100"
-ostatnia_synchronizacja: 2026-11-11T19:28:44Z
+nastepny_krok: "Dokończenie #98, #99, #103, potem #100, #101"
+ostatnia_synchronizacja: 2026-11-11T19:31:32Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,10 @@ ostatnia_synchronizacja: 2026-11-11T19:28:44Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 1/8 w bieżącym przebiegu (łącznie 35)
-- **Co się dzieje:** nic w toku
-- **Następny krok:** Start #98, #99, #100
-- **Szacowany czas:** ok. 1 h 24 min pracy agentów (7 zadań, średnio 28 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 1/7 w bieżącym przebiegu (łącznie 34)
+- **Co się dzieje:** #98 slugify: slug z tekstu (W-01) (worker, od 1 min); #99 formatPLN: kwota w złotych (W-02) (worker, od 1 min); #103 przelicz: kwota w walucie obcej na grosze (W-06) (worker, od 0 min)
+- **Następny krok:** Dokończenie #98, #99, #103, potem #100, #101
+- **Szacowany czas:** ok. 56 min pracy agentów (6 zadań, średnio 28 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -28,22 +28,26 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### Gotowe do startu (5)
+### W realizacji (3)
+
+| Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
+|---|---|---|---|---|---|---|
+| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | worker | 1 | - | - | 1 min |
+| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | worker | 1 | - | - | 1 min |
+| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | worker | 0 | - | - | 0 min |
+
+### Gotowe do startu (2)
 
 | Zadanie | Kamień | Zależności |
 |---|---|---|
-| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #97 ✓ |
-| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #97 ✓ |
 | #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | #97 ✓ |
 | #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #97 ✓ |
-| #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | M1 Biblioteka | #97 ✓ |
 
-### Zaplanowane (2)
+### Zaplanowane (1)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #102 |
-| #104 Dokumentacja wydania M1 | M1 Biblioteka | #98, #99, #100, #101, #102, #103 |
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #98, #99, #100, #101, #103 |
 
 ### Zrobione w bieżącym przebiegu (1)
 
@@ -53,9 +57,15 @@ Nic. Agenci pracują sami.
 
 Wcześniejsze przebiegi (27 zadań): [Historia](historia.md).
 
+### Anulowane w bieżącym przebiegu (1)
+
+- #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun)
+
 ## Eskalacje i pytania
 
 Otwartych brak.
+
+Zamknięte (1): [E-001](07-realizacja/escalations/E-001.md).
 
 ## Dokumenty
 

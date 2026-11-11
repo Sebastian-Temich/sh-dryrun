@@ -62,7 +62,7 @@ zadań `scripts/sync-status.sh`.
 | #11 formatPLN(kwota) z testami | M1 | #16 | 2026-11-04 |
 | #8 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #14 | 2026-11-04 |
 
-## Wszystkie zadania anulowane (18)
+## Wszystkie zadania anulowane (19)
 
 - #1 Szkielet: projekt Node + TypeScript + vitest + CI
 - #2 sum(a, b) z testami
@@ -82,4 +82,5 @@ zadań `scripts/sync-status.sh`.
 - #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
 - #71 parseDate(str) z testami
 - #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
+- #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun)
 <!-- historia:end -->
