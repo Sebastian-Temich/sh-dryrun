@@ -6,8 +6,8 @@ postep_etapy: "3/4"
 postep_zadania: "0/8"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Start #97"
-ostatnia_synchronizacja: 2026-11-11T19:17:30Z
+nastepny_krok: "Dokończenie #97"
+ostatnia_synchronizacja: 2026-11-11T19:20:00Z
 ---
 
 # sh-dryrun
@@ -18,8 +18,8 @@ ostatnia_synchronizacja: 2026-11-11T19:17:30Z
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
 - **Postęp:** Etapy 3/4 · Zadania 0/8 w bieżącym przebiegu (łącznie 35)
-- **Co się dzieje:** nic w toku
-- **Następny krok:** Start #97
+- **Co się dzieje:** #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI (worker, od 0 min)
+- **Następny krok:** Dokończenie #97
 - **Szacowany czas:** ok. 1 h 27 min pracy agentów (8 zadań, średnio 29 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
@@ -28,11 +28,11 @@ Nic. Agenci pracują sami.
 
 ## Zadania
 
-### Gotowe do startu (1)
+### W realizacji (1)
 
-| Zadanie | Kamień | Zależności |
-|---|---|---|
-| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | brak |
+| Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
+|---|---|---|---|---|---|---|
+| #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | worker | 0 | - | - | 0 min |
 
 ### Zaplanowane (7)
 
