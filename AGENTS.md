@@ -37,12 +37,15 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 | Obszar | Wartość |
 |---|---|
 | Typ projektu | Inny: biblioteka TypeScript bez interfejsu (ESM) |
-| Framework | TypeScript strict, vitest, tsup, ESLint (specyfikacja, sekcja Stack) |
-| Instalacja | `pnpm install` (zamierzone, sprawdza T1) |
-| Lint | `pnpm lint` (ESLint) i `pnpm typecheck` (tsc --noEmit) |
-| Testy | `pnpm test` (vitest run --coverage, próg 90% linii) |
-| Build | `pnpm build` (tsup, ESM i .d.ts do dist/) |
+| Framework | TypeScript 6.0 strict, vitest 5 z pokryciem v8, tsup 9, ESLint 10 z typescript-eslint (specyfikacja, sekcja Stack) |
+| Instalacja | `pnpm install` (CI: `pnpm install --frozen-lockfile`) |
+| Lint | `pnpm lint` (ESLint, `eslint.config.js`) i `pnpm typecheck` (`tsc --noEmit`, strict) |
+| Testy | `pnpm test` (`vitest run --coverage`, testy `src/**/*.test.ts`, próg 90% linii w `vitest.config.ts`); jeden plik: `pnpm test src/NAZWA.test.ts` |
+| Build | `pnpm build` (tsup: `dist/index.js` ESM i `dist/index.d.ts`) |
 | Uruchomienie lokalne | nie dotyczy: biblioteka; import z `dist/index.js` po `pnpm build` |
+
+Komendy sprawdzone w zadaniu T1 (#97). TypeScript jest przypięty do `~6.0`, bo typescript-eslint 8
+wymaga TypeScript poniżej 6.1.
 
 Zmiana kontraktu wymaga ADR w `docs/04-plan/adr/`.
 
