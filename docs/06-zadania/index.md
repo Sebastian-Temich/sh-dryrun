@@ -51,12 +51,12 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | done | 1 | M1 | #90 merged | pass |
 | #92 | slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | done | 1 | M1 | #93 merged | pass |
 | #97 | Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | done | 1 | M1 Biblioteka | #105 merged | pass |
-| #98 | slugify: slug z tekstu (W-01) | todo | 0 | M1 Biblioteka | - | - |
-| #99 | formatPLN: kwota w złotych (W-02) | todo | 0 | M1 Biblioteka | - | - |
+| #98 | slugify: slug z tekstu (W-01) | done | 1 | M1 Biblioteka | #106 merged | pass |
+| #99 | formatPLN: kwota w złotych (W-02) | in-progress | 1 | M1 Biblioteka | #107 open | pass |
 | #100 | chunk: dzielenie tablicy na części (W-03) | todo | 0 | M1 Biblioteka | - | - |
 | #101 | retry: ponawianie wywołania (W-04) | todo | 0 | M1 Biblioteka | - | - |
-| #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | todo | 0 | M1 Biblioteka | - | - |
-| #103 | przelicz: kwota w walucie obcej na grosze (W-06) | todo | 0 | M1 Biblioteka | - | - |
+| #102 | kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun) | anulowane | 1 | M1 Biblioteka | - | - |
+| #103 | przelicz: kwota w walucie obcej na grosze (W-06) | in-progress | 1 | M1 Biblioteka | #108 open | pass |
 | #104 | Dokumentacja wydania M1 | todo | 0 | M1 Biblioteka | - | - |
 <!-- sync-status:end -->
 

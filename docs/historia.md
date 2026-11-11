@@ -29,10 +29,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (28)
+## Wszystkie zadania zrobione (29)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #106 | 2026-11-11 |
 | #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 | 2026-11-11 |
 | #92 slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | M1 | #93 | 2026-11-11 |
 | #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #90 | 2026-11-10 |
@@ -62,7 +63,7 @@ zadań `scripts/sync-status.sh`.
 | #11 formatPLN(kwota) z testami | M1 | #16 | 2026-11-04 |
 | #8 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #14 | 2026-11-04 |
 
-## Wszystkie zadania anulowane (18)
+## Wszystkie zadania anulowane (19)
 
 - #1 Szkielet: projekt Node + TypeScript + vitest + CI
 - #2 sum(a, b) z testami
@@ -82,4 +83,5 @@ zadań `scripts/sync-status.sh`.
 - #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
 - #71 parseDate(str) z testami
 - #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
+- #102 kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun)
 <!-- historia:end -->
