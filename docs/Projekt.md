@@ -3,11 +3,11 @@ projekt: sh-dryrun
 tryb: M
 etap_opis: "Realizacja, kamień M1 Biblioteka"
 postep_etapy: "3/4"
-postep_zadania: "3/7"
+postep_zadania: "4/7"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Dokończenie #99, #100, potem #101"
-ostatnia_synchronizacja: 2026-11-11T19:38:19Z
+nastepny_krok: "Dokończenie #100, #101"
+ostatnia_synchronizacja: 2026-11-11T19:40:34Z
 ---
 
 # sh-dryrun
@@ -17,10 +17,10 @@ ostatnia_synchronizacja: 2026-11-11T19:38:19Z
 ## Gdzie jesteśmy
 
 - **Etap:** Realizacja, kamień M1 Biblioteka
-- **Postęp:** Etapy 3/4 · Zadania 3/7 w bieżącym przebiegu (łącznie 34)
-- **Co się dzieje:** #99 formatPLN: kwota w złotych (W-02) (worker, od 8 min); #100 chunk: dzielenie tablicy na części (W-03) (worker, od 2 min)
-- **Następny krok:** Dokończenie #99, #100, potem #101
-- **Szacowany czas:** ok. 52 min pracy agentów (4 zadań, średnio 26 min na zadanie, 3 równolegle; orientacyjnie)
+- **Postęp:** Etapy 3/4 · Zadania 4/7 w bieżącym przebiegu (łącznie 34)
+- **Co się dzieje:** #100 chunk: dzielenie tablicy na części (W-03) (worker, od 4 min); #101 retry: ponawianie wywołania (W-04) (worker, od 1 min)
+- **Następny krok:** Dokończenie #100, #101
+- **Szacowany czas:** ok. 25 min pracy agentów (3 zadań, średnio 25 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
@@ -32,25 +32,20 @@ Nic. Agenci pracują sami.
 
 | Zadanie | Kamień | Kto | Iteracja | PR | CI | Od |
 |---|---|---|---|---|---|---|
-| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | worker | 1 | #107 | pass | 8 min |
-| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | worker | 1 | #109 | pending | 2 min |
-
-### Gotowe do startu (1)
-
-| Zadanie | Kamień | Zależności |
-|---|---|---|
-| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | #97 ✓ |
+| #100 chunk: dzielenie tablicy na części (W-03) | M1 Biblioteka | worker | 1 | #109 | pass | 4 min |
+| #101 retry: ponawianie wywołania (W-04) | M1 Biblioteka | worker | 1 | - | - | 1 min |
 
 ### Zaplanowane (1)
 
 | Zadanie | Kamień | Czeka na |
 |---|---|---|
-| #104 Dokumentacja wydania M1 | M1 Biblioteka | #99, #100, #101 |
+| #104 Dokumentacja wydania M1 | M1 Biblioteka | #100, #101 |
 
-### Zrobione w bieżącym przebiegu (3)
+### Zrobione w bieżącym przebiegu (4)
 
 | Zadanie | Kamień | PR |
 |---|---|---|
+| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #107 |
 | #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #108 |
 | #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #106 |
 | #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 |

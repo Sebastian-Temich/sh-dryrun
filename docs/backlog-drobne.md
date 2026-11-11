@@ -12,3 +12,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-11 | T-97 | `pnpm-workspace.yaml` ma `allowBuilds.sharp: true`, choć projekt nie używa sharp. | otwarta |
 | 2026-11-11 | review PR #106 | Moduł ma już eksport slugify, więc `export {};` na końcu src/index.ts jest zbędne. Można je usunąć, gdy będzie okazja przy kolejnym zadaniu. (`src/index.ts:23`) | otwarta |
 | 2026-11-11 | review PR #108 | Wywołanie przelicz(2, 'EUR', {}) sprawdza tylko typ RangeError, a nie komunikat „Brak kursu: podaj kurs albo źródło kursu”. Warto użyć toThrow(new RangeError(BRAK_KURSU)) jak w linii wyżej. (`src/przelicz.test.ts:64`) | otwarta |
+| 2026-11-11 | T-99 | Komentarz w nagłówku `src/index.ts` mówi „w pustej linii pod komentarzem”, a test szkieletu z T1 wymagał, żeby ta linia była pusta; T2 i T4–T7 trafią na ten sam problem przy swoich eksportach. | otwarta |

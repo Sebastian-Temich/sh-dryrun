@@ -35,3 +35,8 @@ Plik wspólny, aktualizuje orkiestrator. Decyzje workerów przenosi z raportów 
 | 2026-11-11 | T-103 | „Nie liczba” z karty (stan „Błąd w danych”) | także NaN i ±Infinity dają „Nieprawidłowa kwota albo kurs”; kurs zwrócony przez `zrodloKursu` jest walidowany tak samo jak podany wprost. |
 | 2026-11-11 | T-103 | Kod waluty | nie jest walidowany, tylko przekazywany do `zrodloKursu`; karta ani ADR-002 nie definiują błędu dla kodu, a walidację kodu (tabela A NBP) ma W-05. |
 | 2026-11-11 | T-103 | Kurs w opcjach równy `undefined` | traktowany jak brak kursu (ADR-002: „`kurs` brak”). |
+| 2026-11-11 | T-99 | Testy szkieletu w `src/index.test.ts` (plik spoza „Zakresu”) | po dodaniu eksportu padały oba („bez eksportów funkcji” i „pusta linia pod komentarzem”), więc pierwsza wersja PR je poluzowała. Po scaleniu #98 konflikt rozwiązany wersją z `main` (lista eksportów z planu, linia sekcji pusta albo eksport), która akceptuje `formatPLN`; PR nie zmienia już tego pliku. |
+| 2026-11-11 | T-99 | Zakres wejścia | `Number.isSafeInteger`, a nie `Number.isInteger`: liczby całkowite powyżej `MAX_SAFE_INTEGER` nie są dokładne (K5 „bez utraty cyfr”), a od 1e21 `String()` daje zapis wykładniczy; dostają ten sam `RangeError` co ułamek (karta: „Kwota z ułamkiem groszy albo nie liczba”). |
+| 2026-11-11 | T-99 | `-0` | „0,00 zł” bez minusa (warunek `grosze < 0`), zgodnie z K2 dla zera. |
+| 2026-11-11 | T-99 | Wartość niebędąca liczbą (np. tekst) w czasie wykonania | `RangeError` z tym samym komunikatem (karta, stan „Błąd w danych”: „albo nie liczba”), a nie `TypeError`. |
+| 2026-11-11 | T-99 | - | Dodatkowo przeczytane: `docs/06-zadania/zadania.yaml` (konwencja sekcji `src/index.ts`) i `docs/07-realizacja/T-97.md` (testy szkieletu). |

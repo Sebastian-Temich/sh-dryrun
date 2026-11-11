@@ -29,10 +29,11 @@ zadań `scripts/sync-status.sh`.
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->
 
-## Wszystkie zadania zrobione (30)
+## Wszystkie zadania zrobione (31)
 
 | Zadanie | Kamień | PR | Zamknięte |
 |---|---|---|---|
+| #99 formatPLN: kwota w złotych (W-02) | M1 Biblioteka | #107 | 2026-11-11 |
 | #103 przelicz: kwota w walucie obcej na grosze (W-06) | M1 Biblioteka | #108 | 2026-11-11 |
 | #98 slugify: slug z tekstu (W-01) | M1 Biblioteka | #106 | 2026-11-11 |
 | #97 Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI | M1 Biblioteka | #105 | 2026-11-11 |
