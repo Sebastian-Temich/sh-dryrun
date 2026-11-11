@@ -1,13 +1,13 @@
 ---
 projekt: sh-dryrun
 tryb: M
-etap_opis: "Zakończony"
+etap_opis: "Realizacja, kamień M1"
 postep_etapy: "4/4"
-postep_zadania: "7/7"
+postep_zadania: "0/1"
 czeka_na_ciebie: 0
 eskalacje: 0
-nastepny_krok: "Brak, zlecenie zakończone"
-ostatnia_synchronizacja: 2026-11-11T00:06:20Z
+nastepny_krok: "Start #92"
+ostatnia_synchronizacja: 2026-11-11T00:16:13Z
 ---
 
 # sh-dryrun
@@ -16,42 +16,29 @@ ostatnia_synchronizacja: 2026-11-11T00:06:20Z
 
 ## Gdzie jesteśmy
 
-- **Etap:** Zakończony
-- **Postęp:** Etapy 4/4 · Zadania 7/7 w bieżącym przebiegu (łącznie 26)
+- **Etap:** Realizacja, kamień M1
+- **Postęp:** Etapy 4/4 · Zadania 0/1 w bieżącym przebiegu (łącznie 27)
 - **Co się dzieje:** nic w toku
-- **Następny krok:** Brak, zlecenie zakończone
+- **Następny krok:** Start #92
+- **Szacowany czas:** ok. 5 min pracy agentów (1 zadań, średnio 5 min na zadanie, 3 równolegle; orientacyjnie)
 
 ## Czeka na Ciebie
 
-Nic. Projekt zakończony.
+Nic. Agenci pracują sami.
 
 ## Zadania
 
-Nic w toku.
+### Gotowe do startu (1)
 
-### Zrobione w bieżącym przebiegu (7)
-
-| Zadanie | Kamień | PR |
+| Zadanie | Kamień | Zależności |
 |---|---|---|
-| #82 Dokumentacja wydania: README z użyciem biblioteki | M1 | #90 |
-| #81 Punkt wejścia pakietu: src/index.ts i exports | M1 | #89 |
-| #80 parseDate(str) z testami | M1 | #88 |
-| #78 formatPLN(kwota) z testami | M1 | #87 |
-| #77 slugify(text) z testami | M1 | #86 |
-| #76 sum(a, b) z testami | M1 | #84 |
-| #75 Szkielet: projekt Node + TypeScript + vitest + CI | M1 | #83 |
+| #92 slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | M1 | brak |
 
-Wcześniejsze przebiegi (19 zadań): [Historia](historia.md).
+### Zrobione w bieżącym przebiegu (0)
 
-### Anulowane w bieżącym przebiegu (7)
+Jeszcze nic.
 
-- #66 Szkielet: projekt Node + TypeScript + vitest + CI
-- #67 sum(a, b) z testami
-- #68 slugify(text) z testami
-- #69 formatPLN(kwota) z testami
-- #70 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
-- #71 parseDate(str) z testami
-- #79 Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)
+Wcześniejsze przebiegi (26 zadań): [Historia](historia.md).
 
 ## Eskalacje i pytania
 

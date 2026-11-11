@@ -49,6 +49,7 @@ Plik wspólny. Tabelę generuje `scripts/sync-status.sh`, nie edytuj jej ręczni
 | #80 | parseDate(str) z testami | done | 1 | M1 | #88 merged | pass |
 | #81 | Punkt wejścia pakietu: src/index.ts i exports | done | 1 | M1 | #89 merged | pass |
 | #82 | Dokumentacja wydania: README z użyciem biblioteki | done | 1 | M1 | #90 merged | pass |
+| #92 | slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | todo | 0 | M1 | - | - |
 <!-- sync-status:end -->
 
 ## Mapa zadań z planu
@@ -72,4 +73,5 @@ Sekcję uzupełnia `shctl task create`: ID z pliku YAML i numer issue.
 | T15 | #80 | parseDate(str) z testami | #75, #78 |
 | T17 | #81 | Punkt wejścia pakietu: src/index.ts i exports | #76, #77, #78, #80 |
 | T18 | #82 | Dokumentacja wydania: README z użyciem biblioteki | #75, #76, #77, #78, #80, #79, #81 |
+| S-20261111-slugify-readme | #92 | slugify: sekcja użycia w README z przypadkami brzegowymi i testem przykładów | - |
 <!-- shctl:mapa:end -->
