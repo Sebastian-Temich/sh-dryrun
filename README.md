@@ -66,6 +66,25 @@ parseDate("31.02.2026"); // RangeError: parseDate: nieprawidłowa data
 Wyniki są te same co w testach `tests/*.test.ts` (wywołania przez punkt wejścia: `tests/index.test.ts`).
 Szczegóły i przypadki brzegowe: karty `docs/00-intake/funkcje/W-01.md`–`W-04.md`.
 
+### slugify
+
+`slugify(text)` zamienia tekst na slug do adresu URL: małe litery a–z, cyfry 0–9 i pojedyncze
+myślniki między nimi. Polskie litery (małe i wielkie) zamienia na łacińskie odpowiedniki, inne litery
+(é, ü, ß, cyrylica) usuwa bez śladu. Pozostałe znaki (spacje, interpunkcja, myślniki, podkreślnik)
+rozdzielają słowa jednym myślnikiem, a wynik nie zaczyna się ani nie kończy myślnikiem. Tekst bez
+liter i cyfr daje pusty tekst. Funkcja nie rzuca wyjątków.
+
+| Wejście | Wynik | Przypadek |
+|---|---|---|
+| `"Zażółć gęślą jaźń: Łódź"` | `"zazolc-gesla-jazn-lodz"` | zwykły tytuł |
+| `"Café über"` | `"caf-ber"` | litery spoza alfabetu polskiego usunięte |
+| `"!!! ---"` | `""` | same znaki specjalne |
+| `""` | `""` | pusty tekst |
+| `"  a -- b  "` | `"a-b"` | wielokrotne spacje i myślniki |
+
+Te same przykłady sprawdza `tests/readme-slugify.test.ts` przez punkt wejścia `src/index.ts`.
+Szczegóły: karta `docs/00-intake/funkcje/W-02.md`.
+
 ## Środowiska
 
 | Środowisko | Stan |
