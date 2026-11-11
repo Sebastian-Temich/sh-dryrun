@@ -13,6 +13,24 @@ złote. Szczegóły: [specyfikacja](docs/00-intake/specyfikacja.md).
 W zakresie: funkcje W-01–W-06 z testami i typami, build ESM, CI. Poza zakresem: publikacja w npm,
 strona dokumentacji, wersja CommonJS.
 
+## Uruchomienie
+
+Wymagania: Node LTS (przez fnm) i pnpm.
+
+```bash
+pnpm install      # zależności (CI: pnpm install --frozen-lockfile)
+pnpm lint         # ESLint z typescript-eslint
+pnpm typecheck    # tsc --noEmit, strict
+pnpm test         # vitest run --coverage, próg 90% linii
+pnpm build        # tsup: dist/index.js (ESM) i dist/index.d.ts
+```
+
+Po `pnpm build` biblioteka importuje się z `dist/index.js`:
+
+```bash
+node --input-type=module -e "const m = await import('./dist/index.js'); console.log(Object.keys(m))"
+```
+
 ## Jak powstaje projekt
 
 Projekt zakłada orkiestrator lub właściciel jedną komendą:
