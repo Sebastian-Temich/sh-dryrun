@@ -9,18 +9,18 @@ akceptacja_wlasciciela: false
 
 ## Dokumentacja
 
-- [ ] Raport QA powstał dla każdego kamienia milowego
+- [x] Raport QA powstał dla każdego kamienia milowego
 
 ## Funkcjonalność
 
-- [ ] Testy E2E przechodzą (chromium + webkit)
-- [ ] Integracja i zgodność z wymaganiami są sprawdzone
-- [ ] Błędy z QA są issue i zostały zamknięte
+- [-] Testy E2E przechodzą (chromium + webkit) (nie dotyczy: biblioteka bez UI, integracja vitest w CI)
+- [x] Integracja i zgodność z wymaganiami są sprawdzone
+- [x] Błędy z QA są issue i zostały zamknięte (brak błędów 🔴 i 🟡 w M1)
 
 ## Checklisty jakości
 
-- [ ] Nie ma otwartych zgłoszeń krytycznych ani istotnych
-- [ ] Bezpieczeństwo i sekrety są sprawdzone
+- [x] Nie ma otwartych zgłoszeń krytycznych ani istotnych
+- [x] Bezpieczeństwo i sekrety są sprawdzone
 
 ## Checkpoint
 
