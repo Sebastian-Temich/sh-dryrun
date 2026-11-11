@@ -2,6 +2,17 @@
 
 Szablon repozytorium projektu AI Software House. Proces opisuje `sh-system/docs/proces-v1.md`.
 
+## Cel
+
+sh-dryrun to mała biblioteka funkcji pomocniczych w TypeScript z testami w vitest: slug z tekstu,
+format kwoty w złotych, dzielenie tablic, ponawianie wywołań, kurs waluty z NBP i przeliczanie na
+złote. Szczegóły: [specyfikacja](docs/00-intake/specyfikacja.md).
+
+## Zakres
+
+W zakresie: funkcje W-01–W-06 z testami i typami, build ESM, CI. Poza zakresem: publikacja w npm,
+strona dokumentacji, wersja CommonJS.
+
 ## Jak powstaje projekt
 
 Projekt zakłada orkiestrator lub właściciel jedną komendą:

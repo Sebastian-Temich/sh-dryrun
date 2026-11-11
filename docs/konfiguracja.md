@@ -31,11 +31,11 @@ modele:
 #   zwykle: {silnik: codex, model: gpt-6-astra, effort: medium}
 #   gdy_limit: drugi_silnik
 hosting:
-  aplikacja: vercel
-  baza: supabase-cloud
-  region: eu
-  konta: klient
-  zaakceptowany: false
+  aplikacja: brak  # biblioteka bez aplikacji (specyfikacja, Hosting)
+  baza: brak
+  region: nie_dotyczy
+  konta: nie_dotyczy
+  zaakceptowany: true
 data: "2026-11-04"
 blok_portow: 55221-55229
 ---
