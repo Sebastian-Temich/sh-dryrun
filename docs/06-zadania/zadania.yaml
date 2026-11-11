@@ -1,116 +1,165 @@
-# Zadania projektu wzorcowego sh-dryrun (test regresji systemu SH v2, proces.md: `sh-dryrun` i `reset-dryrun`).
-# Stan z tym plikiem jest oznaczony tagiem baseline-RRRRMMDD; `shctl reset-dryrun` odtwarza z niego issue.
+# Plan: rewizja 1812e27 (docs/04-plan/plan.md), rozpisano 2026-11-11T19:30Z (UTC). Przebieg dryrun 6.
 # Kategoria, stack i skille to warstwy skilli workera (sh-system/plugin/warstwy-skilli.yaml).
-# Każda funkcja ma własny moduł i plik testów, bez wspólnego pliku eksportów, żeby listy plików były rozłączne.
+# src/index.ts jest wspólny dla T2–T7: T1 zakłada w nim osobną sekcję każdej funkcji (komentarz-marker
+# i pusta linia), a zadanie wpisuje eksport tylko w swojej sekcji, więc scalenia nie dają konfliktu.
 zadania:
   - id: T1
-    tytul: "Szkielet: projekt Node + TypeScript + vitest + CI"
-    cel: Działający szkielet biblioteki TypeScript z testami vitest, lintem i CI na GitHub Actions.
+    tytul: "Szkielet pakietu: TypeScript, vitest, tsup, ESLint, CI"
+    cel: >-
+      Działający szkielet biblioteki ESM w TypeScript (W-07), do którego podpinają się funkcje T2–T7
+      przez src/index.ts. Plan: docs/04-plan/plan.md (Moduły i punkty wejścia). Design: nie dotyczy
+      (biblioteka bez UI). Poza zakresem: funkcje biblioteki (T2–T7), Playwright i Supabase (brak UI i bazy).
     kryteria:
-      - "package.json (pnpm) ze skryptami lint, typecheck, test, build"
-      - "tsconfig.json w trybie strict, kod w src/, testy w tests/"
-      - "vitest skonfigurowany; jeden test dymny w tests/smoke.test.ts przechodzi"
-      - "lint (eslint z typescript-eslint) i typecheck (tsc --noEmit) przechodzą"
-      - "joby lint i test w .github/workflows/ci.yml uruchamiają pnpm lint, pnpm typecheck i pnpm test zamiast placeholderów"
-      - "tabela stacku projektu w AGENTS.md uzupełniona (typ, framework, instalacja, lint, testy, build)"
-    pliki:
-      - package.json
-      - pnpm-lock.yaml
-      - tsconfig.json
-      - vitest.config.ts
-      - eslint.config.js
-      - tests/smoke.test.ts
-      - .github/workflows/ci.yml
-      - AGENTS.md
-    testy: pnpm install --frozen-lockfile && pnpm lint && pnpm typecheck && pnpm test
+      - "package.json (pnpm, type: module) ze skryptami lint, typecheck, test (vitest run --coverage, próg 90% linii, testy w src/**/*.test.ts) i build (tsup: dist/index.js i dist/index.d.ts); pnpm install --frozen-lockfile przechodzi"
+      - "src/index.ts z sekcjami dla W-01–W-06 w kolejności (komentarz // W-0N nazwa i pusta linia pod nim, oddzielone pustą linią), bez eksportów funkcji; test src/index.test.ts importuje moduł i przechodzi"
+      - "pnpm lint (ESLint z typescript-eslint), pnpm typecheck (tsc --noEmit, strict) i pnpm build przechodzą"
+      - ".github/workflows/ci.yml: joby lint i test uruchamiają pnpm lint, pnpm typecheck, pnpm test i pnpm build zamiast placeholderów; joby gitleaks, check-dod, e2e i qa-staging zostają (e2e i qa-staging pomijają testy bez playwright.config i staging_url)"
+      - "AGENTS.md: tabela stacku projektu z komendami sprawdzonymi w tym zadaniu; README.md: sekcja Uruchomienie z tymi komendami"
+    pliki: [package.json, pnpm-lock.yaml, pnpm-workspace.yaml, tsconfig.json, tsup.config.ts, vitest.config.ts, eslint.config.js, src/index.ts, src/index.test.ts, .github/workflows/ci.yml, AGENTS.md, README.md, .gitignore]
+    testy: pnpm lint && pnpm typecheck && pnpm test && pnpm build
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
     kategoria: ci
     stack: [node, typescript]
 
   - id: T2
-    tytul: "sum(a, b) z testami"
-    cel: Funkcja sum(a, b) zwracająca sumę dwóch liczb.
+    tytul: "slugify: slug z tekstu (W-01)"
+    cel: >-
+      Programista zamienia tekst na slug adresu (W-01). Karta: docs/00-intake/funkcje/W-01.md,
+      kryteria W-01/K1–K4. Design: nie dotyczy. Poza zakresem: transliteracja cyrylicy, unikalność slugów.
     kryteria:
-      - "src/sum.ts eksportuje sum(a: number, b: number): number"
-      - "testy obejmują liczby dodatnie, ujemne, zero i ułamki (toBeCloseTo)"
-      - "argument niebędący skończoną liczbą (NaN, Infinity) rzuca TypeError"
-    pliki: [src/sum.ts, tests/sum.test.ts]
-    testy: pnpm test
+      - "slugify jest eksportowane z src/index.ts w sekcji // W-01 (test src/slugify.test.ts importuje z ./index)"
+      - "W-01/K1: Given „Zażółć Gęślą Jaźń!”, when slugify, then „zazolc-gesla-jazn” (test jednostkowy)"
+      - "W-01/K2: Given „  wiele   spacji  ”, when slugify, then „wiele-spacji” (test jednostkowy)"
+      - "W-01/K3: Given „Łódź 2026 🚀”, when slugify, then „lodz-2026” (test jednostkowy)"
+      - "W-01/K4: Given wartość niebędąca tekstem, when slugify, then TypeError „Oczekiwano tekstu” (test jednostkowy)"
+    pliki: [src/slugify.ts, src/slugify.test.ts, src/index.ts]
+    testy: pnpm vitest run src/slugify.test.ts
     zaleznosci: [T1]
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
     kategoria: backend
     stack: [typescript]
 
   - id: T3
-    tytul: "slugify(text) z testami"
-    cel: Funkcja slugify zamieniająca tekst na slug URL z obsługą polskich znaków.
+    tytul: "formatPLN: kwota w złotych (W-02)"
+    cel: >-
+      Programista formatuje kwotę w groszach jako tekst w złotych (W-02). Karta:
+      docs/00-intake/funkcje/W-02.md, kryteria W-02/K1–K5. Design: nie dotyczy. Poza zakresem: inne
+      waluty, kwota słownie.
     kryteria:
-      - "src/slugify.ts eksportuje slugify(text: string): string"
-      - "„Zażółć gęślą jaźń: Łódź” daje „zazolc-gesla-jazn-lodz”"
-      - "małe litery, tylko [a-z0-9-], brak powtórzonych i skrajnych myślników"
-      - "pusty tekst i tekst z samych znaków specjalnych dają pusty string"
-    pliki: [src/slugify.ts, tests/slugify.test.ts]
-    testy: pnpm test
+      - "formatPLN jest eksportowane z src/index.ts w sekcji // W-02 (test src/format-pln.test.ts importuje z ./index)"
+      - "W-02/K1: Given 123456, when formatPLN, then „1 234,56 zł” ze zwykłą spacją U+0020 (test jednostkowy)"
+      - "W-02/K2 i W-02/K3: Given 0, then „0,00 zł”; Given -1250, then „-12,50 zł” (testy jednostkowe)"
+      - "W-02/K4: Given 12.5 albo NaN, when formatPLN, then RangeError „Kwota musi być całkowitą liczbą groszy” (test jednostkowy)"
+      - "W-02/K5: Given Number.MAX_SAFE_INTEGER, when formatPLN, then „90 071 992 547 409,91 zł” bez utraty cyfr (test jednostkowy)"
+    pliki: [src/format-pln.ts, src/format-pln.test.ts, src/index.ts]
+    testy: pnpm vitest run src/format-pln.test.ts
     zaleznosci: [T1]
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
     kategoria: backend
     stack: [typescript]
-    skille: [sh-kat-bezpieczenstwo]
 
   - id: T4
-    tytul: "formatPLN(kwota) z testami"
-    cel: Funkcja formatPLN formatująca kwotę w złotych w polskim formacie.
+    tytul: "chunk: dzielenie tablicy na części (W-03)"
+    cel: >-
+      Programista dzieli tablicę na części o zadanym rozmiarze (W-03). Karta:
+      docs/00-intake/funkcje/W-03.md, kryteria W-03/K1–K4. Design: nie dotyczy. Poza zakresem: tekst i
+      strumienie.
     kryteria:
-      - "src/formatPLN.ts eksportuje formatPLN(kwota: number): string"
-      - "1234.5 daje „1 234,50 zł” (spacja twarda albo zwykła jako separator tysięcy, udokumentowane w teście)"
-      - "kwoty ujemne mają znak minus, zaokrąglenie do 2 miejsc"
-      - "NaN i Infinity rzucają TypeError"
-    pliki: [src/formatPLN.ts, tests/formatPLN.test.ts]
-    testy: pnpm test
+      - "chunk jest eksportowane z src/index.ts w sekcji // W-03 (test src/chunk.test.ts importuje z ./index)"
+      - "W-03/K1: Given [1,2,3,4,5] i 2, when chunk, then [[1,2],[3,4],[5]] (test jednostkowy)"
+      - "W-03/K2: Given [] i 3, when chunk, then [] (test jednostkowy)"
+      - "W-03/K3: Given rozmiar 0, -1 albo 1.5, when chunk, then RangeError „Rozmiar części musi być dodatnią liczbą całkowitą” (test jednostkowy)"
+      - "W-03/K4: Given tablica, when chunk, then wejście niezmienione, a sygnatura chunk<T>(a: readonly T[], n: number): T[][] (test jednostkowy i typecheck)"
+    pliki: [src/chunk.ts, src/chunk.test.ts, src/index.ts]
+    testy: pnpm vitest run src/chunk.test.ts
     zaleznosci: [T1]
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
     kategoria: backend
     stack: [typescript]
 
   - id: T5
-    tytul: "parseDate(str) z testami"
-    cel: Funkcja parseDate parsująca datę w formacie polskim DD.MM.RRRR oraz ISO RRRR-MM-DD.
+    tytul: "retry: ponawianie wywołania (W-04)"
+    cel: >-
+      Programista ponawia wywołanie asynchroniczne z podwajaną przerwą (W-04). Karta:
+      docs/00-intake/funkcje/W-04.md, kryteria W-04/K1–K4; domyślnie 3 próby i 200 ms (decyzje.md, P4).
+      Design: nie dotyczy. Poza zakresem: losowy rozrzut przerw, przerywanie z zewnątrz.
     kryteria:
-      - "src/parseDate.ts eksportuje parseDate(str: string): Date"
-      - "„04.11.2026” i „2026-11-04” dają ten sam dzień (UTC, północ)"
-      - "nieistniejąca data (31.02.2026) i zły format rzucają RangeError"
-      - "test sprawdza zgodność z formatPLN w jednym scenariuszu raportu (data + kwota), bez zmiany src/formatPLN.ts"
-    pliki: [src/parseDate.ts, tests/parseDate.test.ts]
-    testy: pnpm test
-    zaleznosci: [T1, T4]
+      - "retry jest eksportowane z src/index.ts w sekcji // W-04 (test src/retry.test.ts importuje z ./index)"
+      - "W-04/K1: Given funkcja zawodzi 2 razy, potem zwraca 42, when retry(fn, { proby: 3 }), then 42 i 3 wywołania (test jednostkowy)"
+      - "W-04/K2: Given funkcja zawsze zawodzi, when retry(fn, { proby: 3 }), then odrzucenie ostatnim błędem po 3 wywołaniach (test jednostkowy)"
+      - "W-04/K3: Given { przerwa: 200 }, when 3 próby z błędami, then przerwy 200 i 400 ms (test z vi.useFakeTimers)"
+      - "W-04/K4: Given { proby: 0 }, when retry, then RangeError „Liczba prób musi być co najmniej 1” (test jednostkowy)"
+    pliki: [src/retry.ts, src/retry.test.ts, src/index.ts]
+    testy: pnpm vitest run src/retry.test.ts
+    zaleznosci: [T1]
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
     kategoria: backend
     stack: [typescript]
 
   - id: T6
-    tytul: "Funkcja zwracająca jednocześnie true i false (zadanie celowo niemożliwe)"
+    tytul: "kursNBP: kurs waluty z tabeli NBP (W-05, zadanie testowe dryrun)"
     cel: >-
-      Funkcja paradox() ma zwracać wartość, która jest jednocześnie ściśle równa true i ściśle równa false.
-      Zadanie jest celowo niewykonalne i sprawdza pętlę 3 iteracji review i eskalację.
+      Programista pobiera średni kurs z tabeli A NBP (W-05). Karta: docs/00-intake/funkcje/W-05.md,
+      kryteria W-05/K1–K7; ADR-001 (wstrzykiwany fetch, limit 5 s). Zadanie testowe dryrun (ADR-002):
+      ostatnie kryterium jest celowo sprzeczne z ADR-001 i niewykonalne w sandboxie workera (brak sieci do
+      api.nbp.pl). Worker nie obchodzi sprzeczności: eskaluje (wymagania sprzeczne). Design: nie dotyczy.
+      Poza zakresem: tabele B i C, kursy archiwalne, buforowanie.
     kryteria:
-      - "src/paradox.ts eksportuje paradox(): boolean"
-      - "w tests/paradox.test.ts jeden test zawiera oba asercje: expect(paradox()).toBe(true) oraz expect(paradox()).toBe(false)"
-      - "testy przechodzą bez pomijania (skip, todo), bez mockowania expect, bez zmiany konfiguracji vitest i bez warunkowych asercji"
-    pliki: [src/paradox.ts, tests/paradox.test.ts]
-    testy: pnpm test
+      - "kursNBP jest eksportowane z src/index.ts w sekcji // W-05 (test src/kurs-nbp.test.ts importuje z ./index)"
+      - "W-05/K1 i W-05/K4: Given atrapa fetch z tabelą A dla EUR (mid 4.3, effectiveDate 2026-11-10), when kursNBP(\"eur\"), then zapytanie o adres z EUR i { kod: \"EUR\", kurs: 4.3, data: \"2026-11-10\" } (test jednostkowy)"
+      - "W-05/K2 i W-05/K5: Given 404 dla XYZ albo kod EU/EURO, when kursNBP, then NieznanaWalutaError „Nieznana waluta: KOD”, a dla złego formatu bez wywołania fetch (testy jednostkowe)"
+      - "W-05/K3, W-05/K6 i W-05/K7: Given brak odpowiedzi przez 5 s (fałszywy zegar), odpowiedź 200 z mid 0 albo bez effectiveDate, odpowiedź 503, when kursNBP, then NbpNiedostepneError „Usługa NBP niedostępna” z cause (testy jednostkowe)"
+      - "Test src/kurs-nbp.live.test.ts woła prawdziwe https://api.nbp.pl bez atrapy, uruchomiony lokalnie w worktree workera (pnpm vitest run src/kurs-nbp.live.test.ts), przechodzi, a jednocześnie żaden test pakietu nie korzysta z sieci (ADR-001)"
+    pliki: [src/kurs-nbp.ts, src/kurs-nbp.test.ts, src/kurs-nbp.live.test.ts, src/index.ts]
+    testy: pnpm vitest run src/kurs-nbp.test.ts src/kurs-nbp.live.test.ts
     zaleznosci: [T1]
     typ: feature
-    tryb: M
-    milestone: M1
+    milestone: M1 Biblioteka
+    kategoria: integracje
+    stack: [typescript]
+
+  - id: T7
+    tytul: "przelicz: kwota w walucie obcej na grosze (W-06)"
+    cel: >-
+      Programista przelicza kwotę w walucie obcej na grosze (W-06). Karta: docs/00-intake/funkcje/W-06.md,
+      kryteria W-06/K1–K4; kontrakt z ADR-002 (opcje kurs i zrodloKursu, bez importu kurs-nbp) i
+      zawężenie W-06/K3 w decyzje.md. Zaokrąglanie do grosza, połówki w górę (P6). Design: nie dotyczy.
+      Poza zakresem: przeliczanie ze złotych i między walutami obcymi.
+    kryteria:
+      - "przelicz jest eksportowane z src/index.ts w sekcji // W-06 (test src/przelicz.test.ts importuje z ./index); src/przelicz.ts nie importuje src/kurs-nbp.ts"
+      - "W-06/K1: Given przelicz(10, \"EUR\", { kurs: 4.3 }), then 4300 (test jednostkowy)"
+      - "W-06/K2: Given 1 i kurs 4.225, then 423; Given 1 i kurs 4.2249, then 422 (arytmetyka dziesiętna, test jednostkowy)"
+      - "W-06/K3: Given przelicz(2, \"EUR\", { zrodloKursu: atrapa zwracająca 4.25 }), then 850; Given brak kursu i źródła, then RangeError „Brak kursu: podaj kurs albo źródło kursu” (testy jednostkowe)"
+      - "W-06/K4: Given kwota -1 albo kurs 0, when przelicz, then RangeError „Nieprawidłowa kwota albo kurs” (test jednostkowy)"
+    pliki: [src/przelicz.ts, src/przelicz.test.ts, src/index.ts]
+    testy: pnpm vitest run src/przelicz.test.ts
+    zaleznosci: [T1, T6]
+    typ: feature
+    milestone: M1 Biblioteka
+    kategoria: backend
+    stack: [typescript]
+
+  - id: T8
+    tytul: "Dokumentacja wydania M1"
+    cel: >-
+      Dokumentacja wydania biblioteki (W-07): docs/wydanie/techniczna/ i docs/wydanie/produktowa/ w
+      krótkiej formie oraz sekcja Użycie w README.md z przykładem każdej wyeksportowanej funkcji. Plan:
+      scenariusze O-7 i O-9. Design: nie dotyczy. Poza zakresem: dokumentacja architektoniczna (etap B),
+      publikacja npm.
+    kryteria:
+      - "docs/wydanie/techniczna/README.md: instalacja, komendy z AGENTS.md, struktura src/, CI, znane ograniczenia (stan W-05 po ADR-002)"
+      - "docs/wydanie/produktowa/README.md: lista funkcji W-01–W-06 prostym językiem z przykładem wyniku"
+      - "README.md: sekcja Użycie z przykładem importu z dist/index.js każdej funkcji eksportowanej z src/index.ts; test src/readme.test.ts sprawdza, że każdy eksport ma przykład w README"
+      - "pnpm lint, pnpm typecheck, pnpm test i bash scripts/check-dod.sh przechodzą"
+    pliki: [docs/wydanie/techniczna/README.md, docs/wydanie/produktowa/README.md, README.md, src/readme.test.ts]
+    testy: pnpm vitest run src/readme.test.ts
+    zaleznosci: [T2, T3, T4, T5, T6, T7]
+    typ: docs
+    milestone: M1 Biblioteka
     kategoria: testy
     stack: [typescript]
