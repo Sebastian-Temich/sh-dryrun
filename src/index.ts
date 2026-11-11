@@ -11,7 +11,7 @@ export { formatPLN } from './format-pln.js';
 export { chunk } from './chunk.js';
 
 // W-04 ponawianie
-
+export { retry } from './retry.js';
 
 // W-05 kurs NBP
 
