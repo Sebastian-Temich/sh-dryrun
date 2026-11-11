@@ -8,7 +8,7 @@ export { slugify } from './slugify.js';
 
 
 // W-03 dzielenie tablicy
-
+export { chunk } from './chunk.js';
 
 // W-04 ponawianie
 
