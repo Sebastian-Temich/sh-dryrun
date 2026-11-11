@@ -17,6 +17,7 @@ export { slugify } from './slugify.js';
 
 
 // W-06 przeliczenie
+export { przelicz } from './przelicz.js';
 
 
 export {};
