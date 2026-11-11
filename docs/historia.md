@@ -5,6 +5,11 @@ zadań `scripts/sync-status.sh`.
 
 ## Punkt przekazania
 
+- **2026-11-11T19:56Z** (przebieg dryrun 6, po M1): kamień M1 Biblioteka zakończony; QA M1 PASS (PR
+  #112, raport-M1.md), `08-qa` done. Zadania #97–#101, #103, #104 zamknięte, #102 anulowane (E-001
+  zamknięta, `task deps` dla #103 i #104). W toku: nic. Eskalacje: brak otwartych. Wstrzymania: brak;
+  `min_wolne_gb: 12` (przywrócić 15 po zwolnieniu dysku). `shctl doctor` 19:17Z: 0 błędów. Autoryzacja:
+  „Autoryzacja planu PR #95”. Następny krok: etap wydanie (odbiór) poza zakresem przebiegu 6.
 - **2026-11-11T19:18Z** (przebieg dryrun 6, przed pierwszym dispatchem): etapy 00-intake, 04-plan,
   06-zadania done (PR #94, #95, #96). Kamień bieżący: M1 Biblioteka, issue #97–#104 (T1–T8), nic w
   toku. Eskalacje: brak. Wstrzymania: dysk 13 GB < 15 → `min_wolne_gb: 12` (decyzje.md).
@@ -27,6 +32,7 @@ zadań `scripts/sync-status.sh`.
 - 2026-11-11 `06-zadania`: done
 - 2026-11-11 `08-qa`: in-progress
 - 2026-11-11 `08-qa`: review
+- 2026-11-11 `08-qa`: done
 
 <!-- historia:start -->
 <!-- Blok generuje scripts/sync-status.sh. Nie edytuj go ręcznie. -->

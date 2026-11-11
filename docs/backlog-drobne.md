@@ -15,3 +15,4 @@ Plik wspólny, aktualizuje orkiestrator. Zgłoszenia ⚪ z review i „Drobne uw
 | 2026-11-11 | T-99 | Komentarz w nagłówku `src/index.ts` mówi „w pustej linii pod komentarzem”, a test szkieletu z T1 wymagał, żeby ta linia była pusta; T2 i T4–T7 trafią na ten sam problem przy swoich eksportach. | otwarta |
 | 2026-11-11 | T-104 | Nagłówek `README.md` to nadal „# sh-template-projekt”, a sekcje od „Jak powstaje projekt” opisują szablon, nie bibliotekę; poza zakresem #104 (tylko sekcja „Użycie”). | otwarta |
 | 2026-11-11 | T-104 | Puste pliki `.gitkeep` w `docs/wydanie/techniczna/` i `produktowa/` zostały; można je usunąć teraz, gdy katalogi mają treść. | otwarta |
+| 2026-11-11 | QA M1 | (kod) src/index.ts: zbędne export {} i pusta sekcja W-05 po anulowaniu #102 | otwarta |

@@ -10,15 +10,15 @@ Mac: Intel i5-3470S, 4 rdzenie, 24 GB RAM, swap 4 GB. Próbki co 30 s (`vm.loada
 
 ## Porównanie przebiegów
 
-| Miara | Przebieg 1 (max_local=1) | Przebieg 2 (max_local=2) | Przebieg 3 (max_local=2, z builderem) | Przebieg 5 (max_local=3, M z kartami) |
-|---|---|---|---|---|
-| Realizacja planu M1 (reset → ostatnie zadanie) | 77 min (ok. 58 min bez 16 min kolejki CI GitHuba i 3 min błędu skryptu) | 28 min | 26 min | 36 min (6 zadań 22:17–22:47 + #82 po decyzji E-001; 8 zadań planu, 1 anulowane) |
-| QA M1 | 11 min | 43 min (ok. 18 min bez konfliktu DoD) | 11 min (2 iteracje review etapu, bez konfliktu) | 7 min (PASS bez błędów, bez iteracji; qa-staging z e2e i Lighthouse) |
-| Czas całkowity | 87 min | 71 min | 37 min | ok. 71 min pracy agentów (z etapami 00-intake, 04-plan, 06-zadania), 212 min zegarowo z 162 min czekania na właściciela |
-| Czas pracy workera na zadanie (z `task close`) | 4–26 min, mediana 9 | 3–7 min, mediana 4 | 3–8 min, mediana 4,5 | 3–8 min, mediana 5 |
-| Load 1 min w realizacji: średnia / maks. | 6,2 / 32,1 | 4,9 / 9,2 | brak próbkowania (6,73 na końcu) | brak (sysctl zablokowany w sandboxie orkiestratora) |
-| Dysk (wolne) | 26 → 25 GB | 25 → 24 GB | 32 → 31 GB | 17 → 18 GB |
-| Swap na końcu | 3,2 z 4 GB | 2,7 z 4 GB | 2,5 z 4 GB | brak (sysctl zablokowany w sandboxie) |
+| Miara | Przebieg 1 (max_local=1) | Przebieg 2 (max_local=2) | Przebieg 3 (max_local=2, z builderem) | Przebieg 5 (max_local=3, M z kartami) | Przebieg 6 (max_local=3, M bez czekania) |
+|---|---|---|---|---|---|
+| Realizacja planu M1 (reset → ostatnie zadanie) | 77 min (ok. 58 min bez 16 min kolejki CI GitHuba i 3 min błędu skryptu) | 28 min | 26 min | 36 min (6 zadań 22:17–22:47 + #82 po decyzji E-001; 8 zadań planu, 1 anulowane) | 30 min (19:19:52–19:49:42; 7 zadań, #102 anulowane po E-001 w 1 min, bez czekania) |
+| QA M1 | 11 min | 43 min (ok. 18 min bez konfliktu DoD) | 11 min (2 iteracje review etapu, bez konfliktu) | 7 min (PASS bez błędów, bez iteracji; qa-staging z e2e i Lighthouse) | 5 min (PASS bez błędów; qa-staging wykonany, bez `staging_url`) |
+| Czas całkowity | 87 min | 71 min | 37 min | ok. 71 min pracy agentów (z etapami 00-intake, 04-plan, 06-zadania), 212 min zegarowo z 162 min czekania na właściciela | 61 min zegarowo = pracy (18:54 reset → 19:55 `stage done 08-qa`), 0 min czekania na właściciela |
+| Czas pracy workera na zadanie (z `task close`) | 4–26 min, mediana 9 | 3–7 min, mediana 4 | 3–8 min, mediana 4,5 | 3–8 min, mediana 5 | 5–10 min, mediana 6 |
+| Load 1 min w realizacji: średnia / maks. | 6,2 / 32,1 | 4,9 / 9,2 | brak próbkowania (6,73 na końcu) | brak (sysctl zablokowany w sandboxie orkiestratora) | 7,3 / 10,31 (6 próbek co 5–20 min z komunikatu błędu `metryki serwer`) |
+| Dysk (wolne) | 26 → 25 GB | 25 → 24 GB | 32 → 31 GB | 17 → 18 GB | 14 → 13 GB (`min_wolne_gb` obniżone do 12) |
+| Swap na końcu | 3,2 z 4 GB | 2,7 z 4 GB | 2,5 z 4 GB | brak (sysctl zablokowany w sandboxie) | brak (`metryki serwer` pada na przecinku w load) |
 
 Wnioski z przebiegów 1 i 2 (przebieg 3 to test regresji, wnioski w jego „Kontrolach”):
 
@@ -244,10 +244,21 @@ Czasy UTC. Czekanie na właściciela liczone od pytania albo powiadomienia do od
 | QA M1 (raport-M1.md, PR #91) | 1 | 0 | 1 | 0 | 0 |
 | review PR #106 (#98 slugify: slug z tekstu (W-01)) | 0 | 1 | 0 | 0 | 0 |
 | review PR #108 (#103 przelicz: kwota w walucie obcej na grosze (W-06)) | 0 | 0 | 1 | 0 | 0 |
+| QA M1 (raport-M1.md, PR #112, przebieg 6) | 0 | 1 | 1 | 0 | 0 |
 
 ## Przebieg dryrun 6 (2026-11-11)
 
 Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task close`, miary przebiegu orkiestrator.
+
+### Konfiguracja
+
+Test poprawek z fazy 9b, bez zlecenia S. `max_local: 3` globalnie, review `zwykle` Claude opus
+medium, `ryzyko` Codex gpt-6-astra high (próg 400 linii), `staging_url` puste (biblioteka bez
+stagingu). Właściciel z góry: akceptacja specyfikacji i planu, bez czekania na pytania z kart (6
+pytań → założenia P1–P6 w `decyzje.md`). Zlecenie: biblioteka TS W-01–W-06; zadanie celowo
+niemożliwe #102 (W-05, kryterium sprzeczne z ADR-001, ADR-002), od niego zależały #103 i #104.
+
+### Zadania
 
 | Zlecenie | Tryb | Czas | Zadania | Iteracje | Eskalacje | Uwagi |
 |---|---|---|---|---|---|---|
@@ -258,3 +269,42 @@ Reset do baseline `1045b0b` o 18:54 UTC. Wiersze zadań dopisuje `shctl task clo
 | #100 chunk: dzielenie tablicy na części (W-03) | M | 5min | 1 | 1 | 0 | PR #109 |
 | #101 retry: ponawianie wywołania (W-04) | M | 5min | 1 | 1 | 0 | PR #110 |
 | #104 Dokumentacja wydania M1 | M | 5min | 1 | 1 | 0 | PR #111 |
+| #102 kursNBP (W-05, celowo niemożliwe) | M | 1 min do eskalacji | 1 | 0 | 1 | bez PR; `task close --anuluj` po E-001 (decyzja orkiestratora z autoryzacji planu) |
+
+### Miary
+
+Czasy UTC. Czekania na właściciela nie było (akceptacje z góry).
+
+| Miara | Wartość |
+|---|---|
+| Reset (`reset-dryrun`, bez issue) | 18:54 |
+| 00-intake: PR #94 (Codex FAIL 2× 🟡 → PASS), merge | 18:55–19:04 (9 min) |
+| 04-plan: PR #95 (Claude FAIL 3× 🟡 → PASS), merge | 19:04–19:14 (10 min) |
+| 06-zadania: PR #96 (PASS), `task create` #97–#104 | 19:14–19:17 (3 min) |
+| Blokada dysku (13 GB < 15) → `min_wolne_gb: 12` | 19:17–19:19 (2 min) |
+| Realizacja: dispatch #97 → zamknięcie #104 | 19:19:52–19:49:42 (30 min) |
+| E-001 (#102) → anulowanie i `task deps` | 19:29:43 → ok. 19:31 (2 min) |
+| QA M1 (PR #112, qa-staging, merge, `stage done`) | 19:50–19:55 (5 min) |
+| Review | 12 z modelem: Codex 3 (PR #94 ×2: diff > 400; #105: pliki CI i diff > 400), Claude 9 (#95 ×2, #96, #106, #107, #108, #109, #110, #111); bez modelu 0 (#111 miał test, nie sam docs). FAIL tylko etapów (#94, #95); zadania kodu 0 FAIL |
+| Load 1 min (próbki) | 18:55 6,50; 19:04 6,64; 19:26 8,69; 19:35 7,55; 19:42 10,31; 19:55 4,12 |
+| Swap | brak odczytu |
+| Wolne miejsce na dysku | 14 → 13 GB |
+
+### Kontrole
+
+| Kontrola | Wynik |
+|---|---|
+| Reset bez issue przed planem | OK: 0 otwartych issue po resecie i przed 06-zadania; issue dopiero z `task create` |
+| `task create` bez duplikatów | OK: 8 nowych (#97–#104) mimo starych issue o tych samych ID T1–T6 (znaczniki zarchiwizowane); powtórka: `istniejace` 8, `utworzone` 0 |
+| Zależność od anulowanego i `task deps` | OK: `task ready` pokazał „zależność #102 anulowana … usuń (shctl task deps 103 --usun #102)”; `task deps` dla #103 i #104 bez ręcznej edycji issue, #103 gotowe od razu |
+| `pr check` bez fałszywego pass | OK: 11 wywołań, `pass` zawsze przy zakończonych jobach (sprawdzone `gh pr checks`); kod 4 przy konflikcie #107 |
+| Fałszywe alarmy z komentarzy HTML | OK: przykładowe `- [ ]` w komentarzu `lista-startowa.md` nie blokowały (`blokady` puste) |
+| `Projekt.md` po każdym etapie | OK: odświeżony po każdym `stage start/review/iter/done`, `task close` i `decision add`; licznik „0/0 … 0/8 w bieżącym przebiegu (łącznie 27/35)” |
+| Pełny tekst przy eskalacji | Częściowo: E-001 ma pełny powód i 3 opcje; sekcje „Sytuacja” i „Co już sprawdzono” puste |
+| Aktualizacja gałęzi przez `gh pr update-branch` | OK: worker #98 na polecenie (fast-forward, CI zielone); konflikt #107 worker rozwiązał `git pull --no-rebase` bez błędu sandboxa |
+| `task wait` dopiero po raporcie | OK po dispatchu (7×, `raport_po_poleceniu: true`). Problem: po `herdr agent prompt` wraca od razu (`polecenie` z dispatchu), nie czeka na nową turę |
+| Kolejność według ścieżki krytycznej | OK: `task ready` z polem `sciezka`; dispatch #102 (3) przed #98, #99 (2), #104 (1) ostatnie |
+| Metryki serwera | NIE: `shctl metryki serwer` kod 5 przy każdym wywołaniu (jq: „6,50” to nie liczba; `sysctl` w polskim locale) |
+| Prośby o zgodę | 0 w sesji orkiestratora i u workerów |
+| Ręczne obejścia | 3: `min_wolne_gb` 15 → 12; `herdr agent prompt` na id panelu (`worker:sh-dryrun:98` → agent_not_found); load odczytany z komunikatu błędu `metryki serwer` |
+| Skille warstw | `skille_brak` przy każdym dispatchu: `sh-kat-ci`, `sh-kat-backend`, `sh-kat-integracje`, `sh-kat-testy`, `sh-stack-node`, `sh-stack-typescript` |

@@ -2,12 +2,12 @@
 projekt: sh-dryrun
 tryb: M
 etap_opis: "Zakończony"
-postep_etapy: "3/4"
+postep_etapy: "4/4"
 postep_zadania: "7/7"
 czeka_na_ciebie: 0
 eskalacje: 0
 nastepny_krok: "Brak, zlecenie zakończone"
-ostatnia_synchronizacja: 2026-11-11T19:49:37Z
+ostatnia_synchronizacja: 2026-11-11T19:54:36Z
 ---
 
 # sh-dryrun
@@ -17,7 +17,7 @@ ostatnia_synchronizacja: 2026-11-11T19:49:37Z
 ## Gdzie jesteśmy
 
 - **Etap:** Zakończony
-- **Postęp:** Etapy 3/4 · Zadania 7/7 w bieżącym przebiegu (łącznie 34)
+- **Postęp:** Etapy 4/4 · Zadania 7/7 w bieżącym przebiegu (łącznie 34)
 - **Co się dzieje:** nic w toku
 - **Następny krok:** Brak, zlecenie zakończone
 
@@ -59,5 +59,6 @@ Zamknięte (1): [E-001](07-realizacja/escalations/E-001.md).
 - [Lista startowa](00-intake/lista-startowa.md)
 - [Plan](04-plan/plan.md)
 - [Decyzje](decyzje.md)
+- [Raport QA M1](08-qa/raport-M1.md)
 - Karty funkcji: [W-01](00-intake/funkcje/W-01.md), [W-02](00-intake/funkcje/W-02.md), [W-03](00-intake/funkcje/W-03.md), [W-04](00-intake/funkcje/W-04.md), [W-05](00-intake/funkcje/W-05.md), [W-06](00-intake/funkcje/W-06.md)
 - [Historia](historia.md): punkt przekazania, dziennik etapów, wszystkie zadania
