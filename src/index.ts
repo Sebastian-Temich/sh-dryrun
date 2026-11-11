@@ -11,7 +11,7 @@ export { slugify } from './slugify.js';
 
 
 // W-04 ponawianie
-
+export { retry } from './retry.js';
 
 // W-05 kurs NBP
 
