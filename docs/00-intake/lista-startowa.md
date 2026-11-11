@@ -14,13 +14,24 @@ Format pozycji: `- [ ] CO, PO CO (W-NN), JAK: kroki dla właściciela; GDZIE wpi
 
 ## Konta i dostępy
 
+- [-] Konta hostingu i bazy (nie dotyczy: biblioteka bez aplikacji i bazy)
+
 ## Domeny i DNS
+
+- [-] Domena (nie dotyczy: biblioteka bez strony)
 
 ## Klucze testowe i zmienne
 
+- [-] Klucz API NBP, PO CO W-05 (nie dotyczy: publiczne API tabeli A bez klucza i konta; sprawdzimy
+  testem z atrapą fetch, a ręcznie zapytaniem o kurs EUR w przeglądarce)
+
 ## Limity i płatności usług
 
+- [-] Billing GitHub Actions (nie dotyczy: repo publiczne, Actions bez opłat)
+
 ## Materiały
+
+- [-] Design, teksty, logotypy (nie dotyczy: biblioteka bez interfejsu)
 
 <!-- Przykład (iskt-www, E-005–E-007):
 - [ ] Vercel: Protection Bypass for Automation dla podglądów PR (W-12), JAK: Project → Settings →

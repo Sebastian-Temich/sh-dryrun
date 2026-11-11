@@ -36,8 +36,8 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 
 | Obszar | Wartość |
 |---|---|
-| Typ projektu | (do uzupełnienia) |
-| Framework | (do uzupełnienia) |
+| Typ projektu | Inny: biblioteka TypeScript bez interfejsu (ESM) |
+| Framework | TypeScript strict, vitest, tsup, ESLint (specyfikacja, sekcja Stack) |
 | Instalacja | (do uzupełnienia) |
 | Lint | (do uzupełnienia) |
 | Testy | (do uzupełnienia) |
