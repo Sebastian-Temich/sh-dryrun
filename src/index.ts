@@ -5,7 +5,7 @@
 export { slugify } from './slugify.js';
 
 // W-02 format kwoty
-
+export { formatPLN } from './format-pln.js';
 
 // W-03 dzielenie tablicy
 
