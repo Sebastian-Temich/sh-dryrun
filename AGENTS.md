@@ -38,11 +38,11 @@ Stałe dla tego projektu, uzupełnia intake lub zadanie szkieletu:
 |---|---|
 | Typ projektu | Inny: biblioteka TypeScript bez interfejsu (ESM) |
 | Framework | TypeScript strict, vitest, tsup, ESLint (specyfikacja, sekcja Stack) |
-| Instalacja | (do uzupełnienia) |
-| Lint | (do uzupełnienia) |
-| Testy | (do uzupełnienia) |
-| Build | (do uzupełnienia) |
-| Uruchomienie lokalne | (do uzupełnienia) |
+| Instalacja | `pnpm install` (zamierzone, sprawdza T1) |
+| Lint | `pnpm lint` (ESLint) i `pnpm typecheck` (tsc --noEmit) |
+| Testy | `pnpm test` (vitest run --coverage, próg 90% linii) |
+| Build | `pnpm build` (tsup, ESM i .d.ts do dist/) |
+| Uruchomienie lokalne | nie dotyczy: biblioteka; import z `dist/index.js` po `pnpm build` |
 
 Zmiana kontraktu wymaga ADR w `docs/04-plan/adr/`.
 
