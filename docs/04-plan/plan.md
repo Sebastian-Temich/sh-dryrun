@@ -20,10 +20,27 @@ nazwanymi; każda funkcja w osobnym pliku `src/NAZWA.ts` z testem `src/NAZWA.tes
 | Dzielenie tablicy | eksport `chunk` z `src/index.ts` (`src/chunk.ts`) | nie dotyczy | W-03 |
 | Ponawianie | eksport `retry` z `src/index.ts` (`src/retry.ts`) | nie dotyczy | W-04 |
 | Kurs NBP | eksport `kursNBP` z `src/index.ts` (`src/kurs-nbp.ts`) | nie dotyczy | W-05 |
-| Przeliczenie | eksport `przelicz` z `src/index.ts` (`src/przelicz.ts`), używa `kursNBP` | nie dotyczy | W-06 |
+| Przeliczenie | eksport `przelicz` z `src/index.ts` (`src/przelicz.ts`); kurs z opcji `kurs` albo `zrodloKursu` (ADR-002) | nie dotyczy | W-06 |
+| Dokumentacja wydania | `docs/wydanie/techniczna/`, `docs/wydanie/produktowa/`, sekcja „Użycie” w `README.md` | nie dotyczy | W-07 |
 
 `src/index.ts` jest plikiem wspólnym zadań funkcji: każde dopisuje jedną linię eksportu. Konflikty są
-trywialne; zadania funkcji zależą tylko od szkieletu, a `T7` od `T6`.
+trywialne; zadania funkcji zależą tylko od szkieletu, a zadanie W-06 od zadania W-05.
+
+### Planowane zadania
+
+Etap 06-zadania przepisuje `docs/06-zadania/zadania.yaml` od nowa (obecny plik to pozostałość
+baseline'u dryrun, nie należy do tego zlecenia). Identyfikatory zadań:
+
+| Zadanie | Zakres | Zależności |
+|---|---|---|
+| T1 | Szkielet pakietu (W-07) | — |
+| T2 | Slug (W-01) | T1 |
+| T3 | Format kwoty (W-02) | T1 |
+| T4 | Dzielenie tablicy (W-03) | T1 |
+| T5 | Ponawianie (W-04) | T1 |
+| T6 | Kurs NBP (W-05), zadanie testowe z kryterium sprzecznym (ADR-002) | T1 |
+| T7 | Przeliczenie (W-06) | T6 |
+| T8 | Dokumentacja wydania (W-07) | T2–T7 |
 
 ### Model danych
 
@@ -49,7 +66,8 @@ kształtu i wartości (W-05, ADR-001). Zależności: tylko deweloperskie, `gitle
 | PROD | nie dotyczy: publikacja npm poza zakresem zlecenia |
 
 Odstępstwa od drogi na produkcję z `proces.md`: brak deployu; „wydanie” to scalony `main` z zielonym
-CI i zbudowanym `dist/`.
+CI i zbudowanym `dist/`. Dokumentacja wydania w `docs/wydanie/techniczna/` i `produktowa/` w krótkiej
+formie (biblioteka bez aplikacji); `architektoniczna/` nie dotyczy (etap B).
 
 ### Decyzje
 
@@ -60,7 +78,7 @@ CI i zbudowanym `dist/`.
 
 | Nr | Kamień milowy | Rezultat | Wymagania | Warunek startu |
 |---|---|---|---|---|
-| 1 | M1 Biblioteka | Szkielet z CI, funkcje W-01–W-06 z testami, eksport z `src/index.ts`, build ESM, dokumentacja wydania w `README.md` | W-01–W-07 | Plan zaakceptowany |
+| 1 | M1 Biblioteka | Szkielet z CI, funkcje W-01–W-06 z testami, eksport z `src/index.ts`, build ESM, dokumentacja wydania w `docs/wydanie/techniczna/` i `docs/wydanie/produktowa/` (krótka forma), „Użycie” w `README.md` | W-01–W-07 | Plan zaakceptowany |
 
 Jeden kamień: projekt wzorcowy dryrun mierzy pętlę realizacji na jednym kamieniu. Kamień zaczyna
 szkielet (T1), kończy dokumentacja wydania. Poza zakresem M1: publikacja npm, CommonJS.
@@ -73,14 +91,14 @@ szkielet (T1), kończy dokumentacja wydania. Poza zakresem M1: publikacja npm, C
 | Projekt Supabase staging, `STAGING_DB_URL` | — | nie dotyczy: brak bazy |
 | Domena i DNS, zmienne prod w Vercel | — | nie dotyczy: brak aplikacji |
 | Publikacja w npm | — | poza zakresem zlecenia |
-| Decyzja po eskalacji T6 (anulować albo zmienić kryterium) | dalszą pracą nad T7 | test dryrun, ADR-002 |
+| Decyzja po eskalacji T6 | — | nie dotyczy: decyduje orkiestrator z upoważnienia właściciela (zakres autoryzacji, ADR-002) |
 
 ## Ryzyka
 
 | Ryzyko | Skutek | Działanie (ADR, spike, dowody) | Właściciel |
 |---|---|---|---|
 | API NBP niedostępne albo zmienia format | błąd W-05, W-06 | ADR-001: walidacja odpowiedzi, limit czasu, testy z atrapą | orkiestrator |
-| T6 niewykonalne (celowo, ADR-002) | T7 zablokowane | eskalacja, anulowanie T6, `shctl task deps` dla T7 | właściciel |
+| T6 niewykonalne (celowo, ADR-002) | T7 zablokowane | eskalacja, anulowanie T6, `shctl task deps` dla T7 | orkiestrator (upoważnienie właściciela) |
 | Wolne miejsce na dysku 14 GB < 15 GB (`doctor`) | blokada dispatchu | sprzątanie przed realizacją | właściciel |
 | Błędy zaokrągleń zmiennoprzecinkowych (W-06/K2) | zły wynik w groszach | arytmetyka dziesiętna w testach brzegowych | worker T7 |
 
@@ -93,8 +111,10 @@ szkielet (T1), kończy dokumentacja wydania. Poza zakresem M1: publikacja npm, C
 | O-3 | Kwota | `pnpm test src/format-pln` | „1 234,56 zł” dla 123456 | W-02 | M1 |
 | O-4 | Dzielenie | `pnpm test src/chunk` | `[[1,2],[3,4],[5]]` | W-03 | M1 |
 | O-5 | Ponawianie | `pnpm test src/retry` | wynik po 3 próbach, przerwy 200 i 400 ms | W-04 | M1 |
-| O-6 | Przeliczenie | `pnpm test src/przelicz` | 4300 groszy dla 10 EUR po 4,30 | W-06 | M1 |
+| O-6 | Przeliczenie | `pnpm test src/przelicz` | 4300 groszy dla 10 EUR po 4,30; 850 z atrapą źródła kursu; błąd „Brak kursu” bez kursu i źródła | W-06 | M1 |
 | O-7 | Import z pakietu | `pnpm build`, potem `node -e "import('./dist/index.js').then(m=>console.log(Object.keys(m)))"` | eksporty `slugify`, `formatPLN`, `chunk`, `retry`, `przelicz` (i `kursNBP`, jeśli T6 nieanulowane) | W-07 | M1 |
+| O-8 | Kurs NBP (warunkowo: tylko gdy T6 nieanulowane) | `pnpm test src/kurs-nbp` | testy W-05/K1–K7 przechodzą; po anulowaniu T6 scenariusz pominięty | W-05 | M1 |
+| O-9 | Dokumentacja wydania | otwórz `docs/wydanie/techniczna/` i `docs/wydanie/produktowa/` | instalacja, komendy, lista funkcji, znane ograniczenia (brak W-05 po anulowaniu) | W-07 | M1 |
 
 ## Zakres autoryzacji
 
@@ -103,7 +123,8 @@ Po akceptacji orkiestrator zapisuje go w `decyzje.md` przez `shctl decision add 
 - Na co: kamień M1
 - Zakres: W-01–W-07, bez kont, dostępów i płatnych usług
 - Do kiedy: do odbioru zlecenia
-- Wymaga nowej decyzji właściciela: każda płatna usługa, publikacja npm, nowe wymaganie; decyzja po eskalacji T6
+- Upoważnienie: orkiestrator po eskalacji T6 anuluje T6 (`shctl task close --anuluj`) i usuwa zależność T7 (`shctl task deps`), z wpisem w `decyzje.md` (ADR-002)
+- Wymaga nowej decyzji właściciela: każda płatna usługa, publikacja npm, nowe wymaganie
 
 ## Gotowość środowiska
 

@@ -16,10 +16,26 @@ sprzeczne z ADR-001: test integracyjny na żywym API NBP uruchomiony lokalnie pr
 Sandbox workera nie ma sieci do `api.nbp.pl`, więc kryterium jest niewykonalne, a worker eskaluje
 („wymagania sprzeczne”). Zadanie W-06 (`przelicz`) zależy od W-05.
 
-Oczekiwany przebieg: eskalacja → decyzja orkiestratora z upoważnienia właściciela: anulowanie zadania
-W-05 (`shctl task close --anuluj`) → `shctl task deps` usuwa zależność W-06 → W-06 realizuje
-przeliczenie z kursem podanym przez programistę (W-06/K1, K2, K4) i z atrapą `kursNBP`
-wstrzykniętą przez opcję (W-06/K3), bez importu modułu NBP.
+Identyfikatory: zadanie W-05 to T6, zadanie W-06 to T7 (`plan.md`, „Planowane zadania”).
+
+Oczekiwany przebieg: eskalacja T6 → decyzja orkiestratora z upoważnienia właściciela (zakres
+autoryzacji planu): anulowanie T6 (`shctl task close --anuluj`) → `shctl task deps 7 --usun T6`
+usuwa zależność → T7 realizuje przeliczenie bez modułu NBP.
+
+Kontrakt `przelicz` niezależny od W-05 (obowiązuje także, gdy T6 nie zostanie anulowane):
+
+```ts
+przelicz(kwota: number, kod: string, opcje?: {
+  kurs?: number;                                  // kurs podany wprost
+  zrodloKursu?: (kod: string) => Promise<number>; // np. async k => (await kursNBP(k)).kurs
+}): Promise<number>                               // grosze
+```
+
+- `kurs` podany: przeliczenie bez źródła (W-06/K1, K2, K4).
+- `kurs` brak, `zrodloKursu` podane: kurs ze źródła; W-06/K3 sprawdza to atrapą źródła zwracającą 4.25.
+- Oba brak: `RangeError` „Brak kursu: podaj kurs albo źródło kursu”. `przelicz` nie importuje
+  `src/kurs-nbp.ts`; krok 2 przebiegu karty W-06 („bez kursu pobiera go z NBP”) realizuje programista,
+  przekazując `kursNBP` jako źródło. To zawężenie karty W-06 zapisuje orkiestrator w `decyzje.md`.
 
 ## Rozważane opcje
 
