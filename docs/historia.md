@@ -5,7 +5,12 @@ zadań `scripts/sync-status.sh`.
 
 ## Punkt przekazania
 
-(brak)
+- **2026-11-11T19:18Z** (przebieg dryrun 6, przed pierwszym dispatchem): etapy 00-intake, 04-plan,
+  06-zadania done (PR #94, #95, #96). Kamień bieżący: M1 Biblioteka, issue #97–#104 (T1–T8), nic w
+  toku. Eskalacje: brak. Wstrzymania: dysk 13 GB < 15 → `min_wolne_gb: 12` (decyzje.md).
+  `shctl doctor` 19:17Z: 0 błędów; uwagi: dysk 13 GB, klon Obsidiana sh-dryrun różni się od origin.
+  Autoryzacja: wiersz „Autoryzacja planu PR #95” w decyzje.md. Lista startowa: same `[-]`; kryteria
+  do potwierdzenia: brak. Następny krok: dispatch #97 (szkielet, sam).
 
 ## Dziennik etapów
 
